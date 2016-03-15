@@ -1,4 +1,5 @@
 <%@ page import="java.sql.*" %><%--
+	Test for Git
   Created by IntelliJ IDEA.
   User: kipka
   Date: 17.02.2016
