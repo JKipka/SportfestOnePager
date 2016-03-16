@@ -72,7 +72,7 @@ html, body {
 }
 
 #information {
-    background: url(/images/sportplatz02.jpg) no-repeat center center fixed;
+    background: url(../images/sportplatz02.jpg) no-repeat center center fixed;
     display: table;
     height: 800px;
     position: relative;
@@ -85,11 +85,6 @@ html, body {
 #information .panel {
     opacity: 0.85;
 }
-
-#google_map {
-    height: 500px;
-}
-
 footer {
     padding: 20px 0;
 }

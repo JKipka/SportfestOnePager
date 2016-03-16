@@ -730,7 +730,7 @@
                             while (rS.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
-                                out.println("<form role='form' action='/functions/editErgebnisWS.jsp'>");
+                                out.println("<form role='form' action='/SportfestOnePager/functions/editErgebnisWS.jsp'>");
                                 out.println("<td><input type='text' name='idWS' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
                                 out.println("<td><input type='text' name='vornameWS' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><input type='text' name='nachnameWS' value='" + rS.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
@@ -739,7 +739,7 @@
                                 out.println("<td><input type='text' name='vereinWS' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
-                                out.println("<form role='form' action='/functions/deleteWS.jsp'>");
+                                out.println("<form role='form' action='/SportfestOnePager/functions/deleteWS.jsp'>");
                                 out.println("<input type='text' name='delWS' value='" + rS.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
                                 out.println("</form>");

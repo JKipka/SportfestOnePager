@@ -88,7 +88,7 @@ public class UserChecker extends HttpServlet {
                     if (!rS.isBeforeFirst() ) {
                     	response.sendRedirect("../SportfestOnePager/admin/login.jsp?msg=error");
                     }else{
-                        CookiePlacer cP = new CookiePlacer("user", "logged");
+                        CookiePlacer cP = new CookiePlacer("user", mail);
                         Cookie cookie = cP.generateCookie();
                         cookie.setMaxAge(60*5);
                         response.addCookie(cookie);

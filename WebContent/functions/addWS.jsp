@@ -61,7 +61,7 @@
             String query = "INSERT INTO weitsprung(Vorname, Nachname, Geburtstag, Weite, Verein) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"')";
             s.execute(query);
 
-            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_weitSAdd");
+            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");
 
         }
     %>
