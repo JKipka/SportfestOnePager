@@ -21,7 +21,7 @@
         String alter = request.getParameter("addAlterWS");
         String zeit = request.getParameter("addZeitWS");
         String verein = request.getParameter("addVereinWS");
-
+		String sparte = request.getParameter("addSparteWS");
 
         Connection connection = null;
         try {
@@ -58,7 +58,7 @@
         if (connection!=null){
 
             Statement s = connection.createStatement();
-            String query = "INSERT INTO weitsprung(Vorname, Nachname, Geburtstag, Weite, Verein) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"')";
+            String query = "INSERT INTO weitsprung(Vorname, Nachname, Geburtstag, Weite, Verein, Sparte) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"','"+sparte+"')";
             s.execute(query);
 
             response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");

@@ -24,6 +24,7 @@
         alter = dateS2;
         String weite = request.getParameter("zeitWS");
         String verein = request.getParameter("vereinWS");
+        String sparte = request.getParameter("sparteWS");
 
         Connection connection = null;
         try {
@@ -60,7 +61,7 @@
         if (connection!=null){
 
             Statement s = connection.createStatement();
-            String query = "UPDATE weitsprung SET Vorname='"+vorname+"', Nachname='"+nachname+"', Geburtstag='"+alter+"', Weite='"+weite+"', Verein='"+verein+"' WHERE ID='"+id+"'";
+            String query = "UPDATE weitsprung SET Vorname='"+vorname+"', Nachname='"+nachname+"', Geburtstag='"+alter+"', Weite='"+weite+"', Verein='"+verein+"', Sparte='"+sparte+"' WHERE ID='"+id+"'";
             s.execute(query);
 
             response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_weitSAdd");

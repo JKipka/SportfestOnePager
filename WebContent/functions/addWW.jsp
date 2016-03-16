@@ -21,7 +21,7 @@
         String alter = request.getParameter("addAlterWW");
         String zeit = request.getParameter("addZeitWW");
         String verein = request.getParameter("addVereinWW");
-
+		String sparte = request.getParameter("addSparteWW");
 
         Connection connection = null;
         try {
@@ -58,10 +58,10 @@
         if (connection!=null){
 
             Statement s = connection.createStatement();
-            String query = "INSERT INTO weitwurf(Vorname, Nachname, Geburtstag, Meter, Verein) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"')";
+            String query = "INSERT INTO weitwurf(Vorname, Nachname, Geburtstag, Meter, Verein, Sparte) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"','"+sparte+"')";
             s.execute(query);
 
-            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_weitWAdd");
+            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");
 
         }
     %>

@@ -21,7 +21,7 @@
         String alter = request.getParameter("addAlter100");
         String zeit = request.getParameter("addZeit100");
         String verein = request.getParameter("addVerein100");
-
+		String sparte = request.getParameter("addSparte100");
 
         Connection connection = null;
         try {
@@ -58,7 +58,7 @@
         if (connection!=null){
 
             Statement s = connection.createStatement();
-            String query = "INSERT INTO 100meterlauf(Vorname, Nachname, Geburtstag, Zeit, Verein) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"')";
+            String query = "INSERT INTO 100meterlauf(Vorname, Nachname, Geburtstag, Zeit, Verein, Sparte) VALUES('"+vn+"','"+nn+"','"+alter+"','"+zeit+"','"+verein+"','"+sparte+"')";
             s.execute(query);
 
             response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");

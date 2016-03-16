@@ -189,6 +189,7 @@
                         out.println("<th>Alter</th>");
                         out.println("<th>Zeit</th>");
                         out.println("<th>Verein</th>");
+                        out.println("<th>Sparte</th>");
                         out.println("</tr>");
                         out.println("</thead>");
 
@@ -241,6 +242,7 @@
                         out.println("<th>Alter</th>");
                         out.println("<th>Zeit</th>");
                         out.println("<th>Verein</th>");
+                        out.println("<th>Sparte</th>");
                         out.println("</tr>");
                         out.println("</thead>");
 
@@ -297,6 +299,7 @@
                         out.println("<th>Alter</th>");
                         out.println("<th>Weite</th>");
                         out.println("<th>Verein</th>");
+                        out.println("<th>Sparte</th>");
                         out.println("</tr>");
                         out.println("</thead>");
 
@@ -349,6 +352,7 @@
                         out.println("<th>Alter</th>");
                         out.println("<th>Meter</th>");
                         out.println("<th>Verein</th>");
+                        out.println("<th>Sparte</th>");
                         out.println("</tr>");
                         out.println("</thead>");
 
@@ -526,10 +530,11 @@
                             out.println("<th>Alter</th>");
                             out.println("<th>Zeit in s</th>");
                             out.println("<th>Verein</th>");
+                            out.println("<th>Sparte</th>");
                             out.println("</tr>");
                             out.println("</thead>");
 
-                            query = "SELECT ID, Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein FROM 50meterlauf";
+                            query = "SELECT ID, Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 50meterlauf";
                             pS = connection.prepareStatement(query);
                             rS = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
@@ -543,6 +548,7 @@
                                 out.println("<td><input type='text' name='alter50' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><input type='text' name='zeit50' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><input type='text' name='verein50' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparte50' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/delete50.jsp'>");
@@ -597,6 +603,10 @@
                         <label for="addVerein50">Verein:</label>
                         <input id="addVerein50" name="addVerein50" type="text" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="addSparte50">Sparte:</label>
+                        U<input id="addSparte50" name="addSparte50" type="text" class="form-control">
+                    </div>
                     <button type="submit" class="btn btn-success">Hinzufügen</button>
                 </form>
             </div>
@@ -623,10 +633,11 @@
                             out.println("<th>Alter</th>");
                             out.println("<th>Zeit in s</th>");
                             out.println("<th>Verein</th>");
+                            out.println("<th>Sparte</th>");
                             out.println("</tr>");
                             out.println("</thead>");
 
-                            query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein FROM 100meterlauf";
+                            query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 100meterlauf";
                             pS = connection.prepareStatement(query);
                             rS = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
@@ -640,6 +651,7 @@
                                 out.println("<td><input type='text' name='alter100' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><input type='text' name='zeit100' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><input type='text' name='verein100' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparte100' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/delete100.jsp'>");
@@ -694,6 +706,10 @@
                         <label for="addVerein100">Verein:</label>
                         <input id="addVerein100" name="addVerein100" type="text" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="addSparte100">Sparte:</label>
+                        U<input id="addSparte100" name="addSparte100" type="text" class="form-control">
+                    </div>
                     <button type="submit" class="btn btn-success">Hinzufügen</button>
                 </form>
             </div>
@@ -720,10 +736,11 @@
                             out.println("<th>Alter</th>");
                             out.println("<th>Weite in m</th>");
                             out.println("<th>Verein</th>");
+                            out.println("<th>Sparte</th>");
                             out.println("</tr>");
                             out.println("</thead>");
 
-                            query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein FROM weitsprung";
+                            query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein, Sparte FROM weitsprung";
                             pS = connection.prepareStatement(query);
                             rS = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
@@ -737,6 +754,7 @@
                                 out.println("<td><input type='text' name='alterWS' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><input type='text' name='zeitWS' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><input type='text' name='vereinWS' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparteWS' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/deleteWS.jsp'>");
@@ -791,6 +809,10 @@
                         <label for="addVereinWS">Verein:</label>
                         <input id="addVereinWS" name="addVereinWS" type="text" class="form-control">
                     </div>
+                     <div class="form-group">
+                        <label for="addSparteWS">Sparte:</label>
+                        U<input id="addSparteWS" name="addSparteWS" type="text" class="form-control">
+                    </div>
                     <button type="submit" class="btn btn-success">Hinzufügen</button>
                 </form>
             </div>
@@ -817,10 +839,11 @@
                             out.println("<th>Alter</th>");
                             out.println("<th>Weite in m</th>");
                             out.println("<th>Verein</th>");
+                            out.println("<th>Sparte</th>");
                             out.println("</tr>");
                             out.println("</thead>");
 
-                            query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein FROM weitwurf";
+                            query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein, Sparte FROM weitwurf";
                             pS = connection.prepareStatement(query);
                             rS = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
@@ -834,6 +857,7 @@
                                 out.println("<td><input type='text' name='alterWW' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><input type='text' name='zeitWW' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><input type='text' name='vereinWW' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparteWW' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/deleteWW.jsp'>");
@@ -887,6 +911,10 @@
                     <div class="form-group">
                         <label for="addVereinWW">Verein:</label>
                         <input id="addVereinWW" name="addVereinWW" type="text" class="form-control">
+                    </div>
+                     <div class="form-group">
+                        <label for="addSparteWW">Sparte:</label>
+                        <input id="addSparteWW" name="addSparteWW" type="text" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-success">Hinzufügen</button>
                 </form>

@@ -25,6 +25,7 @@
         alter = dateS2;
         String zeit = request.getParameter("zeit50");
         String verein = request.getParameter("verein50");
+        String sparte = request.getParameter("sparte50");
 
         Connection connection = null;
         try {
@@ -61,7 +62,7 @@
         if (connection!=null){
 
             Statement s = connection.createStatement();
-            String query = "UPDATE 50meterlauf SET Vorname='"+vorname+"', Nachname='"+nachname+"', Geburtstag='"+alter+"', Zeit='"+zeit+"', Verein='"+verein+"' WHERE ID='"+id+"'";
+            String query = "UPDATE 50meterlauf SET Vorname='"+vorname+"', Nachname='"+nachname+"', Geburtstag='"+alter+"', Zeit='"+zeit+"', Verein='"+verein+"', Sparte='"+sparte+"' WHERE ID='"+id+"'";
             s.execute(query);
 
             response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_50mAdd");
