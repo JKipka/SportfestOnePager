@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
+	<%@ page import="java.sql.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,44 +13,34 @@
 <link rel="stylesheet" type="text/css" href="../script/bootstrap.css">
 <link href="resultStyles.css" rel="stylesheet" />
 
-<!-- Include meta tag to ensure proper rendering and touch zooming -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <!-- Include jQuery Mobile stylesheets -->
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-
-<!-- Include the jQuery library -->
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<link rel="stylesheet"
+	href="../script/jquery.mobile.css">
 
 <!-- Include the jQuery Mobile library -->
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script
+	src="../script/jquery.mobile.js"></script>
 
 </head>
 <body>
 
-<!-- navigation panel -->
+	<!-- navigation panel -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-	
-					data-target="#navbar-collapse-main">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Sportfest Hessen 2016</a>
+				<a class="navbar-brand" href="/SportfestOnePager/index.jsp" rel="external">Zurück zur Startseite</a>
 			</div>
-
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="../index.jsp#home">Home</a></li>
-					<li><a href="../index.jsp#termine">Termine</a></li>
-					<li><a href="../index.jsp#wettkaempfe">Wettkämpfe</a></li>
-					<li><a href="../index.jsp#information">Informationen</a></li>
-					<li><a href="../index.jsp#google_map">Kontakt</a></li>
-					<li><a href="../admin/login.jsp">Login</a></li>
+					<li><a rel="external" href="/SportfestOnePager/index.jsp#home">Home</a></li>
+					<li><a rel="external" href="/SportfestOnePager/index.jsp#termine">Termine</a></li>
+					<li><a rel="external" href="/SportfestOnePager/index.jsp#wettkaempfe">Wettkämpfe</a></li>
+					<li><a rel="external" href="/SportfestOnePager/index.jsp#information">Informationen</a></li>
+					<li><a rel="external" href="#/SportfestOnePager/index.jspgoogle_map">Kontakt</a></li>
+					<li><a rel="external" href="/SportfestOnePager/admin/login.jsp">Login</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -58,87 +49,284 @@
 	</nav>
 
 
-	<div id="resultChoice" class="pad-section">
-	<div class="container">
-		<h1 class="text-center">Ergebnisse der Wettbewerbe</h1>
-		<form role="form" onsubmit="return validateInput()" action="" method="post">
-		<div class="form-group">
-			<label for="sportart">Sportart auswählen:</label>
-			<select class="form-control" id="sportart" name="sportart">
-				<option selected="selected">Auswählen</option>
-				<option>50-Meter-Lauf</option>
-				<option>100-Meter-Lauf</option>
-				<option>Weitsprung</option>
-				<option>Weitwurf</option>
-			</select>
-			<br>
-			<label for="sparte" id="sparteLabel">Sparte auswählen:</label>
-			<select class="form-control" id="sparte" name="sparte">
-				<option selected="selected">Auswählen</option>
-				<option>U 10</option>
-				<option>U 12</option>
-				<option>U 14</option>
-				<option>U 16</option>
-				<option>U 18</option>
-				<option>U 20</option>
-			</select>
-			</div>
-			<button type="submit" class="btn btn-success" id="button">Anzeigen</button>
-		</form>
+	<div id="ergebnisse50M" class="pad-section">
+		<div class="container">
+			<h2 class="text-center">Ergebnisse der 50-Meter-Sprints</h2>
+		<div data-role="main" class="ui-content">
+			<form>
+			<input id="filter-input-table1" data-type="search" placeholder="Ergebnisse suchen...">
+			</form>
+		</div>
 		
-		<table class="table" cellspacing='0' id="table" cellpadding='10'>
-		<thead class="thead-inverse">
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="50M" data-filter="true" data-input="#filter-input-table1">
+		<thead>
 		<tr>
-		<th>Vorname</th>
-		<th>Nachname</th>
-		<th>
+			<th data-priority="3">Vorname</th>
+			<th>Nachname</th>
+			<th data-priority="5">Geburtstag</th>
+			<th data-priority="1">Zeit (in s)</th>
+			<th data-priority="4">Verein</th>
+			<th data-priority="2">Sparte</th>
 		</tr>
 		</thead>
+		<tbody>
+			
+				<%
+                    String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+                    Connection connection = null;
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    connection = DriverManager.getConnection(connectionURL, "root", "");
+                    if (!connection.isClosed()) {
+                      
+                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte from 50meterlauf";
+                        Statement content = connection.createStatement();
+                        Statement count = connection.createStatement();
+                        ResultSet contentRS = content.executeQuery(queryContent);
+
+                        
+
+                        
+                            while (contentRS.next()) {
+                               %>
+                                
+                                <tr>
+                                	<td><%=contentRS.getString(1)%></td>
+                                	<td><%=contentRS.getString(2)%></td>
+                                	<td><%=contentRS.getString(3)%></td>
+                                	<td><%=contentRS.getString(4)%></td>
+                                	<td><%=contentRS.getString(5)%></td>
+                                	<td><%=contentRS.getString(6)%></td>
+                                <tr>
+                                
+                                <%
+                                
+                            }
+                           
+                	
+                               
+                        connection.close();
+                    }
+                                %>
+			
+			
+		</tbody>
 		</table>
+		
+		
+		
+		</div>
+	</div>
+
+    
+    <div id="ergebnisse100M" class="pad-section">
+		<div class="container">
+			<h2 class="text-center">Ergebnisse der 100-Meter-Sprints</h2>
+		<div data-role="main" class="ui-content">
+			<form>
+			<input id="filter-input-table2" data-type="search" placeholder="Ergebnisse suchen...">
+			</form>
+		</div>
+		
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="100M" data-filter="true" data-input="#filter-input-table2">
+		<thead>
+		<tr>
+			<th data-priority="3">Vorname</th>
+			<th>Nachname</th>
+			<th data-priority="5">Geburtstag</th>
+			<th data-priority="1">Zeit (in s)</th>
+			<th data-priority="4">Verein</th>
+			<th data-priority="2">Sparte</th>
+		</tr>
+		</thead>
+		<tbody>
+			
+				<%
+                    connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+                    connection = null;
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    connection = DriverManager.getConnection(connectionURL, "root", "");
+                    if (!connection.isClosed()) {
+                      
+                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte from 100meterlauf";
+                        Statement content = connection.createStatement();
+                        Statement count = connection.createStatement();
+                        ResultSet contentRS = content.executeQuery(queryContent);
+
+                        
+
+                        
+                            while (contentRS.next()) {
+                               %>
+                                
+                                <tr>
+                                	<td><%=contentRS.getString(1)%></td>
+                                	<td><%=contentRS.getString(2)%></td>
+                                	<td><%=contentRS.getString(3)%></td>
+                                	<td><%=contentRS.getString(4)%></td>
+                                	<td><%=contentRS.getString(5)%></td>
+                                	<td><%=contentRS.getString(6)%></td>
+                                <tr>
+                                
+                                <%
+                                
+                            }
+                           
+                	
+                               
+                        connection.close();
+                    }
+                                %>
+			
+			
+		</tbody>
+		</table>
+		
+		
+		
+		</div>
+	</div>
+
+
+	<div id="ergebnisseWS" class="pad-section">
+		<div class="container">
+			<h2 class="text-center">Ergebnisse der Weitspringer</h2>
+		<div data-role="main" class="ui-content">
+			<form>
+			<input id="filter-input-table3" data-type="search" placeholder="Ergebnisse suchen...">
+			</form>
+		</div>
+		
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="WS" data-filter="true" data-input="#filter-input-table3">
+		<thead>
+		<tr>
+			<th data-priority="3">Vorname</th>
+			<th>Nachname</th>
+			<th data-priority="5">Geburtstag</th>
+			<th data-priority="1">Weite (in m)</th>
+			<th data-priority="4">Verein</th>
+			<th data-priority="2">Sparte</th>
+		</tr>
+		</thead>
+		<tbody>
+			
+				<%
+                    connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+                    connection = null;
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    connection = DriverManager.getConnection(connectionURL, "root", "");
+                    if (!connection.isClosed()) {
+                      
+                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein, Sparte from weitsprung";
+                        Statement content = connection.createStatement();
+                        Statement count = connection.createStatement();
+                        ResultSet contentRS = content.executeQuery(queryContent);
+
+                        
+
+                        
+                            while (contentRS.next()) {
+                               %>
+                                
+                                <tr>
+                                	<td><%=contentRS.getString(1)%></td>
+                                	<td><%=contentRS.getString(2)%></td>
+                                	<td><%=contentRS.getString(3)%></td>
+                                	<td><%=contentRS.getString(4)%></td>
+                                	<td><%=contentRS.getString(5)%></td>
+                                	<td><%=contentRS.getString(6)%></td>
+                                <tr>
+                                
+                                <%
+                                
+                            }
+                           
+                	
+                               
+                        connection.close();
+                    }
+                                %>
+			
+			
+		</tbody>
+		</table>
+		
+		
+		
+		</div>
 	</div>
 	
-	
-	
+
+	<div id="ergebnisseWW" class="pad-section">
+		<div class="container">
+			<h2 class="text-center">Ergebnisse der Weitwerfer</h2>
+		<div data-role="main" class="ui-content">
+			<form>
+			<input id="filter-input-table4" data-type="search" placeholder="Ergebnisse suchen...">
+			</form>
+		</div>
+		
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="WW" data-filter="true" data-input="#filter-input-table4">
+		<thead>
+		<tr>
+			<th data-priority="3">Vorname</th>
+			<th>Nachname</th>
+			<th data-priority="5">Geburtstag</th>
+			<th data-priority="1">Weite (in m)</th>
+			<th data-priority="4">Verein</th>
+			<th data-priority="2">Sparte</th>
+		</tr>
+		</thead>
+		<tbody>
+			
+				<%
+                    connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+                    connection = null;
+                    Class.forName("com.mysql.jdbc.Driver").newInstance();
+                    connection = DriverManager.getConnection(connectionURL, "root", "");
+                    if (!connection.isClosed()) {
+                      
+                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein, Sparte from weitwurf";
+                        Statement content = connection.createStatement();
+                        Statement count = connection.createStatement();
+                        ResultSet contentRS = content.executeQuery(queryContent);
+
+                        
+
+                        
+                            while (contentRS.next()) {
+                               %>
+                                
+                                <tr>
+                                	<td><%=contentRS.getString(1)%></td>
+                                	<td><%=contentRS.getString(2)%></td>
+                                	<td><%=contentRS.getString(3)%></td>
+                                	<td><%=contentRS.getString(4)%></td>
+                                	<td><%=contentRS.getString(5)%></td>
+                                	<td><%=contentRS.getString(6)%></td>
+                                <tr>
+                                
+                                <%
+                                
+                            }
+                           
+                	
+                               
+                        connection.close();
+                    }
+                                %>
+			
+			
+		</tbody>
+		</table>
+		
+		
+		
+		</div>
 	</div>
 
-
-<script>
-	window.onload = function(){
-		var input = document.getElementById('sparte');
-		input.style.visibility = 'hidden';
-		var label = document.getElementById('sparteLabel');
-		label.style.visibility = 'hidden';
-		var table = document.getElementById('table');
-		table.style.visibility = 'hidden';
-		var button = document.getElementById('button');
-		button.style.visibility = 'hidden';
-		var sportart = document.getElementById('sportart');
-		sportart.onchange = function(){
-			if(sportart.options.value != 'Auswählen'){
-			input.style.visibility = 'visible';
-			label.style.visibility = 'visible';
-			input.onchange = function(){
-				if(input.options.value != 'Auswählen'){
-				button.style.visibility = 'visible';
-				}
-			}
-			}
-		}
-	}
-	
-	function validateInput(){
-		var input1 = document.getElementById('sparte').options.value;
-		var input2 = document.getElementById('sportart').options.value;
-		if((input1!= 'Auswählen') && (input2 != 'Auswählen')){
-			document.getElementById('sparte').style.border = "1px solid red";
-			document.getElementById('sportart').style.border = "1px solid red";
-			return false;
-		}else{
-			return true;
-		}
-	}
-
-</script>
+	<script>
+		
+	</script>
 
 
 </body>

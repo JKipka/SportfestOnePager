@@ -63,7 +63,7 @@
             String query = "UPDATE weitwurf SET Vorname='"+vorname+"', Nachname='"+nachname+"', Geburtstag='"+alter+"', Meter='"+weite+"', Verein='"+verein+"' WHERE ID='"+id+"'";
             s.execute(query);
 
-            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_weitWAdd");
+            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");
 
         }
     %>
