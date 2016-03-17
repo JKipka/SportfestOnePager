@@ -47,16 +47,16 @@
 	</nav>
 
 
-	<div id="ergebnisse50M" class="pad-section">
+	<div id="ergebnisse100M" class="pad-section">
 		<div class="container">
-			<h2 class="text-center">Ergebnisse der 50-Meter-Sprints</h2>
+			<h2 class="text-center">Ergebnisse der 100-Meter-Sprints</h2>
 		<div data-role="main" class="ui-content">
 			<form>
-			<input id="filter-input-table1" data-type="search" placeholder="Ergebnisse suchen...">
+			<input id="filter-input-table2" data-type="search" placeholder="Ergebnisse suchen...">
 			</form>
 		</div>
 		
-		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="50M" data-filter="true" data-input="#filter-input-table1">
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="100M" data-filter="true" data-input="#filter-input-table2">
 		<thead>
 		<tr>
 			<th data-priority="3">Vorname</th>
@@ -76,7 +76,7 @@
                     connection = DriverManager.getConnection(connectionURL, "root", "");
                     if (!connection.isClosed()) {
                       
-                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte from 50meterlauf";
+                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte from 100meterlauf";
                         Statement content = connection.createStatement();
                         Statement count = connection.createStatement();
                         ResultSet contentRS = content.executeQuery(queryContent);
@@ -114,10 +114,6 @@
 		
 		</div>
 	</div>
-	<script>
-		
-	</script>
-
-
-</body>
+	
+	</body>
 </html>
