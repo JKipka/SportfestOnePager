@@ -1,0 +1,8 @@
+CREATE TABLE 50meterlauf (ID serial, Vorname varchar(128), Nachname varchar(128), Geburtstag varchar(128), Zeit time, Verein varchar(128), Sparte varchar(128)); 
+CREATE TABLE 100meterlauf (ID serial, Vorname varchar(128), Nachname varchar(128), Geburtstag varchar(128), Zeit time, Verein varchar(128), Sparte varchar(128)); 
+CREATE TABLE weitsprung (ID serial, Vorname varchar(128), Nachname varchar(128), Geburtstag varchar(128), Weite varchar(128), Verein varchar(128), Sparte varchar(128)); 
+CREATE TABLE weitwurf (ID serial, Vorname varchar(128), Nachname varchar(128), Geburtstag varchar(128), Meter varchar(128), Verein varchar(128), Sparte varchar(128));
+CREATE TABLE admins (ID serial, username varchar(128), password varchar(128));
+CREATE TABLE bilder (ID serial, src varchar(128), beschr varchar(128));
+CREATE TABLE texts (ID serial, Header varchar(128), Content varchar(128)); 
+CREATE TABLE termine (Nummer serial, Beschreibung varchar(128), Jugendsparte varchar(128), Ort varchar(128), Datum date, Uhrzeit time);
