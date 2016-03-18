@@ -21,6 +21,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import db.DatabaseCon;
 
+
+
+//Test Kommentar
 /**
  * Servlet implementation class ImageUpload
  */
