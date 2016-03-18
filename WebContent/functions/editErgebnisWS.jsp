@@ -64,7 +64,7 @@
             String query = "UPDATE weitsprung SET Vorname='"+vorname+"', Nachname='"+nachname+"', Geburtstag='"+alter+"', Weite='"+weite+"', Verein='"+verein+"', Sparte='"+sparte+"' WHERE ID='"+id+"'";
             s.execute(query);
 
-            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_weitSAdd");
+            response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");
 
         }
     %>

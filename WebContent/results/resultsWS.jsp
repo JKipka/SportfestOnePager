@@ -47,22 +47,22 @@
 	</nav>
 
 
-	<div id="ergebnisse50M" class="pad-section">
+	<div id="ergebnisseWS" class="pad-section">
 		<div class="container">
-			<h2 class="text-center">Ergebnisse der 50-Meter-Sprints</h2>
+			<h2 class="text-center">Ergebnisse der Weitspringer</h2>
 		<div data-role="main" class="ui-content">
 			<form>
-			<input id="filter-input-table1" data-type="search" placeholder="Ergebnisse suchen...">
+			<input id="filter-input-table3" data-type="search" placeholder="Ergebnisse suchen...">
 			</form>
 		</div>
 		
-		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="50M" data-filter="true" data-input="#filter-input-table1">
+		<table data-role="table" data-mode="columntoggle" class="ui-responsive ui-shadow" id="WS" data-filter="true" data-input="#filter-input-table3">
 		<thead>
 		<tr>
 			<th data-priority="3">Vorname</th>
 			<th>Nachname</th>
 			<th data-priority="5">Geburtstag</th>
-			<th data-priority="1">Zeit (in s)</th>
+			<th data-priority="1">Weite (in m)</th>
 			<th data-priority="4">Verein</th>
 			<th data-priority="2">Sparte</th>
 		</tr>
@@ -76,7 +76,7 @@
                     connection = DriverManager.getConnection(connectionURL, "root", "");
                     if (!connection.isClosed()) {
                       
-                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte from 50meterlauf";
+                        String queryContent = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein, Sparte from weitsprung";
                         Statement content = connection.createStatement();
                         Statement count = connection.createStatement();
                         ResultSet contentRS = content.executeQuery(queryContent);
@@ -114,10 +114,6 @@
 		
 		</div>
 	</div>
-	<script>
-		
-	</script>
-
-
-</body>
+	
+	</body>
 </html>
