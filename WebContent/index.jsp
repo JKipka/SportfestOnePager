@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-
+<!-- test comment -->
 <meta charset="utf-8" />
 
 <meta name="author" content="Jan Kipka" />
