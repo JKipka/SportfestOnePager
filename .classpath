@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/stegmanj/git/SportfestOnePager/libraries/commons-fileupload-1.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stegmanj/git/SportfestOnePager/libraries/commons-io-2.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stegmanj/git/SportfestOnePager/libraries/mysql-connector-java-5.1.36-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/stegmanj/git/SportfestOnePager/libraries/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kipka/workspace_abap3/SportfestOnePager/libraries/commons-fileupload-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kipka/workspace_abap3/SportfestOnePager/libraries/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kipka/workspace_abap3/SportfestOnePager/libraries/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/kipka/workspace_abap3/SportfestOnePager/libraries/mysql-connector-java-5.1.36-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

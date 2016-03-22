@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body link="white">
 
 	<!-- navigation panel -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -133,27 +133,35 @@
 	<div id="wettkaempfe" class="pad-section">
 		<div class="container">
 			<h2 class="text-center">Die Wettkämpfe</h2>
-			<hr />
+			<hr/>
 			<div class="row text-center">
-				<div class="col-sm-4 col-xs-6" id="div_werfen">
-					<img class="img-responsive img-rounded" src="images/weitwurf.jpg"
-						width="304" height="236">Zu den Ergebnissen</img>
-					<h4>Werfen</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec in sem cras amet. Donec in sem cras amet.</p>
-				</div>
-				<div class="col-sm-4 col-xs-6" id="div_sprint">
+				<div class="col-sm-3 col-xs-6" id="div_sprint">
 					<img class="img-responsive img-rounded" src="images/50m.jpg"
-						width="304" height="236">Zu den Ergebnissen</img>
-					<h4>Sprint</h4>
+						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/results.jsp">Zu den Ergebnissen</a></img>
+					<h4>50-Meter-Sprint</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Donec in sem cras amet. Donec in sem cras amet.</p>
 				</div>
-				<div class="col-sm-4 col-xs-6" id="div_sprung">
+				<div class="col-sm-3 col-xs-6" id="div_sprint">
+					<img class="img-responsive img-rounded" src="images/100meter2.jpg"
+						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/results100.jsp">Zu den Ergebnissen</a></img>
+					<h4>100-Meter-Sprint</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec in sem cras amet. Donec in sem cras amet.</p>
+				</div>
+				<div class="col-sm-3 col-xs-6" id="div_sprung">
 					<img class="img-responsive img-rounded"
-						src="images/weitsprung2.jpg" width="304" height="236">Zu den
-					Ergebnissen</img>
+						src="images/weitsprung2.jpg" width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp">Zu den
+					Ergebnissen</a></img>
 					<h4>Weitsprung</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Donec in sem cras amet. Donec in sem cras amet.</p>
+				</div>
+				<div class="col-sm-3 col-xs-6" id="div_sprung">
+					<img class="img-responsive img-rounded"
+						src="images/weitwurf.jpg" width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Zu den
+					Ergebnissen</a></img>
+					<h4>Weitwurf</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Donec in sem cras amet. Donec in sem cras amet.</p>
 				</div>
