@@ -193,7 +193,7 @@
                         out.println("</tr>");
                         out.println("</thead>");
 
-                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein FROM 50meterlauf";
+                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 50meterlauf";
                         pS = connection.prepareStatement(query);
                         rS = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
@@ -204,6 +204,7 @@
                             out.println("<td>" + rS.getString(3) + "</td>");
                             out.println("<td>" + rS.getString(4) + "</td>");
                             out.println("<td>" + rS.getString(5) + "</td>");
+                            out.println("<td>" + rS.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -246,7 +247,7 @@
                         out.println("</tr>");
                         out.println("</thead>");
 
-                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein FROM 100meterlauf";
+                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 100meterlauf";
                         pS = connection.prepareStatement(query);
                         rS = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
@@ -257,6 +258,7 @@
                             out.println("<td>" + rS.getString(3) + "</td>");
                             out.println("<td>" + rS.getString(4) + "</td>");
                             out.println("<td>" + rS.getString(5) + "</td>");
+                            out.println("<td>" + rS.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -303,7 +305,7 @@
                         out.println("</tr>");
                         out.println("</thead>");
 
-                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein FROM weitwurf";
+                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein, Sparte FROM weitwurf";
                         pS = connection.prepareStatement(query);
                         rS = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
@@ -314,6 +316,7 @@
                             out.println("<td>" + rS.getString(3) + "</td>");
                             out.println("<td>" + rS.getString(4) + "</td>");
                             out.println("<td>" + rS.getString(5) + "</td>");
+                            out.println("<td>" + rS.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -356,7 +359,7 @@
                         out.println("</tr>");
                         out.println("</thead>");
 
-                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein FROM weitsprung";
+                        query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein, Sparte FROM weitsprung";
                         pS = connection.prepareStatement(query);
                         rS = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
@@ -367,6 +370,7 @@
                             out.println("<td>" + rS.getString(3) + "</td>");
                             out.println("<td>" + rS.getString(4) + "</td>");
                             out.println("<td>" + rS.getString(5) + "</td>");
+                            out.println("<td>" + rS.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
