@@ -17,6 +17,8 @@
     <link href="admin.css" rel="stylesheet"/>
 
     <%
+    
+    	//VORHANDENEN COOKIE ABFRAGEN
         Cookie[] cookies = request.getCookies();
         boolean userLoggedIn = false;
         if(cookies!=null){
@@ -37,6 +39,7 @@
 </head>
 <body>
 
+<!-- NAVBAR ANFANG -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,18 +65,20 @@
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-</nav>
+</nav> <!-- NAVBAR ENDE -->
 
-<!-- first section - Home -->
+<!-- first section - Überblick -->
 <div id="overview" class="pad-section">
     <div class="container-fluid row">
         <h1 class="text-center">Überblick</h1>
         <div class="col-sm-6" id="termine_div">
 
             <%
+            
+            //Termine aus Datenbank ziehen
                 PreparedStatement pS;
                 String query;
-                ResultSet rS;
+                ResultSet rSTermine = null;;
                 try {
                     String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection = null;
@@ -96,16 +101,16 @@
 
                         query = "SELECT Beschreibung,Jugendsparte, ort, date_format(Datum, '%e.%m.%Y') AS datum, uhrzeit FROM termine";
                         pS = connection.prepareStatement(query);
-                        rS = pS.executeQuery();
+                        rSTermine = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
-                        while (rS.next()) {
+                        while (rSTermine.next()) {
 
                             out.println("<tr>");
-                            out.println("<td>" + rS.getString(1) + "</td>");
-                            out.println("<td>" + rS.getString(2) + "</td>");
-                            out.println("<td>" + rS.getString(3) + "</td>");
-                            out.println("<td>" + rS.getString(4) + "</td>");
-                            out.println("<td>" + rS.getString(5) + "</td>");
+                            out.println("<td>" + rSTermine.getString(1) + "</td>");
+                            out.println("<td>" + rSTermine.getString(2) + "</td>");
+                            out.println("<td>" + rSTermine.getString(3) + "</td>");
+                            out.println("<td>" + rSTermine.getString(4) + "</td>");
+                            out.println("<td>" + rSTermine.getString(5) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -126,6 +131,10 @@
 
         <div class="col-sm-6" id="admins_div">
             <%
+            
+            ResultSet rSAdmins;
+            
+            //Administratoren aus Datenbank ziehen
                 try {
                     String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection = null;
@@ -144,11 +153,11 @@
 
                         query = "SELECT username FROM admins";
                         pS = connection.prepareStatement(query);
-                        rS = pS.executeQuery();
+                        rSAdmins = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
-                        while (rS.next()) {
+                        while (rSAdmins.next()) {
                             out.println("<tr>");
-                            out.println("<td>" + rS.getString(1) + "</td>");
+                            out.println("<td>" + rSAdmins.getString(1) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -172,6 +181,11 @@
         <div class="col-sm-6" id="div_50m">
             <h4>50 Meter Lauf</h4>
             <%
+            
+            //Ergebnisse des 50-Meter-Sprints aus Datenbank ziehen
+            
+            ResultSet rS50Meter;
+            
                 try {
                     String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection = null;
@@ -195,16 +209,16 @@
 
                         query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 50meterlauf";
                         pS = connection.prepareStatement(query);
-                        rS = pS.executeQuery();
+                        rS50Meter = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
-                        while (rS.next()) {
+                        while (rS50Meter.next()) {
                             out.println("<tr>");
-                            out.println("<td>" + rS.getString(1) + "</td>");
-                            out.println("<td>" + rS.getString(2) + "</td>");
-                            out.println("<td>" + rS.getString(3) + "</td>");
-                            out.println("<td>" + rS.getString(4) + "</td>");
-                            out.println("<td>" + rS.getString(5) + "</td>");
-                            out.println("<td>" + rS.getString(6) + "</td>");
+                            out.println("<td>" + rS50Meter.getString(1) + "</td>");
+                            out.println("<td>" + rS50Meter.getString(2) + "</td>");
+                            out.println("<td>" + rS50Meter.getString(3) + "</td>");
+                            out.println("<td>" + rS50Meter.getString(4) + "</td>");
+                            out.println("<td>" + rS50Meter.getString(5) + "</td>");
+                            out.println("<td>" + rS50Meter.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -226,6 +240,9 @@
         <div class="col-sm-6" id="div_100m">
             <h4>100 Meter Lauf</h4>
             <%
+           	ResultSet rS100Meter;
+            //Ergebnisse des 100-Meter-Sprints aus Datenbank ziehen
+            
                 try {
                     String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection = null;
@@ -249,16 +266,16 @@
 
                         query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 100meterlauf";
                         pS = connection.prepareStatement(query);
-                        rS = pS.executeQuery();
+                        rS100Meter = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
-                        while (rS.next()) {
+                        while (rS100Meter.next()) {
                             out.println("<tr>");
-                            out.println("<td>" + rS.getString(1) + "</td>");
-                            out.println("<td>" + rS.getString(2) + "</td>");
-                            out.println("<td>" + rS.getString(3) + "</td>");
-                            out.println("<td>" + rS.getString(4) + "</td>");
-                            out.println("<td>" + rS.getString(5) + "</td>");
-                            out.println("<td>" + rS.getString(6) + "</td>");
+                            out.println("<td>" + rS100Meter.getString(1) + "</td>");
+                            out.println("<td>" + rS100Meter.getString(2) + "</td>");
+                            out.println("<td>" + rS100Meter.getString(3) + "</td>");
+                            out.println("<td>" + rS100Meter.getString(4) + "</td>");
+                            out.println("<td>" + rS100Meter.getString(5) + "</td>");
+                            out.println("<td>" + rS100Meter.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -284,6 +301,11 @@
         <div class="col-sm-6" id="div_weitwurf">
             <h4>Weitwurf</h4>
             <%
+            
+            ResultSet rSWeitwurf;
+            
+            //Ergebnisse des Weitwurf Wettbewerbs aus Datenbank ziehen
+            
                 try {
                     String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection = null;
@@ -292,7 +314,7 @@
                     if (!connection.isClosed()) {
 
 
-                        //Tabelle
+                        //Tabelle generieren
                         out.println("<table class=\"table table-condensed\" cellspacing='0' cellpadding='10'>");
                         out.println("<thead class=\"thead-inverse\">");
                         out.println("<tr>");
@@ -307,16 +329,16 @@
 
                         query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein, Sparte FROM weitwurf";
                         pS = connection.prepareStatement(query);
-                        rS = pS.executeQuery();
+                        rSWeitwurf = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
-                        while (rS.next()) {
+                        while (rSWeitwurf.next()) {
                             out.println("<tr>");
-                            out.println("<td>" + rS.getString(1) + "</td>");
-                            out.println("<td>" + rS.getString(2) + "</td>");
-                            out.println("<td>" + rS.getString(3) + "</td>");
-                            out.println("<td>" + rS.getString(4) + "</td>");
-                            out.println("<td>" + rS.getString(5) + "</td>");
-                            out.println("<td>" + rS.getString(6) + "</td>");
+                            out.println("<td>" + rSWeitwurf.getString(1) + "</td>");
+                            out.println("<td>" + rSWeitwurf.getString(2) + "</td>");
+                            out.println("<td>" + rSWeitwurf.getString(3) + "</td>");
+                            out.println("<td>" + rSWeitwurf.getString(4) + "</td>");
+                            out.println("<td>" + rSWeitwurf.getString(5) + "</td>");
+                            out.println("<td>" + rSWeitwurf.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -338,6 +360,11 @@
         <div class="col-sm-6" id="div_weitsprung">
             <h4>Weitsprung</h4>
             <%
+            
+            ResultSet rSWeitsprung;
+            
+            //Ergebnisse des Weitsprung Wettbewerbs aus Datenbank ziehen
+            
                 try {
                     String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection = null;
@@ -346,7 +373,7 @@
                     if (!connection.isClosed()) {
 
 
-                        //Tabelle
+                        //Tabelle generieren
                         out.println("<table class=\"table table-condensed\" cellspacing='0' cellpadding='10'>");
                         out.println("<thead class=\"thead-inverse\">");
                         out.println("<tr>");
@@ -361,16 +388,16 @@
 
                         query = "SELECT Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein, Sparte FROM weitsprung";
                         pS = connection.prepareStatement(query);
-                        rS = pS.executeQuery();
+                        rSWeitsprung = pS.executeQuery();
                         //Tabelle füllen mit den Daten aus der DB
-                        while (rS.next()) {
+                        while (rSWeitsprung.next()) {
                             out.println("<tr>");
-                            out.println("<td>" + rS.getString(1) + "</td>");
-                            out.println("<td>" + rS.getString(2) + "</td>");
-                            out.println("<td>" + rS.getString(3) + "</td>");
-                            out.println("<td>" + rS.getString(4) + "</td>");
-                            out.println("<td>" + rS.getString(5) + "</td>");
-                            out.println("<td>" + rS.getString(6) + "</td>");
+                            out.println("<td>" + rSWeitsprung.getString(1) + "</td>");
+                            out.println("<td>" + rSWeitsprung.getString(2) + "</td>");
+                            out.println("<td>" + rSWeitsprung.getString(3) + "</td>");
+                            out.println("<td>" + rSWeitsprung.getString(4) + "</td>");
+                            out.println("<td>" + rSWeitsprung.getString(5) + "</td>");
+                            out.println("<td>" + rSWeitsprung.getString(6) + "</td>");
                             out.println("</tr>");
 
                         }
@@ -390,7 +417,7 @@
         </div>
     </div>
 </div>
-<!-- /first section -->
+<!-- /first section Überblick ENDE-->
 
 <!-- 2nd section - Termine bearbeiten und hinzufügen -->
 <div id="editTermine" class="pad-section">
@@ -400,14 +427,19 @@
         <div class="row text-center">
             <div class="col-sm-8 col-xs-6" id="div_termineBearbeiten">
                 <%
+                
+                //Vorhandene Termine zum Bearbeiten aus Datenbank
+                
                     try {
-                        String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
-                        Connection connection = null;
-                        Class.forName("com.mysql.jdbc.Driver").newInstance();
-                        connection = DriverManager.getConnection(connectionURL, "root", "");
+ 	
+                         String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+                         Connection connection = null;
+                         Class.forName("com.mysql.jdbc.Driver").newInstance();
+                         connection = DriverManager.getConnection(connectionURL, "root", "");
                         if (!connection.isClosed()) {
 
                             out.println("<h3>Termine bearbeiten</h3>");
+                            
                             //Tabelle in Form
 
                             out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
@@ -424,22 +456,22 @@
 
                             query = "SELECT Nummer, Beschreibung, Jugendsparte, Ort, date_format(Datum, '%e.%m.%Y') AS datum, uhrzeit FROM termine";
                             pS = connection.prepareStatement(query);
-                            rS = pS.executeQuery();
+                            rSTermine = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
-                            while (rS.next()) {
+                            while (rSTermine.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/editTermin.jsp'>");
-                                out.println("<td><input type='text' name='idT' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='descT' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='sparteT' value='" + rS.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='placeT' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='dateT' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='timeT' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='idT' value='" + rSTermine.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='descT' value='" + rSTermine.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparteT' value='" + rSTermine.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='placeT' value='" + rSTermine.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='dateT' value='" + rSTermine.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='timeT' value='" + rSTermine.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/deleteTermin.jsp'>");
-                                out.println("<input type='text' name='delTermin' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<input type='text' name='delTermin' value='" + rSTermine.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
                                 out.println("</form>");
                                 out.println("</tr>");
@@ -540,23 +572,23 @@
 
                             query = "SELECT ID, Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 50meterlauf";
                             pS = connection.prepareStatement(query);
-                            rS = pS.executeQuery();
+                            rS50Meter = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
-                            while (rS.next()) {
+                            while (rS50Meter.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/editErgebnis50Meter.jsp'>");
-                                out.println("<td><input type='text' name='id50' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='vorname50' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='nachname50' value='" + rS.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='alter50' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='zeit50' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='verein50' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='sparte50' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='id50' value='" + rS50Meter.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='vorname50' value='" + rS50Meter.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='nachname50' value='" + rS50Meter.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='alter50' value='" + rS50Meter.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='zeit50' value='" + rS50Meter.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='verein50' value='" + rS50Meter.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparte50' value='" + rS50Meter.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/delete50.jsp'>");
-                                out.println("<input type='text' name='del50' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<input type='text' name='del50' value='" + rS50Meter.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
                                 out.println("</form>");
                                 out.println("</tr>");
@@ -643,23 +675,23 @@
 
                             query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Zeit, Verein, Sparte FROM 100meterlauf";
                             pS = connection.prepareStatement(query);
-                            rS = pS.executeQuery();
+                            rS100Meter = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
-                            while (rS.next()) {
+                            while (rS100Meter.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/editErgebnis100.jsp'>");
-                                out.println("<td><input type='text' name='id100' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='vorname100' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='nachname100' value='" + rS.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='alter100' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='zeit100' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='verein100' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='sparte100' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='id100' value='" + rS100Meter.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='vorname100' value='" + rS100Meter.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='nachname100' value='" + rS100Meter.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='alter100' value='" + rS100Meter.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='zeit100' value='" + rS100Meter.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='verein100' value='" + rS100Meter.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparte100' value='" + rS100Meter.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/delete100.jsp'>");
-                                out.println("<input type='text' name='del100' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<input type='text' name='del100' value='" + rS100Meter.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
                                 out.println("</form>");
                                 out.println("</tr>");
@@ -746,23 +778,23 @@
 
                             query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Weite, Verein, Sparte FROM weitsprung";
                             pS = connection.prepareStatement(query);
-                            rS = pS.executeQuery();
+                            rSWeitsprung = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
-                            while (rS.next()) {
+                            while (rSWeitsprung.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/editErgebnisWS.jsp'>");
-                                out.println("<td><input type='text' name='idWS' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='vornameWS' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='nachnameWS' value='" + rS.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='alterWS' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='zeitWS' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='vereinWS' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='sparteWS' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='idWS' value='" + rSWeitsprung.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='vornameWS' value='" + rSWeitsprung.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='nachnameWS' value='" + rSWeitsprung.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='alterWS' value='" + rSWeitsprung.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='zeitWS' value='" + rSWeitsprung.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='vereinWS' value='" + rSWeitsprung.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparteWS' value='" + rSWeitsprung.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/deleteWS.jsp'>");
-                                out.println("<input type='text' name='delWS' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<input type='text' name='delWS' value='" + rSWeitsprung.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
                                 out.println("</form>");
                                 out.println("</tr>");
@@ -849,23 +881,23 @@
 
                             query = "SELECT ID,Vorname, Nachname, date_format(Geburtstag, '%d.%m.%Y') AS datum, Meter, Verein, Sparte FROM weitwurf";
                             pS = connection.prepareStatement(query);
-                            rS = pS.executeQuery();
+                            rSWeitwurf = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
-                            while (rS.next()) {
+                            while (rSWeitwurf.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/editErgebnisWW.jsp'>");
-                                out.println("<td><input type='text' name='idWW' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='vornameWW' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='nachnameWW' value='" + rS.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='alterWW' value='" + rS.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
-                                out.println("<td><input type='text' name='zeitWW' value='" + rS.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='vereinWW' value='" + rS.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><input type='text' name='sparteWW' value='" + rS.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='idWW' value='" + rSWeitwurf.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='vornameWW' value='" + rSWeitwurf.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='nachnameWW' value='" + rSWeitwurf.getString(3) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='alterWW' value='" + rSWeitwurf.getString(4) + "' class='form-control' style:\"width:20px\"></td>");
+                                out.println("<td><input type='text' name='zeitWW' value='" + rSWeitwurf.getString(5) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='vereinWW' value='" + rSWeitwurf.getString(6) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='sparteWW' value='" + rSWeitwurf.getString(7) + "' class='form-control' style:\"width:20px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/deleteWW.jsp'>");
-                                out.println("<input type='text' name='delWW' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<input type='text' name='delWW' value='" + rSWeitwurf.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
                                 out.println("</form>");
                                 out.println("</tr>");
@@ -955,22 +987,22 @@
 
                             query = "SELECT ID,username FROM admins";
                             pS = connection.prepareStatement(query);
-                            rS = pS.executeQuery();
+                            rSAdmins = pS.executeQuery();
                             //Tabelle füllen mit den Daten aus der DB
-                            while (rS.next()) {
+                            while (rSAdmins.next()) {
                                 // rowsCounter++;
                                 out.println("<tr>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/changeMail.jsp'>");
-                                out.println("<td><input type='text' name='idAdmin' value='" + rS.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='usernameAdmin' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><input type='text' name='idAdmin' value='" + rSAdmins.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='usernameAdmin' value='" + rSAdmins.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Mail speichern</button></td>");
                                 out.println("</form>");
-                                out.println("<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="+rS.getString(1)+"'>");
-                                out.println("<input type='text' name='changePW' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="+rSAdmins.getString(1)+"'>");
+                                out.println("<input type='text' name='changePW' value='" + rSAdmins.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'>Passwort ändern</button></td>");
                                 out.println("</form>");
                                 out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
-                                out.println("<input type='text' name='delAdmin' value='" + rS.getString(1) + "' hidden>");
+                                out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' class='btn btn-danger'>Entfernen</button></td>");
                                 out.println("</form>");
                                 out.println("</tr>");
