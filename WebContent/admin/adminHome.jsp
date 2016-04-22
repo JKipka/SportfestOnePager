@@ -961,7 +961,7 @@
                                 out.println("<td><input type='text' name='usernameAdmin' value='" + rS.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
                                 out.println("<td><button type='submit' class='btn btn-success'>Mail speichern</button></td>");
                                 out.println("</form>");
-                                out.println("<form role='form' method='post' action='/SportfestOnePager/functions/changePassword.jsp' >");
+                                out.println("<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="+rS.getString(1)+"'>");
                                 out.println("<input type='text' name='changePW' value='" + rS.getString(1) + "' hidden>");
                                 out.println("<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'>Passwort ändern</button></td>");
                                 out.println("</form>");

@@ -18,13 +18,15 @@
     <%
         String adminID = request.getParameter("changePW");
     %>
+<script src="ajaxSource.js"></script>
+
 
 </head>
 <body>
 
 <div class="container">
 
-    <form role="form" class="form-change" data-toggle="validator" method="post" action="/functions/changePassword.jsp">
+    <form role="form" class="form-change" data-toggle="validator" method="post" action="/SportfestOnePager/php/changepassword.php">
         <h2 class="form-change-heading">Passwort ändern</h2>
         <div class="form-group">
             <label for="adminID">Admin-ID:</label>
@@ -45,7 +47,7 @@
             <div class="help-block with-errors"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Übernehmen</button>
+        <button type="submit" id="submitBtn" class="btn btn-primary">Übernehmen</button>
     </form>
 
 </div> <!-- /container -->

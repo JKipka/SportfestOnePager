@@ -51,7 +51,7 @@
 <div class="container">
 
 
-    <form class="form-signin" action="/SportfestOnePager/UserChecker" method="post">
+    <form class="form-signin" action="/SportfestOnePager/php/loggingYouIn.php" method="post">
         <h2 class="form-signin-heading">Bitte anmelden</h2>
         <label for="inputEmail" class="sr-only">Email-Adresse</label>
         <input type="email" id="inputEmail" name="mail" class="form-control" placeholder="Email address" required
