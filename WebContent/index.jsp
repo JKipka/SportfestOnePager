@@ -69,7 +69,7 @@
 					sowie weitere Informationen, eine Fotogalerie und unsere Kontaktdaten mit einer Anfahrtsbeschreibung.</p>
 				</h3>
 				<br>
-				<h4>Sie sind Administrator? Dann melden Sie sich doch bitte über „Login“ rechts oben an.</h4>				
+				<h4>Sie sind Administrator? Dann melden Sie sich bitte über „Login“ rechts oben an.</h4>				
 			</div>
 			<div style="max-width: 1000px; margin: auto; text-align: center; background-color:rgba(255, 255, 255, 0.8); padding: 10px"">
 					<!--Facebook icon-->
