@@ -67,9 +67,29 @@
 					Menschen Hessens in einem Leichtathletik-Wettbewerb zu vereinen.</p>
 					<p>Auf der Seite finden Sie Termine zu kommenden Wettkämpfen, die verschiedenen Wettkampfarten 
 					sowie weitere Informationen, eine Fotogalerie und unsere Kontaktdaten mit einer Anfahrtsbeschreibung.</p>
-					<p>Sie sind Administrator? Dann melden Sie sich doch bitte über „Login“ rechts oben an.</p>
 				</h3>
+				<br>
+				<h4>Sie sind Administrator? Dann melden Sie sich doch bitte über „Login“ rechts oben an.</h4>				
 			</div>
+			<div style="max-width: 1000px; margin: auto; text-align: center; background-color:rgba(255, 255, 255, 0.8); padding: 10px"">
+					<!--Facebook icon-->
+					<a href="http://facebook.com/flashissue" target="_blank"><img alt=""
+						src="/SportfestOnePager/images/facebook.png" />
+					</a>&nbsp; &nbsp; &nbsp;
+					<!--Google+ icon-->
+					<a href="http://plus.google.com" target="_blank"><img alt=""
+						src="/SportfestOnePager/images/google.png" />
+					</a>&nbsp; &nbsp;&nbsp;
+					<!--Twitter icon-->
+					<a href="http://twitter.com/flashissue" target="_blank"><img alt=""
+						src="/SportfestOnePager/images/twitter.png" />
+					</a>&nbsp; &nbsp;&nbsp;
+					<!--Linkedin icon-->
+					<a href="http://pinterest.com" target="_blank"><img alt=""
+						src="/SportfestOnePager/images/pinterest.png" />
+					</a>
+				</div>
+				
 			
 			<!-- <a href="#about" class="btn btn-default btn-lg">Mehr erfahren</a> -->
 			
@@ -200,6 +220,7 @@
 	<!-- fourth section - Informationen -->
 	<div id="information" class="pad-section">
 		<div class="container">
+			<h2 class="text-center">Allgemeine Informationen</h2>
 
 			<%
 				PreparedStatement pSM;
@@ -389,11 +410,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<h3>So finden Sie unseren Sportplatz</h3>
-					<h4>Berechnen Sie Ihre Route mit Google Maps</h4>
+					<h2>Kontakt und Anfahrt</h2>
+					<span>Kontaktpersonen: <a href="mailto:jan.kipka@gmx.de">Jan Kipka</a>: +49 177 7482727 und <a href="mailto:jannis.stegmann@web.de">Jannis Stegmann</a>: +49 151 44501066 </span>
+					<br><br>
+					<h4>So finden Sie unseren Sportplatz. Berechnen Sie Ihre Route mit Google Maps.</h4>
 				</div>
 			</div>
-			<div class="row" style="padding-top:50px">
+			<div class="row" style="padding-top: 30px; padding-bottom: 30px">
 				<div class="col-sm-12 center">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d941.2941965827928!2d8.573887114015815!3d50.1050126495043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0000000000000000%3A0x373b4b4339d86245!2sSG+1877+Frankfurt%2FNied+e.V.!5e1!3m2!1sde!2sde!4v1458118725363" width="100%" height="650" frameborder="0" style="border:0" allowfullscreen></iframe>
 				</div>
@@ -408,8 +431,7 @@
 		<div class="container">
 			<p style="text-align: center">
 				<!--Facebook icon-->
-				<a href="http://facebook.com/flashissue" target="_blank"><img
-					alt=""
+				<a href="http://facebook.com/flashissue" target="_blank"><img alt=""
 					src="/SportfestOnePager/images/facebook.png" />
 				</a>&nbsp; &nbsp; &nbsp;
 				<!--Google+ icon-->
@@ -417,8 +439,7 @@
 					src="/SportfestOnePager/images/google.png" />
 				</a>&nbsp; &nbsp;&nbsp;
 				<!--Twitter icon-->
-				<a href="http://twitter.com/flashissue" target="_blank"><img
-					alt=""
+				<a href="http://twitter.com/flashissue" target="_blank"><img alt=""
 					src="/SportfestOnePager/images/twitter.png" />
 				</a>&nbsp; &nbsp;&nbsp;
 				<!--Linkedin icon-->
