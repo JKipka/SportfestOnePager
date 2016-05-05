@@ -8,22 +8,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<!-- test comment -->
+
 <meta charset="utf-8" />
 
-<meta name="author" content="Jan Kipka" />
+<meta name="author" content="Jan Kipka & Jannis Stegmann" />
 
 <title>Sportfest Hessen 2016</title>
 
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <script src="script/jquery-1.12.0.min.js"></script>
 <script src="script/bootstrap.js"></script>
 <script src="script/validate.js"></script>
-<link rel="stylesheet" type="text/css" href="script/bootstrap.css">
-<link href="script/style.css" rel="stylesheet" />
-
+<link href="script/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="script/style.css" rel="stylesheet">
 
 </head>
 
@@ -42,13 +40,13 @@
 				</button>
 				<a class="navbar-brand" href="#">Sportfest Hessen 2016</a>
 			</div>
-
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#termine">Termine</a></li>
 					<li><a href="#wettkaempfe">Wettkämpfe</a></li>
 					<li><a href="#information">Informationen</a></li>
+					<li><a href="#galerie">Galerie</a></li>
 					<li><a href="#google_map">Kontakt</a></li>
 					<li><a href="admin/login.jsp">Login</a></li>
 				</ul>
@@ -68,12 +66,12 @@
 	</div>
 	<!-- /first section -->
 
-	<!-- second section - About -->
+	<!-- second section - Termine -->
 	<div id="termine" class="pad-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3" id="logo">
-					<img src="images/Logo.png" alt="" />
+					<img src="images/Logo.png" alt="logo" style="padding-top: 20px" />
 				</div>
 				<div class="col-sm-9 text-center">
 					<h2>Die Termine der Wettkämpfe</h2>
@@ -129,7 +127,7 @@
 	</div>
 	<!-- /second section -->
 
-	<!-- third section - Services -->
+	<!-- third section - Wettkämpfe -->
 	<div id="wettkaempfe" class="pad-section">
 		<div class="container">
 			<h2 class="text-center">Die Wettkämpfe</h2>
@@ -150,16 +148,16 @@
 						Donec in sem cras amet. Donec in sem cras amet.</p>
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_sprung">
-					<img class="img-responsive img-rounded"
-						src="images/weitsprung2.jpg" width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp">Zu den
+					<img class="img-responsive img-rounded" src="images/weitsprung2.jpg" 
+						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp">Zu den
 					Ergebnissen</a></img>
 					<h4>Weitsprung</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Donec in sem cras amet. Donec in sem cras amet.</p>
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_sprung">
-					<img class="img-responsive img-rounded"
-						src="images/weitwurf.jpg" width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Zu den
+					<img class="img-responsive img-rounded" src="images/weitwurf.jpg" 
+						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Zu den
 					Ergebnissen</a></img>
 					<h4>Weitwurf</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -170,8 +168,7 @@
 	</div>
 	<!-- /third section -->
 
-
-	<!-- fourth section - Information -->
+	<!-- fourth section - Informationen -->
 	<div id="information" class="pad-section">
 		<div class="container">
 
@@ -281,35 +278,85 @@
 					out.println("<p style: 'color: red'>Fehler beim Lesen der Datenbank.</p>");
 				}
 			%>
-
-			<!--
-      <div class="col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Additional information</h2>
-          </div>
-          <div class="panel-body lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa. Duis euismod, augue et tempus consequat, lorem mauris porttitor quam, consequat ultricies mauris mi a metus. Phasellus congue, leo sed ultricies tristique, nunc libero tempor ligula, at varius mi nibh in nisi. Aliquam erat volutpat. Maecenas rhoncus, neque facilisis rhoncus tempus, elit ligula varius dui, quis amet.
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Additional information</h2>
-          </div>
-          <div class="panel-body lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa. Duis euismod, augue et tempus consequat, lorem mauris porttitor quam, consequat ultricies mauris mi a metus. Phasellus congue, leo sed ultricies tristique, nunc libero tempor ligula, at varius mi nibh in nisi. Aliquam erat volutpat. Maecenas rhoncus, neque facilisis rhoncus tempus, elit ligula varius dui, quis amet.
-          </div>
-        </div>
-      </div>
-      -->
 		</div>
 	</div>
 	<!-- /fourth section -->
+	
+	<!-- fifth section - Galerie -->
+	<div id="galerie" class="pad-section">
+		<div class="container">
+			<h2 class="text-center">Unsere Fotogalerie</h2>
+			<hr/>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+					<li data-target="#myCarousel" data-slide-to="3"></li>
+					<li data-target="#myCarousel" data-slide-to="4"></li>
+				</ol>
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="images/gallery/picture1.jpg" alt="Fußball">
+						<div class="carousel-caption">
+							<h3>Fußball</h3>
+							<p>Anstoß, das Spiel zur Erholung zwischen den harten Leichtathletikdisziplinen kann los gehen.</p>
+						</div>
+					</div>
+				
+					<div class="item">
+						<img src="images/gallery/picture2.jpg" alt="Chania">
+						<div class="carousel-caption">
+							<h3>Weitwurf</h3>
+							<p>Peter kurz vorm Abwurf.</p>
+						</div>
+					</div>
+				
+					<div class="item">
+						<img src="images/gallery/picture3.jpg" alt="Chania">
+						<div class="carousel-caption">
+							<h3>Sprint</h3>
+							<p>Bolt zu Besuch in Frankfurt und liegt wie meistens vorne.</p>
+						</div>
+					</div>
+				
+					<div class="item">
+						<img src="images/gallery/picture4.jpg" alt="Chania">
+						<div class="carousel-caption">
+							<h3>Sprint</h3>
+							<p>Gerald beim Start.</p>
+						</div>
+					</div>
+					
+					<div class="item">
+						<img src="images/gallery/picture5.jpg" alt="Chania">
+						<div class="carousel-caption">
+							<h3>Sprint</h3>
+							<p>Auch die jungen Mädels sind dabei.</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Left and right controls -->
+				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		
+		
+		</div>
+	</div>
+	<!-- /fifth section -->
 
-	<!-- fifth section -->
-	<div id="services" class="pad-section">
+	<!-- sixth section - Google Maps -->
+	<div id="google_map" class="pad-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 text-center">
@@ -324,6 +371,7 @@
 			</div>
 		</div>
 	</div>
+	<!-- /sixth section -->
 	
 	<!-- footer -->
 	<footer>
@@ -353,11 +401,6 @@
 		</div>
 	</footer>
 	<!-- /footer -->
-
-
-
-
-
 
 </body>
 
