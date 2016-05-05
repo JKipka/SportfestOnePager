@@ -9,6 +9,8 @@
 <html>
 <head>
 
+<link rel="icon" href="images/Logo2.png">
+
 <meta charset="utf-8" />
 
 <meta name="author" content="Jan Kipka & Jannis Stegmann" />
