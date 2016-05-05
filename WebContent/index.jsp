@@ -59,9 +59,20 @@
 	<!-- first section - Home -->
 	<div id="home" class="home">
 		<div class="text-vcenter">
-			<h1>Willkommen!</h1>
-			<h3>Willkommen auf der offiziellen Seite des Sportfests Hessen!</h3>
-			<a href="#about" class="btn btn-default btn-lg">Mehr erfahren</a>
+			<div style="max-width: 1000px; margin: auto; background-color:rgba(116, 204, 0, 0.7); padding: 30px">
+				<h1>Sportfest Hessen 2016</h1>
+				<h2>Willkommen auf der offiziellen Seite des Sportfests Hessen!</h2>
+				<h3>
+					<p>Das Sportfest entstand aus der Idee alle interessierten jungen 
+					Menschen Hessens in einem Leichtathletik-Wettbewerb zu vereinen.</p>
+					<p>Auf der Seite finden Sie Termine zu kommenden Wettkämpfen, die verschiedenen Wettkampfarten 
+					sowie weitere Informationen, eine Fotogalerie und unsere Kontaktdaten mit einer Anfahrtsbeschreibung.</p>
+					<p>Sie sind Administrator? Dann melden Sie sich doch bitte über „Login“ rechts oben an.</p>
+				</h3>
+			</div>
+			
+			<!-- <a href="#about" class="btn btn-default btn-lg">Mehr erfahren</a> -->
+			
 		</div>
 	</div>
 	<!-- /first section -->
@@ -134,34 +145,52 @@
 			<hr/>
 			<div class="row text-center">
 				<div class="col-sm-3 col-xs-6" id="div_sprint">
-					<img class="img-responsive img-rounded" src="images/50m.jpg"
-						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/results.jsp">Zu den Ergebnissen</a></img>
 					<h4>50-Meter-Sprint</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec in sem cras amet. Donec in sem cras amet.</p>
+					<img class="img-responsive img-rounded" src="images/50m.jpg" width="304" height="236"></img>
+					<p><br><a href="http://localhost:8080/SportfestOnePager/results/results.jsp" class="btn btn-default">Zu den Ergebnissen</a></p>
+					<span>"Der <a href="https://de.wikipedia.org/wiki/50-Meter-Lauf">50-Meter-Sprint</a> ist 
+						für Kinder unter 12 Jahren die reguläre Sprintdisziplin. 
+						Ab der nächsten Altersgruppe wird dann die Sprintdistanz verlängert. 
+						50 Meter werden auf einer ausschließlich geraden Strecke gelaufen, 
+						wobei jeder Läufer in seiner eigenen Bahn bleiben muss. 
+						Gestartet wird im Tiefstart mit Hilfe von Startblöcken." 
+						Vgl. <a href="https://de.wikipedia.org/wiki/50-Meter-Lauf">Wikipedia</a>
+					</span>
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_sprint">
-					<img class="img-responsive img-rounded" src="images/100meter2.jpg"
-						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/results100.jsp">Zu den Ergebnissen</a></img>
 					<h4>100-Meter-Sprint</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec in sem cras amet. Donec in sem cras amet.</p>
+					<img class="img-responsive img-rounded" src="images/100meter2.jpg" width="304" height="236"></img>
+					<p><br><a href="http://localhost:8080/SportfestOnePager/results/results100.jsp" class="btn btn-default">Zu den Ergebnissen</a></p>
+					<span>"Der <a href="https://de.wikipedia.org/wiki/100-Meter-Lauf">100-Meter-Sprint</a> 
+						ist eine Sprintdisziplin in der Leichtathletik und wird auf einer geraden Strecke ausgetragen, 
+						wobei jeder Läufer vom Start bis zum Ziel in seiner eigenen Bahn bleiben muss. 
+						Gestartet wird im Tiefstart mit Hilfe von Startblöcken. Bei den Olympischen Sommerspielen 
+						ist die 100-Meter-Strecke die kürzeste Sprintdistanz." 
+						Vgl. <a href="https://de.wikipedia.org/wiki/100-Meter-Lauf">Wikipedia</a>
+					</span>
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_sprung">
-					<img class="img-responsive img-rounded" src="images/weitsprung2.jpg" 
-						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp">Zu den
-					Ergebnissen</a></img>
 					<h4>Weitsprung</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec in sem cras amet. Donec in sem cras amet.</p>
+					<img class="img-responsive img-rounded" src="images/weitsprung2.jpg" width="304" height="236"></img>
+					<p><br><a href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp" class="btn btn-default">Zu den Ergebnissen</a></p>
+					<span>"Als <a href="https://de.wikipedia.org/wiki/Weitsprung">Weitsprung</a> bezeichnet man eine 
+						olympische Disziplin der Leichtathletik, in der ein Sportler versucht, nach einem Anlauf 
+						mittels eines einzelnen Sprungs eine möglichst große Weite zu erzielen.
+						Die besten Weitspringer erreichen bei den Männern fast neun Meter (Weltrekord: 8,95 m) 
+						und bei den Frauen über sieben Meter (Weltrekord: 7,52 m)." 
+						Vgl. <a href="https://de.wikipedia.org/wiki/Weitsprung">Wikipedia</a>
+					</span>
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_sprung">
-					<img class="img-responsive img-rounded" src="images/weitwurf.jpg" 
-						width="304" height="236"><a href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Zu den
-					Ergebnissen</a></img>
 					<h4>Weitwurf</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-						Donec in sem cras amet. Donec in sem cras amet.</p>
+					<img class="img-responsive img-rounded" src="images/weitwurf.jpg" width="304" height="236"></img>
+					<p><br><a href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp" class="btn btn-default">Zu den Ergebnissen</a></p>
+					<span>"Der <a href="https://de.wikipedia.org/wiki/Ballwurf">Ballwurf</a> ist eine leichtathletische 
+						Disziplin in der Kinder- und Jugendleichtathletik. Er ist im Bereich der Kinderleichtathletik die 
+						erste Wurfdisziplin, bevor er in den älteren Jahrgängen durch die anspruchsvolleren Disziplinen 
+						Speerwurf, Diskuswurf, Hammerwurf und Kugelstoßen abgelöst wird." 
+						Vgl. <a href="https://de.wikipedia.org/wiki/Ballwurf">Wikipedia</a>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -318,7 +347,7 @@
 						<img src="images/gallery/picture3.jpg" alt="Chania">
 						<div class="carousel-caption">
 							<h3>Sprint</h3>
-							<p>Bolt zu Besuch in Frankfurt und liegt wie meistens vorne.</p>
+							<p>Usain Bolt zu Besuch in Frankfurt und liegt wie meistens vorne.</p>
 						</div>
 					</div>
 				
