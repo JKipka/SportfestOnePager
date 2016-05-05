@@ -60,7 +60,7 @@
 	<div id="home" class="home">
 		<div class="text-vcenter">
 			<div style="max-width: 1000px; margin: auto; background-color:rgba(116, 204, 0, 0.7); padding: 30px">
-				<h1>Sportfest Hessen 2016</h1>
+				<h1>Sportfest Hessen 2016 <img src="images/Logo2.png" alt="logo" width="60" height="73"/></h1>
 				<h2>Willkommen auf der offiziellen Seite des Sportfests Hessen!</h2>
 				<h3>
 					<p>Das Sportfest entstand aus der Idee alle interessierten jungen 
