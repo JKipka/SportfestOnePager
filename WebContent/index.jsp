@@ -222,8 +222,10 @@
 	<!-- fourth section - Informationen -->
 	<div id="information" class="pad-section">
 		<div class="container">
-			<h2 class="text-center">Allgemeine Informationen</h2>
-
+			<div class="panel panel-default">
+				<h2 class="text-center">Allgemeine Informationen</h2>
+			</div>
+			
 			<%
 				PreparedStatement pSM;
 				String queryS;
