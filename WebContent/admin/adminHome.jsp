@@ -178,7 +178,9 @@
     </div>
 
     <div class="container-fluid row">
+    	<h3 style="padding-left: 15px">Ergebnisse</h3>
         <div class="col-sm-6" id="div_50m">
+        	
             <h4>50 Meter Lauf</h4>
             <%
             
