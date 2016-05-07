@@ -83,7 +83,7 @@
 						src="/SportfestOnePager/images/google.png" />
 					</a>&nbsp; &nbsp;&nbsp;
 					<!--Twitter icon-->
-					<a href="http://twitter.com/flashissue" target="_blank"><img alt=""
+					<a href="https://twitter.com/SportfestHessen" target="_blank"><img alt=""
 						src="/SportfestOnePager/images/twitter.png" />
 					</a>&nbsp; &nbsp;&nbsp;
 					<!--Linkedin icon-->
@@ -441,7 +441,7 @@
 					src="/SportfestOnePager/images/google.png" />
 				</a>&nbsp; &nbsp;&nbsp;
 				<!--Twitter icon-->
-				<a href="http://twitter.com/flashissue" target="_blank"><img alt=""
+				<a href="https://twitter.com/SportfestHessen" target="_blank"><img alt=""
 					src="/SportfestOnePager/images/twitter.png" />
 				</a>&nbsp; &nbsp;&nbsp;
 				<!--Linkedin icon-->
