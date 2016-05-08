@@ -82,20 +82,36 @@ html, body {
 
 }
 
-#div_50m{
-
+#div_50mEdit{
+	padding-top: 50px;
 }
 
-#div_100m{
-
+#div_50mAdd{
+	padding-top: 50px;
 }
 
-#div_weitwurf{
-
+#div_100mEdit{
+	padding-top: 50px;
 }
 
-#div_weitsprung{
+#div_100mAdd{
+	padding-top: 50px;
+}
 
+#div_weitSEdit{
+	padding-top: 50px;
+}
+
+#div_weitSAdd{
+	padding-top: 50px;
+}
+
+#div_weitWEdit{
+	padding-top: 50px;
+}
+
+#div_weitWAdd{
+	padding-top: 50px;
 }
 
 #information {

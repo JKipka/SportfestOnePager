@@ -54,10 +54,27 @@
                 <li><a href="#overview">Überblick</a></li>
                 <li><a href="#editTermine">Termine</a></li>
                 <li><a href="#editErgebnisse">Ergebnisse</a></li>
-                <li><a href="#editAdmins">Admins verwalten</a></li>
+                
+                <li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ergebnisse
+					<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#editErgebnisse">Alle Ergebnisse</a></li>
+						<li style="padding-left: 20px; padding-right: 20px; padding-top: 10px; padding-bottom: 3px">Bearbeiten: </li>
+						<li style="padding-left: 20px;"><a href="#div_50mEdit">50-Meter-Sprint</a></li>
+						<li style="padding-left: 20px;"><a href="#div_100mEdit">100-Meter-Sprint</a></li>
+						<li style="padding-left: 20px;"><a href="#div_weitSEdit">Weitsprung</a></li>
+						<li style="padding-left: 20px;"><a href="#div_weitWEdit">Weitwurf</a></li>  
+					</ul>
+				</li>
+                
+                
+                
+                
                 <li><a href="#editTexts">Texte bearbeiten</a></li>
-                <li><a href="#editBilder">Fotos hochladen</a></li>
-                <li><a href="/SportfestOnePager/functions/checkOut.jsp">Ausloggen und zurück zur Startseite</a></li>
+                <li><a href="#editBilder"><span class="glyphicon glyphicon-upload"></span> Fotos hochladen</a></li>
+                <li><a href="#editAdmins"><span class="glyphicon glyphicon-user"></span> Admins verwalten</a></li>
+                <li><a href="/SportfestOnePager/functions/checkOut.jsp"><span class="glyphicon glyphicon-log-out"></span> Ausloggen und zurück zur Startseite</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -958,124 +975,6 @@
 </div>
 <!-- /third section -->
 
-<div id="editAdmins" class="pad-section">
-    <div class="container">
-        <h2 class="text-center">Administratoren bearbeiten</h2>
-        <hr/>
-        <div class="row text-center">
-            <div class="col-sm-9 col-xs-6" id="div_adminsBearbeiten">
-                <%
-                    try {
-                        String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
-                        Connection connection = null;
-                        Class.forName("com.mysql.jdbc.Driver").newInstance();
-                        connection = DriverManager.getConnection(connectionURL, "root", "");
-                        if (!connection.isClosed()) {
-
-                            out.println("<h3>Administratoren bearbeiten</h3>");
-                            //Tabelle in Form
-
-                            out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
-                            out.println("<thead class=\"thead-inverse\">");
-                            out.println("<tr>");
-                            out.println("<th>Admin-ID</th>");
-                            out.println("<th>E-Mail</th>");
-                            out.println("</tr>");
-                            out.println("</thead>");
-
-                            query = "SELECT ID,username FROM admins";
-                            pS = connection.prepareStatement(query);
-                            rSAdmins = pS.executeQuery();
-                            //Tabelle füllen mit den Daten aus der DB
-                            while (rSAdmins.next()) {
-                                // rowsCounter++;
-                                out.println("<tr>");
-                                out.println("<form role='form' action='/SportfestOnePager/functions/changeMail.jsp'>");
-                                out.println("<td><input type='text' name='idAdmin' value='" + rSAdmins.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
-                                out.println("<td><input type='text' name='usernameAdmin' value='" + rSAdmins.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
-                                out.println("<td><button type='submit' class='btn btn-success'>Mail speichern</button></td>");
-                                out.println("</form>");
-                                out.println("<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="+rSAdmins.getString(1)+"'>");
-                                out.println("<input type='text' name='changePW' value='" + rSAdmins.getString(1) + "' hidden>");
-                                out.println("<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'>Passwort ändern</button></td>");
-                                out.println("</form>");
-                                out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
-                                out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
-                                out.println("<td><button type='submit' class='btn btn-danger'>Entfernen</button></td>");
-                                out.println("</form>");
-                                out.println("</tr>");
-
-                            }
-
-                            out.println("</table>");
-
-
-                            //out.println("<button action='../functions/editTermin' type='submit'class='btn btn-success'>Speichern</button>");
-
-                            connection.close();
-
-                        }
-
-
-                    } catch (Exception ex) {
-                        out.println("Unable to connect to database" + ex);
-                    }
-
-                %>
-            </div>
-            <div class="col-sm-3 col-xs-6" id="div_adminsAdd">
-                <h3 class="text-center">Administrator hinzufügen</h3>
-                <form role="form" action="${pageContext.request.contextPath}/sendmail" method="post">
-                    <div class="form-group">
-                        <label for="addAdminMail">E-Mail Adresse:</label>
-                        <input id="addAdminMail" class="form-control" name="addAdminMail" type="text" required>
-                    </div>
-
-                    <button type="submit" class="btn btn-success">Hinzufügen</button>
-
-                </form>
-            </div>
-
-
-            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modeltitle">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                    aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="modeltitle">Passwort ändern</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form role="form" data-toggle="validator" action="">
-                                <div class="form-group">
-                                    <label for="adminID">Admin-ID:</label>
-                                    <input class="form-control" type="password" id="adminID" name="adminID" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="oldPW">Altes Passwort:</label>
-                                    <input class="form-control" type="password" id="oldPW" name="oldPW" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="newPW1">Neues Passwort:</label>
-                                    <input class="form-control" type="password" id="newPW1" name="newPW1" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="newPW2">Neues Passwort wiederholen:</label>
-                                    <input class="form-control" type="password" id="newPW2" data-match="#newPW1"
-                                           data-match-error="Passwörter stimmen nicht überein." required>
-                                </div>
-                                <div class="help-block with-errors"></div>
-                                <button type="submit" data-dismiss="modal" class="btn btn-primary">Übernehmen</button>
-                            </form>
-                        </div>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-
-        </div>
-    </div>
-</div>
-
 
 <div id="editTexts" class="pad-section">
     <div class="container">
@@ -1271,6 +1170,123 @@
     </div>
 </div>
 
+<div id="editAdmins" class="pad-section">
+    <div class="container">
+        <h2 class="text-center">Administratoren bearbeiten</h2>
+        <hr/>
+        <div class="row text-center">
+            <div class="col-sm-9 col-xs-6" id="div_adminsBearbeiten">
+                <%
+                    try {
+                        //String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+                        //Connection connection = null;
+                        Class.forName("com.mysql.jdbc.Driver").newInstance();
+                        connection = DriverManager.getConnection(connectionURL, "root", "");
+                        if (!connection.isClosed()) {
+
+                            out.println("<h3>Administratoren bearbeiten</h3>");
+                            //Tabelle in Form
+
+                            out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
+                            out.println("<thead class=\"thead-inverse\">");
+                            out.println("<tr>");
+                            out.println("<th>Admin-ID</th>");
+                            out.println("<th>E-Mail</th>");
+                            out.println("</tr>");
+                            out.println("</thead>");
+
+                            query = "SELECT ID,username FROM admins";
+                            pS = connection.prepareStatement(query);
+                            rSAdmins = pS.executeQuery();
+                            //Tabelle füllen mit den Daten aus der DB
+                            while (rSAdmins.next()) {
+                                // rowsCounter++;
+                                out.println("<tr>");
+                                out.println("<form role='form' action='/SportfestOnePager/functions/changeMail.jsp'>");
+                                out.println("<td><input type='text' name='idAdmin' value='" + rSAdmins.getString(1) + "' class='form-control' readonly style:\"width:30px\"></td>");
+                                out.println("<td><input type='text' name='usernameAdmin' value='" + rSAdmins.getString(2) + "' class='form-control' style:\"width:40px\"></td>");
+                                out.println("<td><button type='submit' class='btn btn-success'>Mail speichern</button></td>");
+                                out.println("</form>");
+                                out.println("<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="+rSAdmins.getString(1)+"'>");
+                                out.println("<input type='text' name='changePW' value='" + rSAdmins.getString(1) + "' hidden>");
+                                out.println("<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'>Passwort ändern</button></td>");
+                                out.println("</form>");
+                                out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
+                                out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
+                                out.println("<td><button type='submit' class='btn btn-danger'>Entfernen</button></td>");
+                                out.println("</form>");
+                                out.println("</tr>");
+
+                            }
+
+                            out.println("</table>");
+
+
+                            //out.println("<button action='../functions/editTermin' type='submit'class='btn btn-success'>Speichern</button>");
+
+                            connection.close();
+
+                        }
+
+
+                    } catch (Exception ex) {
+                        out.println("Unable to connect to database" + ex);
+                    }
+
+                %>
+            </div>
+            <div class="col-sm-3 col-xs-6" id="div_adminsAdd">
+                <h3 class="text-center">Administrator hinzufügen</h3>
+                <form role="form" action="${pageContext.request.contextPath}/sendmail" method="post">
+                    <div class="form-group">
+                        <label for="addAdminMail">E-Mail Adresse:</label>
+                        <input id="addAdminMail" class="form-control" name="addAdminMail" type="text" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Hinzufügen</button>
+
+                </form>
+            </div>
+
+
+            <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modeltitle">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modeltitle">Passwort ändern</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" data-toggle="validator" action="">
+                                <div class="form-group">
+                                    <label for="adminID">Admin-ID:</label>
+                                    <input class="form-control" type="password" id="adminID" name="adminID" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="oldPW">Altes Passwort:</label>
+                                    <input class="form-control" type="password" id="oldPW" name="oldPW" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPW1">Neues Passwort:</label>
+                                    <input class="form-control" type="password" id="newPW1" name="newPW1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPW2">Neues Passwort wiederholen:</label>
+                                    <input class="form-control" type="password" id="newPW2" data-match="#newPW1"
+                                           data-match-error="Passwörter stimmen nicht überein." required>
+                                </div>
+                                <div class="help-block with-errors"></div>
+                                <button type="submit" data-dismiss="modal" class="btn btn-primary">Übernehmen</button>
+                            </form>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

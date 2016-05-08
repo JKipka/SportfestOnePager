@@ -37,9 +37,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#home">Home</a></li>
+					<li><a href="#home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="#termine">Termine</a></li>
-					
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Wettkämpfe
 						<span class="caret"></span></a>
