@@ -1,29 +1,22 @@
-<%@ page import="java.sql.*"%><%--
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 17.02.2016
-  Time: 10:50
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.sql.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-
-<link rel="icon" href="images/Logo2.png">
-
-<meta charset="utf-8" />
-
-<meta name="author" content="Jan Kipka & Jannis Stegmann" />
-
-<title>Sportfest Hessen 2016</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<script src="script/jquery-1.12.0.min.js"></script>
-<script src="script/bootstrap.js"></script>
-<script src="script/validate.js"></script>
-<link href="script/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="script/style.css" rel="stylesheet">
+	
+	<title>Sportfest Hessen 2016</title>
+	<link rel="icon" href="images/Logo2.png">
+	
+	<meta charset="utf-8" />
+	
+	<meta name="author" content="Jan Kipka & Jannis Stegmann" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	
+	<script src="script/jquery-1.12.0.min.js"></script>
+	<script src="script/bootstrap.js"></script>
+	<script src="script/validate.js"></script>
+	
+	<link href="script/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="script/style.css" rel="stylesheet">
 
 </head>
 
@@ -46,11 +39,23 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#termine">Termine</a></li>
-					<li><a href="#wettkaempfe">Wettkämpfe</a></li>
+					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Wettkämpfe
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#wettkaempfe">Alle Wettkämpfe</a></li>
+							<li style="padding-left: 20px; padding-top: 10px; padding-bottom: 3px">Ergebnisse: </li>
+							<li style="padding-left: 20px;"><a href="http://localhost:8080/SportfestOnePager/results/results.jsp">50-Meter-Sprint</a></li>
+							<li style="padding-left: 20px;"><a href="http://localhost:8080/SportfestOnePager/results/results100.jsp">100-Meter-Sprint</a></li>
+							<li style="padding-left: 20px;"><a href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp">Weitsprung</a></li>
+							<li style="padding-left: 20px;"><a href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Weitwurf</a></li>  
+						</ul>
+					</li>
 					<li><a href="#information">Informationen</a></li>
 					<li><a href="#galerie">Galerie</a></li>
 					<li><a href="#google_map">Kontakt</a></li>
-					<li><a href="admin/login.jsp">Login</a></li>
+					<li><a href="admin/login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

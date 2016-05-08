@@ -2,15 +2,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Administrator Startseite</title>
+	
+	<title>Administrator Startseite</title>	
+	<link rel="icon" href="/SportfestOnePager/images/Logo2.png">
+    
     <script src="../script/jquery-1.12.0.min.js"></script>
     <script src="../script/bootstrap.min.js"></script>
     <script src="../script/validate.js"></script>
+    
     <link rel="stylesheet" type="text/css" href="../script/bootstrap.min.css">
     <link href="admin.css" rel="stylesheet"/>
 
     <%
-    
     	//VORHANDENEN COOKIE ABFRAGEN
         Cookie[] cookies = request.getCookies();
         boolean userLoggedIn = false;
@@ -26,10 +29,10 @@
         if(!userLoggedIn){
             response.sendRedirect("login.jsp");
         }
-
-
     %>
+    
 </head>
+
 <body>
 
 <!-- NAVBAR ANFANG -->
@@ -1185,10 +1188,10 @@
 
 <div id="editBilder" class="pad-section">
     <div class="container">
-        <h2 class="text-center">Bilder hinzufügen</h2>
+        <h2 class="text-center">Fotos hinzufügen</h2>
         <div class="row text-center">
             <div class="col-sm-9 col-xs-9" id="bilderBearbeiten">
-                <h3 class="text-center">Bilder bearbeiten</h3>
+                <h3 class="text-center">Fotos bearbeiten</h3>
                 <%
                     String connectionURL1 = "jdbc:mysql://localhost:3306/sportfest";
                     Connection connection1 = null;
@@ -1245,12 +1248,12 @@
                     </table>
             </div>
             <div class="col-sm-3 col-xs-3" id="bilderHochladen">
-                <h3 class="text-center">Bilder hochladen</h3>
+                <h3 class="text-center">Fotos hochladen</h3>
                 <div style="padding-top: 25px; padding-bottom: 25px;">
                     <form role="form" action="/SportfestOnePager/ImageUpload" encType="multipart/form-data" method="post">
                         <div class="btn-group">
                             <a class='btn btn-primary' href='javascript:;'>
-                                Choose File...
+                                Datei auswählen
                                 <input type="file" id="input_file"
                                        style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
                                        name="file" size="40" onchange='$("#upload-file-info").html($(this).val());'>
@@ -1259,7 +1262,7 @@
                             &nbsp;
                             <span class='label label-info' id="upload-file-info"></span>
                         </div>
-                        <br>
+                        <br><br>
                         <input type="submit" class="btn btn-default" id="btn_submit" value="Hochladen">
                     </form>
                 </div>
