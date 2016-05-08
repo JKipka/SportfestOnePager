@@ -54,7 +54,6 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#overview">Überblick</a></li>
 					<li><a href="#editTermine">Termine</a></li>
-					<li><a href="#editErgebnisse">Ergebnisse</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Ergebnisse <span class="caret"></span></a>
 						<ul class="dropdown-menu">
@@ -501,29 +500,27 @@
 
 						<div class="form-group">
 							<label for="addSportart">Sportart:</label> <input
-								id="addSportart" name="addSportart" type="text"
-								class="form-control">
+								id="addSportart" name="addSportart" type="text"	class="form-control" required>
 						</div>
 
 						<div class="form-group">
 							<label for="addSparte">Jugendsparte:</label> <input
-								id="addSparte" name="addSparte" type="text" class="form-control">
+								id="addSparte" name="addSparte" type="text" class="form-control" required>
 						</div>
 
 						<div class="form-group">
 							<label for="addSportplatz">Sportplatz:</label> <input
-								id="addSportplatz" name="addSportplatz" type="text"
-								class="form-control">
+								id="addSportplatz" name="addSportplatz" type="text"	class="form-control" required>
 						</div>
 
 						<div class="form-group">
 							<label for="addDate">Datum:</label> <input id="addDate"
-								name="addDate" type="date" class="form-control">
+								name="addDate" type="date" class="form-control" required>
 						</div>
 
 						<div class="form-group">
 							<label for="addTime">Uhrzeit:</label> <input id="addTime"
-								name="addTime" type="time" class="form-control">
+								name="addTime" type="time" class="form-control" required>
 						</div>
 						<button type="submit" class="btn btn-success">Hinzufügen</button>
 					</form>
@@ -1097,8 +1094,7 @@
 						action="/SportfestOnePager/functions/addArticle.jsp" method="get">
 						<div class='form-group'>
 							<label for='textHeaderIn'>Artikel-Überschrift:</label> <input
-								class='form-control' type='text' id='textHeaderIn'
-								name='textHeaderIn' required>
+								class='form-control' type='text' id='textHeaderIn' name='textHeaderIn' required>
 						</div>
 						<div class='form-group'>
 							<label for='textContentIn'>Artikel-Inhalt:</label>

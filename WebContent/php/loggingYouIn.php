@@ -21,7 +21,7 @@ if (! $link) {
 		// Eingabe und Eintrag aus DB vergleichen
 		if ($pw1 == $pw) {
 			// Cookie setzen, 5 Minuten, gültig für alle Pfade
-			setCookie ( "user", $mail, time () + 300, '/' );
+			setCookie ( "user", $mail, time () + 600, '/' );
 			// MySQL schließen
 			mysql_close ( $link );
 			// weiterleiten

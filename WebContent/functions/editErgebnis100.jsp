@@ -61,7 +61,7 @@
 				+ sparte + "' WHERE ID='" + id + "'";
 		s.execute(query);
 
-		response.sendRedirect("../admin/adminHome.jsp#editErgebnisse#div_100mAdd");
+		response.sendRedirect("../admin/adminHome.jsp#div_100mEdit");
 
 	}
 %>
