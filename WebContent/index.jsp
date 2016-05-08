@@ -33,7 +33,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Sportfest Hessen 2016</a>
+				<a class="navbar-brand" href="">Sportfest Hessen 2016</a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
@@ -108,7 +108,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3" id="logo">
-					<img src="images/Logo.png" alt="logo" style="padding-top: 20px" />
+					<img src="images/Logo.png" alt="logo" style="padding-top: 20px; max-height: 271px; max-width: 262px" />
 				</div>
 				<div class="col-sm-9 text-center">
 					<h2>Die Termine der Wettkämpfe</h2>

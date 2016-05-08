@@ -46,7 +46,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Administratorbereich</a>
+            <a class="navbar-brand" href="">Administratorbereich</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
@@ -54,7 +54,6 @@
                 <li><a href="#overview">Überblick</a></li>
                 <li><a href="#editTermine">Termine</a></li>
                 <li><a href="#editErgebnisse">Ergebnisse</a></li>
-                
                 <li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ergebnisse
 					<span class="caret"></span></a>
@@ -67,10 +66,6 @@
 						<li style="padding-left: 20px;"><a href="#div_weitWEdit">Weitwurf</a></li>  
 					</ul>
 				</li>
-                
-                
-                
-                
                 <li><a href="#editTexts">Texte bearbeiten</a></li>
                 <li><a href="#editBilder"><span class="glyphicon glyphicon-upload"></span> Fotos hochladen</a></li>
                 <li><a href="#editAdmins"><span class="glyphicon glyphicon-user"></span> Admins verwalten</a></li>
