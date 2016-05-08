@@ -141,13 +141,13 @@ footer .glyphicon:hover {
     height: 100%;
 }
 
-#div_termineBearbeiten{
- padding-right: 100px;
-}
+/*#div_termineBearbeiten{
+ 	padding-right: 100px;
+}*/
 
-#div_termineHinzufügen{
+/*#div_termineHinzufügen{
     padding-left: 100px;
-}
+}*/
 
 #editAdmins{
     display: table;

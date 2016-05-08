@@ -1,11 +1,4 @@
-<%@ page import="java.sql.*" %><%--
-	Test for Git
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 17.02.2016
-  Time: 21:11
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -50,17 +43,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Administrator Bereich</a>
+            <a class="navbar-brand" href="#">Administratorbereich</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#overview">Überblick</a></li>
-                <li><a href="#editTermine">Termine bearbeiten</a></li>
-                <li><a href="#editErgebnisse">Ergebnisse eintragen</a></li>
-                <li><a href="#editAdmins">Administratoren hinzufügen</a></li>
-                <li><a href="#editTexts">Texte hinzufügen</a></li>
-                <li><a href="#editBilder">Bilder hinzufügen</a></li>
+                <li><a href="#editTermine">Termine</a></li>
+                <li><a href="#editErgebnisse">Ergebnisse</a></li>
+                <li><a href="#editAdmins">Admins verwalten</a></li>
+                <li><a href="#editTexts">Texte bearbeiten</a></li>
+                <li><a href="#editBilder">Fotos hochladen</a></li>
                 <li><a href="/SportfestOnePager/functions/checkOut.jsp">Ausloggen und zurück zur Startseite</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
@@ -427,7 +420,7 @@
         <h2 class="text-center">Termine bearbeiten</h2>
         <hr/>
         <div class="row text-center">
-            <div class="col-sm-8 col-xs-6" id="div_termineBearbeiten">
+            <div class="col-sm-9 col-xs-6" id="div_termineBearbeiten">
                 <%
                 
                 //Vorhandene Termine zum Bearbeiten aus Datenbank
@@ -496,7 +489,7 @@
 
                 %>
             </div>
-            <div class="col-sm-4 col-xs-6" id="div_termineHinzufügen">
+            <div class="col-sm-3 col-xs-6" id="div_termineHinzufügen">
                 <h3 class="text-center">Termine hinzufügen</h3>
                 <form role="form" action="/SportfestOnePager/functions/addTermin.jsp">
 
