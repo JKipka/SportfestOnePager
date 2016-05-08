@@ -5,17 +5,17 @@
   Time: 08:48
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-    <title>Place Cookie</title>
+<title>Place Cookie</title>
 
-    <%
-        Cookie cookie = new Cookie("user", "logged");
-        cookie.setMaxAge(60*5);
-        response.addCookie(cookie);
-        response.sendRedirect("redirect.jsp");
-    %>
+<%
+	Cookie cookie = new Cookie("user", "logged");
+	cookie.setMaxAge(60 * 5);
+	response.addCookie(cookie);
+	response.sendRedirect("redirect.jsp");
+%>
 </head>
 <body>
 

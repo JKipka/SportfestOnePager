@@ -1,160 +1,166 @@
 /* general styles */
 html, body {
-    height: 100%;
-    width: 100%;
+	height: 100%;
+	width: 100%;
 }
 
 /* padded section */
 .pad-section {
-    padding: 50px 0;
+	padding: 50px 0;
 }
+
 .pad-section img {
-    width: 100%;
+	width: 100%;
 }
 
 /* vertical-centered text */
 .text-vcenter {
-    color: white;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
+	color: white;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
 }
+
 .text-vcenter h1 {
-    font-size: 4.5em;
-    font-weight: 700;
-    margin: 0;
-    padding: 0;
+	font-size: 4.5em;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
 }
 
 /* additional sections */
 #overview {
-    background-color: #ddffcc;
-    display: table;
-    height: 100%;
-    position: relative;
-    width: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	background-color: #ddffcc;
+	display: table;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 #termine_div {
-
+	
 }
 
-#ergebnisse_div{
-    background-color: #ddffcc;
-    display: table;
-    width: 100%;
-    height: 100%;
+#ergebnisse_div {
+	background-color: #ddffcc;
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 
 #wettkaempfe {
-    background-color: #44cc00;
-    color: #ffffff;
+	background-color: #44cc00;
+	color: #ffffff;
 }
+
 #wettkaempfe .glyphicon {
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    display: inline-block;
-    font-size: 60px;
-    height: 140px;
-    line-height: 140px;
-    text-align: center;
-    vertical-align: middle;
-    width: 140px;
+	border: 2px solid #FFFFFF;
+	border-radius: 50%;
+	display: inline-block;
+	font-size: 60px;
+	height: 140px;
+	line-height: 140px;
+	text-align: center;
+	vertical-align: middle;
+	width: 140px;
 }
 
-#div_werfen{
-    vertical-align: middle;
+#div_werfen {
+	vertical-align: middle;
 }
 
-#div_sprung{
-    vertical-align: middle;
+#div_sprung {
+	vertical-align: middle;
 }
 
-#div_sprint{
-    vertical-align: middle;
+#div_sprint {
+	vertical-align: middle;
 }
 
-#admins_div{
-
+#admins_div {
+	
 }
 
-#div_50mEdit{
+#div_50mEdit {
 	padding-top: 50px;
 }
 
-#div_50mAdd{
+#div_50mAdd {
 	padding-top: 50px;
 }
 
-#div_100mEdit{
+#div_100mEdit {
 	padding-top: 50px;
 }
 
-#div_100mAdd{
+#div_100mAdd {
 	padding-top: 50px;
 }
 
-#div_weitSEdit{
+#div_weitSEdit {
 	padding-top: 50px;
 }
 
-#div_weitSAdd{
+#div_weitSAdd {
 	padding-top: 50px;
 }
 
-#div_weitWEdit{
+#div_weitWEdit {
 	padding-top: 50px;
 }
 
-#div_weitWAdd{
+#div_weitWAdd {
 	padding-top: 50px;
 }
 
 #information {
-    background: url(/images/sportplatz02.jpg) no-repeat center center fixed;
-    display: table;
-    height: 800px;
-    position: relative;
-    width: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+	background: url(/images/sportplatz02.jpg) no-repeat center center fixed;
+	display: table;
+	height: 800px;
+	position: relative;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
+
 #information .panel {
-    opacity: 0.85;
+	opacity: 0.85;
 }
 
 #google_map {
-    height: 500px;
+	height: 500px;
 }
 
 footer {
-    padding: 20px 0;
+	padding: 20px 0;
 }
+
 footer .glyphicon {
-    color: #333333;
-    font-size: 60px;
+	color: #333333;
+	font-size: 60px;
 }
+
 footer .glyphicon:hover {
-    color: #306d9f;
+	color: #306d9f;
 }
 
-#editTermine{
-    width: 100%;
-    height: 100%;
-    display: table;
+#editTermine {
+	width: 100%;
+	height: 100%;
+	display: table;
 }
 
-#editErgebnisse{
-    background-color: #ddffcc;
-    display: table;
-    width: 100%;
-    height: 100%;
+#editErgebnisse {
+	background-color: #ddffcc;
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 
 /*#div_termineBearbeiten{
@@ -164,24 +170,24 @@ footer .glyphicon:hover {
 /*#div_termineHinzufügen{
     padding-left: 100px;
 }*/
-
-#editAdmins{
-    display: table;
-    width: 100%;
-    height: 100%;
+#editAdmins {
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 
-#editTexts{
-    background-color: #ddffcc;
-    display: table;
-    width: 100%;
-    height: 100%;
+#editTexts {
+	background-color: #ddffcc;
+	display: table;
+	width: 100%;
+	height: 100%;
 }
 
-#textebearbeiten{
-    height: 500px;
-    overflow-y: scroll;
+#textebearbeiten {
+	height: 500px;
+	overflow-y: scroll;
 }
-.form-change-text{
-    padding-bottom: 15px;
+
+.form-change-text {
+	padding-bottom: 15px;
 }

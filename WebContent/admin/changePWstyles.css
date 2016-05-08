@@ -1,15 +1,15 @@
 body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
 }
 
-.form-change{
-    max-width: 400px;
-    padding: 15px;
-    margin: 0 auto;
+.form-change {
+	max-width: 400px;
+	padding: 15px;
+	margin: 0 auto;
 }
 
-.form-change .form-change-heading{
-    margin-bottom: 10px;
+.form-change .form-change-heading {
+	margin-bottom: 10px;
 }
