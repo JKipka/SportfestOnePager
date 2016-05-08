@@ -61,19 +61,13 @@
 				+ vn + "','" + nn + "','" + alter + "','" + zeit + "','" + verein + "','" + sparte + "')";
 		s.execute(query);
 
-		//request.getRequestDispatcher("/admin/adminHome.jsp#editErgebnisse#div_50mAdd").forward(request, response);
-		response.sendRedirect("../admin/adminHome.jsp#editErgebnisse");
+		response.sendRedirect("../admin/adminHome.jsp#div_50mEdit");
 
 	}
 %>
 
-
-
 </head>
 <body>
-
-
-
 
 </body>
 </html>
