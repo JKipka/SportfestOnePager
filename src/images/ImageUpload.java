@@ -27,6 +27,13 @@ import db.DatabaseCon;
 /**
  * Servlet implementation class ImageUpload
  */
+
+/**
+ * 
+ * VERWENDET DIE EXTERNE JAR FILEUPLOAD VON APACHE ZUM HOCHLADEN DER BILDER
+ *
+ */
+
 @WebServlet("/ImageUpload")
 public class ImageUpload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -44,7 +51,6 @@ public class ImageUpload extends HttpServlet {
      */
     public ImageUpload() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -56,11 +62,13 @@ public class ImageUpload extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	 
-	        // Check that we have a file upload request
+	        // Prüfen ob wir einen File Upload haben
 	        isMultiUpload = ServletFileUpload.isMultipartContent(request);
 	        response.setContentType("text/html");
+	        //PrintWriter für Response vorbereiten
 	        PrintWriter out = response.getWriter( );
 	        if( !isMultiUpload){
+	        	//Response mit folgenden HTML Tags versehen
 	            out.println("<html>");
 	            out.println("<head>");
 	            out.println("<title>Servlet upload</title>");
@@ -72,18 +80,22 @@ public class ImageUpload extends HttpServlet {
 	            return;
 	        }
 
-
+	        //Neue FileItemFactory erstellen
 	        FileItemFactory factory = new DiskFileItemFactory();
 
-	        // Create a new file upload handler
+	        // Neuen File Upload Handler erstellen
 	        ServletFileUpload upload = new ServletFileUpload(factory);
 
 
 	        try {
-	            // Parse the request to get file items.
+	            // Anfrage parsen um die Dateien zu bekommen
 	            List<FileItem> fileItems = upload.parseRequest(request);
+	            
+	            //Datenbankverbindung herstellen über Klasse aus Package .db
 	            DatabaseCon dbCon = new DatabaseCon();
 	            Connection con = dbCon.getDBCon();
+	            
+	            //Für jede hochgeladene Datei
 	            for (FileItem item:fileItems){
 
 	                String itemName = item.getName();
@@ -91,15 +103,15 @@ public class ImageUpload extends HttpServlet {
 	                if(itemName!=null){
 	                    boolean freeFileFound = false;
 	                    String fileNameID = "picture"+imageID;
-	                    uploadDir = new File("C:/Users/kipka/workspace_abap3/SportfestOnePager/WebContent/images/gallery");
-	                    File uploadNew = new File("C:/Users/kipka/workspace_abap3/SportfestOnePager/WebContent/images/gallery/" + fileNameID + ".jpg");
+	                    uploadDir = new File("/SportfestOnePager/WebContent/images/gallery");
+	                    File uploadNew = new File("/SportfestOnePager/WebContent/images/gallery/" + fileNameID + ".jpg");
 	                    while(!freeFileFound){
 	                        if (!(uploadNew.exists())){
 	                            freeFileFound = true;
 	                        }else{
 	                            imageID++;
 	                            fileNameID = "picture"+imageID;
-	                            uploadNew = new File("C:/Users/kipka/workspace_abap3/SportfestOnePager/WebContent/images/gallery/" + fileNameID + ".jpg");
+	                            uploadNew = new File("/SportfestOnePager/WebContent/images/gallery/" + fileNameID + ".jpg");
 	                        }
 	                    }
 	                    //file = File.createTempFile("img",".jpg",uploadDir);
