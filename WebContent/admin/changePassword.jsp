@@ -17,7 +17,13 @@
 <link href="changePWstyles.css" rel="stylesheet" />
 
 <%
-	String adminID = request.getParameter("changePW");
+	String adminID = request.getParameter("adminID");
+	String msg = request.getParameter("msg");
+	if(msg==null){
+		msg = "";
+	}else{
+		msg = "Das eingegebene Passwort ist falsch.";
+	}
 %>
 <script src="ajaxSource.js"></script>
 
@@ -38,6 +44,7 @@
 				<label for="oldPW">Altes Passwort:</label> <input
 					class="form-control" type="password" id="oldPW" name="oldPW"
 					required>
+				<p style="color:red"><%=msg %></p>
 			</div>
 			<div class="form-group">
 				<label for="newPW1">Neues Passwort:</label> <input

@@ -1226,8 +1226,8 @@
 									out.println("<form role='form' action='/SportfestOnePager/functions/changeMail.jsp'>");
 									out.println("<td><input type='text' name='idAdmin' value='" + rSAdmins.getString(1)
 											+ "' class='form-control' readonly style:\"width:30px\"></td>");
-									out.println("<td><input type='text' name='usernameAdmin' value='" + rSAdmins.getString(2)
-											+ "' class='form-control' style:\"width:40px\"></td>");
+									out.println("<td><input type='email' name='usernameAdmin' value='" + rSAdmins.getString(2)
+											+ "' class='form-control' style:\"width:40px\" required></td>");
 									out.println("<td><button type='submit' class='btn btn-success'>Mail speichern</button></td>");
 									out.println("</form>");
 									out.println(

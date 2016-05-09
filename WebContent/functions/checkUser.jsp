@@ -18,7 +18,7 @@
 		Class.forName("com.mysql.jdbc.Driver");
 
 	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/error/databaseError.html");
 	}
 
 	try {
@@ -36,7 +36,7 @@
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
 
 	} catch (SQLException e) {
-		e.printStackTrace();
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/error/databaseError.html");
 
 	}
 

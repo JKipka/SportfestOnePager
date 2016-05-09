@@ -23,25 +23,15 @@
 		Class.forName("com.mysql.jdbc.Driver");
 
 	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/error/databaseError.html");
 	}
 
 	try {
 
-		try {
-
-		} catch (Exception e) {
-
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,
-					"Error while connecting to SQL Database. Check your database choice from the dropdown list.\n Description: "
-							+ e.toString());
-		}
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
 
 	} catch (SQLException e) {
-		e.printStackTrace();
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/error/databaseError.html");
 
 	}
 
