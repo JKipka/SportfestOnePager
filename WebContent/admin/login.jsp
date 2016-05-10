@@ -49,10 +49,10 @@
 			<h2 class="form-signin-heading">Bitte anmelden</h2>
 			<label for="inputEmail" class="sr-only">Email-Adresse</label> <input
 				type="email" id="inputEmail" name="mail" class="form-control"
-				placeholder="Email address" required autofocus> <label
+				placeholder="Email-Adresse" required autofocus> <label
 				for="inputPassword" class="sr-only">Passwort</label> <input
 				type="password" id="inputPassword" name="pw" class="form-control"
-				placeholder="Password" required>
+				placeholder="Passwort" required>
 			<button class="btn btn-lg btn-success btn-block" type="submit">Einloggen</button>
 			<p style="color: red">
 				<%
