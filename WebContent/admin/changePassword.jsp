@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../script/bootstrap.min.css">
 <link href="changePWstyles.css" rel="stylesheet" />
+<link rel="icon" href="/SportfestOnePager/images/Logo2.png">
 
 <%
 	String adminID = request.getParameter("adminID");

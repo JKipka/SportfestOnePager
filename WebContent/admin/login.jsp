@@ -18,6 +18,7 @@
 <script src="../script/bootstrap.js"></script>
 <script src="../script/validate.js"></script>
 <link rel="stylesheet" type="text/css" href="../script/bootstrap.css">
+<link rel="icon" href="/SportfestOnePager/images/Logo2.png">
 <link href="signin.css" rel="stylesheet" />
 
 <%
