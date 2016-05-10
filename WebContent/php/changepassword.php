@@ -14,6 +14,8 @@ if (! $link) {
 	
 	$newPW = base64_encode ( $newPW );
 	
+	
+	//Statement vorbereiten
 	$sqlQueryPW = "SELECT password FROM admins WHERE ID=$id";
 	$resultPW = mysql_query ( $sqlQueryPW );
 	$existingPW = mysql_result ( $resultPW, 0 );

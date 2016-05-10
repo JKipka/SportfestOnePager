@@ -497,30 +497,33 @@
 						action="/SportfestOnePager/functions/addTermin.jsp">
 
 						<div class="form-group">
-							<label for="addSportart">Sportart:</label> 
-								<input id="addSportart" name="addSportart" type="text"	class="form-control" required>
+							<label for="addSportart">Sportart:</label> <input
+								id="addSportart" name="addSportart" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addSparte">Jugendsparte:</label> 
-								<input id="addSparte" name="addSparte" type="text" class="form-control" required>
+							<label for="addSparte">Jugendsparte:</label> <input
+								id="addSparte" name="addSparte" type="text" class="form-control"
+								required>
 						</div>
 
 						<div class="form-group">
-							<label for="addSportplatz">Sportplatz:</label> 
-								<input id="addSportplatz" name="addSportplatz" type="text"	class="form-control" required>
+							<label for="addSportplatz">Sportplatz:</label> <input
+								id="addSportplatz" name="addSportplatz" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addDate">Datum:</label> 
-								<input id="addDate" name="addDate" type="date" class="form-control" required>
+							<label for="addDate">Datum:</label> <input id="addDate"
+								name="addDate" type="date" class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addTime">Uhrzeit:</label> 
-							<input id="addTime" name="addTime" type="time" class="form-control" required>
+							<label for="addTime">Uhrzeit:</label> <input id="addTime"
+								name="addTime" type="time" class="form-control" required>
 						</div>
-						
+
 						<button type="submit" class="btn btn-success">Hinzufügen</button>
 					</form>
 				</div>
@@ -619,35 +622,39 @@
 					<form role="form" action="/SportfestOnePager/functions/add50m.jsp">
 
 						<div class="form-group">
-							<label for="addVorname50">Vorname:</label> 
-								<input id="addVorname50" name="addVorname50" type="text" class="form-control" required>
+							<label for="addVorname50">Vorname:</label> <input
+								id="addVorname50" name="addVorname50" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addNachname50">Nachname:</label> 
-								<input id="addNachname50" name="addNachname50" type="text"	class="form-control" required>
+							<label for="addNachname50">Nachname:</label> <input
+								id="addNachname50" name="addNachname50" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addAlter50">Geburtstag:</label> 
-								<input id="addAlter50" name="addAlter50" type="date" class="form-control" required>
+							<label for="addAlter50">Geburtstag:</label> <input
+								id="addAlter50" name="addAlter50" type="date"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addZeit50">Zeit:</label> 
-								<input id="addZeit50" name="addZeit50" type="time" class="form-control" required>
+							<label for="addZeit50">Zeit:</label> <input id="addZeit50"
+								name="addZeit50" type="time" class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addVerein50">Verein:</label> 
-								<input id="addVerein50"	name="addVerein50" type="text" class="form-control" required>
+							<label for="addVerein50">Verein:</label> <input id="addVerein50"
+								name="addVerein50" type="text" class="form-control" required>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="addSparte50">Sparte:</label> U
-								<input id="addSparte50"	name="addSparte50" type="text" class="form-control" required>
+							<label for="addSparte50">Sparte:</label> U <input
+								id="addSparte50" name="addSparte50" type="text"
+								class="form-control" required>
 						</div>
-						
+
 						<button type="submit" class="btn btn-success">Hinzufügen</button>
 					</form>
 				</div>
@@ -726,35 +733,40 @@
 					<form role="form" action="/SportfestOnePager/functions/add100m.jsp">
 
 						<div class="form-group">
-							<label for="addVorname100">Vorname:</label> 
-								<input id="addVorname100" name="addVorname100" type="text" class="form-control" required>
+							<label for="addVorname100">Vorname:</label> <input
+								id="addVorname100" name="addVorname100" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addNachname100">Nachname:</label> 
-								<input id="addNachname100" name="addNachname100" type="text" class="form-control" required>
+							<label for="addNachname100">Nachname:</label> <input
+								id="addNachname100" name="addNachname100" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addAlter100">Geburtstag:</label> 
-								<input id="addAlter100" name="addAlter100" type="date" class="form-control" required>
+							<label for="addAlter100">Geburtstag:</label> <input
+								id="addAlter100" name="addAlter100" type="date"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addZeit100">Zeit:</label> 
-								<input id="addZeit100" name="addZeit100" type="time" class="form-control" required>
+							<label for="addZeit100">Zeit:</label> <input id="addZeit100"
+								name="addZeit100" type="time" class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addVerein100">Verein:</label> 
-								<input id="addVerein100" name="addVerein100" type="text" class="form-control" required>
+							<label for="addVerein100">Verein:</label> <input
+								id="addVerein100" name="addVerein100" type="text"
+								class="form-control" required>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="addSparte100">Sparte:</label> U
-								<input id="addSparte100" name="addSparte100" type="text" class="form-control" required>
+							<label for="addSparte100">Sparte:</label> U <input
+								id="addSparte100" name="addSparte100" type="text"
+								class="form-control" required>
 						</div>
-						
+
 						<button type="submit" class="btn btn-success">Hinzufügen</button>
 					</form>
 				</div>
@@ -836,35 +848,39 @@
 					<form role="form" action="/SportfestOnePager/functions/addWS.jsp">
 
 						<div class="form-group">
-							<label for="addVornameWS">Vorname:</label> 
-								<input id="addVornameWS" name="addVornameWS" type="text" class="form-control" required>
+							<label for="addVornameWS">Vorname:</label> <input
+								id="addVornameWS" name="addVornameWS" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addNachnameWS">Nachname:</label> 
-								<input id="addNachnameWS" name="addNachnameWS" type="text" class="form-control" required>
+							<label for="addNachnameWS">Nachname:</label> <input
+								id="addNachnameWS" name="addNachnameWS" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addAlterWS">Geburtstag:</label> 
-								<input id="addAlterWS" name="addAlterWS" type="date" class="form-control" required>
+							<label for="addAlterWS">Geburtstag:</label> <input
+								id="addAlterWS" name="addAlterWS" type="date"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addZeitWS">Weite:</label> 
-								<input id="addZeitWS" name="addZeitWS" type="text" class="form-control" required>
+							<label for="addZeitWS">Weite:</label> <input id="addZeitWS"
+								name="addZeitWS" type="text" class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addVereinWS">Verein:</label> 
-								<input id="addVereinWS" name="addVereinWS" type="text" class="form-control" required>
+							<label for="addVereinWS">Verein:</label> <input id="addVereinWS"
+								name="addVereinWS" type="text" class="form-control" required>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="addSparteWS">Sparte:</label> U
-								<input id="addSparteWS" name="addSparteWS" type="text" class="form-control" required>
+							<label for="addSparteWS">Sparte:</label> U <input
+								id="addSparteWS" name="addSparteWS" type="text"
+								class="form-control" required>
 						</div>
-						
+
 						<button type="submit" class="btn btn-success">Hinzufügen</button>
 					</form>
 				</div>
@@ -943,35 +959,38 @@
 					<form role="form" action="/SportfestOnePager/functions/addWW.jsp">
 
 						<div class="form-group">
-							<label for="addVornameWW">Vorname:</label> 
-								<input id="addVornameWW" name="addVornameWW" type="text" class="form-control" required>
+							<label for="addVornameWW">Vorname:</label> <input
+								id="addVornameWW" name="addVornameWW" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addNachname50">Nachname:</label> 
-								<input id="addNachnameWW" name="addNachnameWW" type="text" class="form-control" required>
+							<label for="addNachname50">Nachname:</label> <input
+								id="addNachnameWW" name="addNachnameWW" type="text"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addAlterWW">Geburtstag:</label> 
-								<input id="addAlterWW" name="addAlterWW" type="date" class="form-control" required>
+							<label for="addAlterWW">Geburtstag:</label> <input
+								id="addAlterWW" name="addAlterWW" type="date"
+								class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addZeitWW">Weite:</label> 
-								<input id="addZeitWW" name="addZeitWW" type="text" class="form-control" required>
+							<label for="addZeitWW">Weite:</label> <input id="addZeitWW"
+								name="addZeitWW" type="text" class="form-control" required>
 						</div>
 
 						<div class="form-group">
-							<label for="addVereinWW">Verein:</label> 
-								<input id="addVereinWW" name="addVereinWW" type="text" class="form-control" required>
+							<label for="addVereinWW">Verein:</label> <input id="addVereinWW"
+								name="addVereinWW" type="text" class="form-control" required>
 						</div>
-						
+
 						<div class="form-group">
-							<label for="addSparteWW">Sparte:</label> 
-								<input id="addSparteWW" name="addSparteWW" type="text" class="form-control" required>
+							<label for="addSparteWW">Sparte:</label> <input id="addSparteWW"
+								name="addSparteWW" type="text" class="form-control" required>
 						</div>
-						
+
 						<button type="submit" class="btn btn-success">Hinzufügen</button>
 					</form>
 				</div>
@@ -1083,7 +1102,8 @@
 						action="/SportfestOnePager/functions/addArticle.jsp" method="get">
 						<div class='form-group'>
 							<label for='textHeaderIn'>Artikel-Überschrift:</label> <input
-								class='form-control' type='text' id='textHeaderIn' name='textHeaderIn' required>
+								class='form-control' type='text' id='textHeaderIn'
+								name='textHeaderIn' required>
 						</div>
 						<div class='form-group'>
 							<label for='textContentIn'>Artikel-Inhalt:</label>
@@ -1124,8 +1144,7 @@
 						<thead class="thead-inverse">
 							<tr>
 								<th>ID</th>
-								<th>Quelle</th>
-								<th>Link</th>
+								<th>Pfad</th>
 								<th>Beschreibung</th>
 							</tr>
 						</thead>
@@ -1133,9 +1152,7 @@
 
 						<%
 							while (contentRS1.next()) {
-									String r = contentRS1.getString(2);
-									String[] parts = r.split("/WebContent");
-									String relPath = "/SportfestOnePager" + parts[1];
+									
 						%>
 						<tr>
 							<form role="form"
@@ -1145,7 +1162,7 @@
 									value="<%=contentRS1.getInt(1)%>" readonly></td>
 								<td><input type="text" class="form-control" name="bildSRC"
 									value="<%=contentRS1.getString(2)%>"></td>
-								<td><a href="<%=relPath%>">Ansehen</a></td>
+								<td><a href="">Ansehen</a></td>
 								<td><input type="text" class="form-control" name="bildDesc"
 									value="<%=contentRS1.getString(3)%>"></td>
 								<td><button type="submit" class="btn btn-success">Speichern</button></td>
@@ -1170,20 +1187,20 @@
 				<div class="col-sm-3 col-xs-3" id="bilderHochladen">
 					<h3 class="text-center">Fotos hochladen</h3>
 					<div style="padding-top: 25px; padding-bottom: 25px;">
-						<form role="form" action="/SportfestOnePager/ImageUpload"
-							encType="multipart/form-data" method="post">
-							<div class="btn-group">
-								<a class='btn btn-primary' href='javascript:;'> Datei
-									auswählen <input type="file" id="input_file"
-									style='position: absolute; z-index: 2; top: 0; left: 0; filter: alpha(opacity = 0); -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; opacity: 0; background-color: transparent; color: transparent;'
-									name="file" size="40"
-									onchange='$("#upload-file-info").html($(this).val());'>
-
-								</a> &nbsp; <span class='label label-info' id="upload-file-info"></span>
+						<form role="form" action="/SportfestOnePager/functions/uploadImage.jsp"
+							method="post">
+							<div class="form-group">
+								<label for="addAdminMail">Bildbeschreibung:</label> <input
+									id="bildDesc" class="form-control" name="bildBeschr" type="text"
+									required>
 							</div>
-							<br>
-							<br> <input type="submit" class="btn btn-default"
-								id="btn_submit" value="Hochladen">
+							<div class="form-group">
+								<label for="addAdminMail">Pfad zur Bilddatei:</label> <input
+									id="bildPfad" class="form-control" name="bildPfad" type="text"
+									required>
+							</div>
+							<input type="submit" class="btn btn-success" id="btn_submit"
+								value="Hinzufügen">
 						</form>
 					</div>
 				</div>
@@ -1261,7 +1278,7 @@
 				<div class="col-sm-3 col-xs-6" id="div_adminsAdd">
 					<h3 class="text-center">Administrator hinzufügen</h3>
 					<form role="form"
-						action="${pageContext.request.contextPath}/sendmail" method="post">
+						action="/SportfestOnePager/functions/inviteAdmin.jsp" method="post">
 						<div class="form-group">
 							<label for="addAdminMail">E-Mail Adresse:</label> <input
 								id="addAdminMail" class="form-control" name="addAdminMail"
