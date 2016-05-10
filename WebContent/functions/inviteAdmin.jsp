@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@ page import="java.sql.SQLException"%>
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.sql.DriverManager"%>
@@ -5,13 +6,8 @@
 <%@ page import="javax.swing.*"%>
 <%@ page import="java.util.Random"%>
 <%@ page import="java.util.Properties"%>
-<%@ page import="javax.mail.Session"%>
-<%@ page import="javax.mail.PasswordAuthentication"%>
-<%@ page import="javax.mail.internet.MimeMessage"%>
-<%@ page import="javax.mail.internet.InternetAddress"%>
-<%@ page import="javax.mail.Message"%>
-<%@ page import="javax.mail.Transport"%>
-<%@ page import="javax.mail.internet.AddressException"%><%--
+
+<%--
   Created by IntelliJ IDEA.
   User: kipka
   Date: 18.02.2016
@@ -25,6 +21,7 @@
 
 <%
 	String mail = request.getParameter("addAdminMail");
+	String encodedPW = "";
 
 	Connection connection = null;
 	try {
@@ -66,6 +63,10 @@
 			placeholder = range.charAt(r.nextInt(n));
 			token += placeholder;
 		}
+		System.out.println("Unverschlüsseltes PW für Mail "+mail+": "+token);
+		encodedPW = Base64.getEncoder().encodeToString(token.getBytes());
+		token = encodedPW;
+		System.out.println("Verschlüsseltes PW für Mail "+mail+": "+token);
 
 		Statement s = connection.createStatement();
 		String query = "INSERT INTO admins (username, password) VALUES ('" + mail + "', '" + token + "')";
@@ -73,7 +74,7 @@
 
 		//Send Mail
 
-		try {
+		/* try {
 			String empfaenger = (String) mail;
 			String absender = "sportfesthessen@gmail.com";
 			String password = "peterlustig12";
@@ -109,7 +110,7 @@
 			e.printStackTrace();
 		} catch (javax.mail.MessagingException e) {
 			e.printStackTrace();
-		}
+		} */
 
 		response.sendRedirect("../admin/adminHome.jsp#editAdmins");
 

@@ -53,7 +53,7 @@
 
 		Files.deleteIfExists(deleteFile.toPath());
 
-		response.sendRedirect("../admin/adminHome.jsp#editBilder");
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/admin/adminHome.jsp#editBilder");
 
 	}
 %>

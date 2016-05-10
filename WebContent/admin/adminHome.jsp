@@ -1,3 +1,4 @@
+<%@page import="java.util.Base64"%>
 <%@ page import="java.sql.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
@@ -1162,7 +1163,6 @@
 									value="<%=contentRS1.getInt(1)%>" readonly></td>
 								<td><input type="text" class="form-control" name="bildSRC"
 									value="<%=contentRS1.getString(2)%>"></td>
-								<td><a href="">Ansehen</a></td>
 								<td><input type="text" class="form-control" name="bildDesc"
 									value="<%=contentRS1.getString(3)%>"></td>
 								<td><button type="submit" class="btn btn-success">Speichern</button></td>
@@ -1220,6 +1220,7 @@
 							//Connection connection = null;
 							Class.forName("com.mysql.jdbc.Driver").newInstance();
 							connection = DriverManager.getConnection(connectionURL, "root", "");
+							ResultSet pw = null;
 							if (!connection.isClosed()) {
 
 								out.println("<h3>Administratoren bearbeiten</h3>");
@@ -1234,10 +1235,21 @@
 								out.println("</thead>");
 
 								query = "SELECT ID,username FROM admins";
+								String passwordQuery = "SELECT password FROM admins";
+								String currentPW = "";
+								byte[] pwInBytes = null;
 								pS = connection.prepareStatement(query);
+								PreparedStatement pS1 = connection.prepareStatement(passwordQuery);
 								rSAdmins = pS.executeQuery();
+								pw = pS1.executeQuery();
 								//Tabelle füllen mit den Daten aus der DB
 								while (rSAdmins.next()) {
+									pw.next();
+									currentPW = pw.getString(1);
+									//System.out.println("Passwort aus DB für ID " + rSAdmins.getString(1) + ": " + currentPW);
+									pwInBytes = Base64.getDecoder().decode(currentPW.getBytes());
+									currentPW = new String(pwInBytes);
+									//System.out.println("Entschlüsseltes PW für ID " + rSAdmins.getString(1) + ": " + currentPW);
 									// rowsCounter++;
 									out.println("<tr>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/changeMail.jsp'>");
@@ -1253,6 +1265,10 @@
 									out.println("<input type='text' name='changePW' value='" + rSAdmins.getString(1) + "' hidden>");
 									out.println(
 											"<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'>Passwort ändern</button></td>");
+									out.println("</form>");
+									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
+									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
+									out.println("<td><a id='sendEmail' href='mailto:"+rSAdmins.getString(2)+"?subject=Einladung als Administrator&body=Bitte Passwort ändern. Standard-Passwort: "+currentPW+".'>Mail senden</a></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");

@@ -22,10 +22,10 @@
 	if (!connection.isClosed()) {
 		String query = "UPDATE bilder SET src='" + src + "', beschr='" + desc + "' WHERE ID='" + imageID + "'";
 		PreparedStatement pS = connection.prepareStatement(query);
-		boolean success = pS.execute(query);
+		pS.execute(query);
 
 		connection.close();
-		response.sendRedirect("http://localhost:8080/admin/adminHome.jsp#editBilder");
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/admin/adminHome.jsp#editBilder");
 
 	}
 %>

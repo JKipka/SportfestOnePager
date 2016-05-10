@@ -1,3 +1,4 @@
+<%@page import="db.DatabaseCon"%>
 <%@ page import="java.sql.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
@@ -190,8 +191,7 @@
 					<img class="img-responsive img-rounded" src="images/50m.jpg"
 						width="304" height="236"></img>
 					<p>
-						<br>
-						<a
+						<br> <a
 							href="http://localhost:8080/SportfestOnePager/results/results.jsp"
 							class="btn btn-default">Zu den Ergebnissen</a>
 					</p>
@@ -210,8 +210,7 @@
 					<img class="img-responsive img-rounded" src="images/100meter2.jpg"
 						width="304" height="236"></img>
 					<p>
-						<br>
-						<a
+						<br> <a
 							href="http://localhost:8080/SportfestOnePager/results/results100.jsp"
 							class="btn btn-default">Zu den Ergebnissen</a>
 					</p>
@@ -231,8 +230,7 @@
 					<img class="img-responsive img-rounded"
 						src="images/weitsprung2.jpg" width="304" height="236"></img>
 					<p>
-						<br>
-						<a
+						<br> <a
 							href="http://localhost:8080/SportfestOnePager/results/resultsWS.jsp"
 							class="btn btn-default">Zu den Ergebnissen</a>
 					</p>
@@ -252,8 +250,7 @@
 					<img class="img-responsive img-rounded" src="images/weitwurf.jpg"
 						width="304" height="236"></img>
 					<p>
-						<br>
-						<a
+						<br> <a
 							href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp"
 							class="btn btn-default">Zu den Ergebnissen</a>
 					</p>
@@ -392,6 +389,7 @@
 			<hr />
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
+				<!--  
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -399,7 +397,9 @@
 					<li data-target="#myCarousel" data-slide-to="3"></li>
 					<li data-target="#myCarousel" data-slide-to="4"></li>
 				</ol>
+				-->
 				<!-- Wrapper for slides -->
+				<!--  
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
 						<img src="images/gallery/picture1.jpg" alt="Fußball">
@@ -443,6 +443,89 @@
 						</div>
 					</div>
 				</div>
+				-->
+
+				<%
+					DatabaseCon dbCon = new DatabaseCon();
+						Connection con = null;
+					ResultSet rSBilder = null;
+					ResultSet rSCount = null;
+					try {
+						con = dbCon.getDBCon();
+						String sql = "SELECT * FROM bilder";
+						String sqlCount = "SELECT COUNT(*) FROM bilder";
+						PreparedStatement pSBilder = con.prepareStatement(sql);
+						PreparedStatement pSCount = con.prepareStatement(sqlCount);
+						rSBilder = pSBilder.executeQuery();
+						rSCount = pSCount.executeQuery();
+
+					} catch (SQLException e) {
+
+					}
+
+					rSCount.next();
+					int anzahlBilder = rSCount.getInt(1);
+				%>
+
+				<ol class="carousel-indicators">
+
+					<%
+						for (int i = 0; i < anzahlBilder; i++) {
+							if (i == 0) {
+					%>
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<%
+						} else {
+					%>
+					<li data-target="#myCarousel" data-slide-to="<%=i%>"></li>
+					<%
+						}
+						}
+					%>
+
+				</ol>
+
+
+				<%
+					String pfad = "";
+					String beschr = "";
+					int counter = 0;
+				%>
+				<div class="carousel-inner" role="listbox">
+					<%
+						while (rSBilder.next()) {
+							pfad = rSBilder.getString(2);
+							beschr = rSBilder.getString(3);
+							if (counter == 0) {
+					%>
+					<div class="item active">
+						<img src="<%=pfad%>" alt="Bild">
+						<div class="carousel-caption">
+							<p><%=beschr%></p>
+						</div>
+					</div>
+					<%
+						} else {
+					%>
+
+					<div class="item">
+						<img src="<%=pfad %>" alt="Bild">
+						<div class="carousel-caption">
+							<p><%=beschr %></p>
+						</div>
+					</div>
+
+					<%
+						}
+						counter++;
+						}
+					%>
+				</div>
+				<%
+					con.close();
+				%>
+
+
 
 				<!-- Left and right controls -->
 				<a class="left carousel-control" href="#myCarousel" role="button"
@@ -471,8 +554,7 @@
 							Kipka</a>: +49 177 7482727 und <a
 						href="mailto:jannis.stegmann@web.de">Jannis Stegmann</a>: +49 151
 						44501066
-					</span> <br>
-					<br>
+					</span> <br> <br>
 					<h4>So finden Sie unseren Sportplatz. Berechnen Sie Ihre Route
 						mit Google Maps.</h4>
 				</div>
