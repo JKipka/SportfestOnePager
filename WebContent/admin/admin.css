@@ -171,6 +171,7 @@ footer .glyphicon:hover {
     padding-left: 100px;
 }*/
 #editAdmins {
+	background-color: #ddffcc;
 	display: table;
 	width: 100%;
 	height: 100%;
