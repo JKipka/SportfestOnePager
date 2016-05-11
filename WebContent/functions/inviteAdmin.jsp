@@ -1,3 +1,5 @@
+<%@page import="java.net.URI"%>
+<%@page import="java.awt.Desktop"%>
 <%@page import="java.util.Base64"%>
 <%@ page import="java.sql.SQLException"%>
 <%@ page import="java.sql.Statement"%>
@@ -55,6 +57,7 @@
 		//Passwort generieren
 		String range = "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefgh";
 		String token = "";
+		String placeHolder2 = "";
 		int n = range.length();
 		char placeholder;
 		Random r = new Random();
@@ -63,10 +66,11 @@
 			placeholder = range.charAt(r.nextInt(n));
 			token += placeholder;
 		}
-		System.out.println("Unverschlüsseltes PW für Mail "+mail+": "+token);
+		System.out.println("Unverschlüsseltes PW für Mail " + mail + ": " + token);
+		placeHolder2 = token;
 		encodedPW = Base64.getEncoder().encodeToString(token.getBytes());
 		token = encodedPW;
-		System.out.println("Verschlüsseltes PW für Mail "+mail+": "+token);
+		System.out.println("Verschlüsseltes PW für Mail " + mail + ": " + token);
 
 		Statement s = connection.createStatement();
 		String query = "INSERT INTO admins (username, password) VALUES ('" + mail + "', '" + token + "')";
@@ -88,9 +92,9 @@
 					return new PasswordAuthentication(absender, password);
 				}
 			});
-
+		
 			Message message = new MimeMessage(session1);
-
+		
 			message.setFrom(new InternetAddress(absender));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(empfaenger));
 			message.setSubject("Sie wurden als Administrator des Sportfests Hessen hinzugefügt.");
@@ -99,20 +103,33 @@
 					+ "Bitte ändern Sie dieses umgehend, indem sie sich hier zum Admin bereich anmelden:<br>"
 					+ "<a href=\"http://localhost:8080/admin/login.jsp\">Zum Login hier klicken</a>.<br>"
 					+ "Beste Grüße, Jan vom Sportfest Hessen.";
-
+		
 			message.setContent(messageText, "text/html; charset=utf-8");
-
+		
 			// Send message
 			Transport.send(message);
 			System.out.print("Mail gesendet");
-
+		
 		} catch (AddressException e) {
 			e.printStackTrace();
 		} catch (javax.mail.MessagingException e) {
 			e.printStackTrace();
 		} */
+		
+		String emailBody = "Hallo%0D%0A%0D%0ASie%20wurden%20als%20Administrator%20für%20das%20Sportfest%20Hessen%202016%20eingeladen.%0D%0AFür%20Sie%20wurde%20ein%20Passwort%20generiert.%20Bitte%20ändern%20Sie%20dies%20umgehend.%20Es%20lautet:"+placeHolder2+".%0D%0A%0D%0AMit%20freundlichen%20Grüßen%0D%0AIhr%20Sportfest%20Hessen%20Team";
 
-		response.sendRedirect("../admin/adminHome.jsp#editAdmins");
+		Desktop desktop;
+		if (Desktop.isDesktopSupported() && (desktop = Desktop.getDesktop()).isSupported(Desktop.Action.MAIL)) {
+			URI mailto = new URI("mailto:"+mail+"?subject=Einladung%20als%20Administrator&body="+emailBody);
+			
+			desktop.mail(mailto);
+			response.sendRedirect("../admin/adminHome.jsp#editAdmins");
+		} else {
+			
+			response.sendRedirect("../admin/adminHome.jsp#editAdmins");
+		}
+		
+		
 
 	}
 %>
