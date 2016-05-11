@@ -50,8 +50,7 @@
 			<div class="form-group">
 				<label for="newPW1">Neues Passwort:</label> <input
 					class="form-control" type="password" id="newPW1" data-minlength="6"
-					name="newPW1" required> <span class="help-block">Minimum
-					of 6 characters</span>
+					name="newPW1" required> <span class="help-block">Mindestens 6 Zeichen</span>
 			</div>
 			<div class="form-group">
 				<label for="newPW2">Neues Passwort wiederholen:</label> <input
