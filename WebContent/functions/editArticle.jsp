@@ -27,7 +27,7 @@
 		boolean success = pS.execute(query);
 
 		connection.close();
-		response.sendRedirect("http://localhost:8080/admin/adminHome.jsp#editTexts");
+		response.sendRedirect("http://localhost:8080/SportfestOnePager/admin/adminHome.jsp#editTexts");
 
 	}
 %>

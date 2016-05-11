@@ -313,6 +313,7 @@
 									for (int j = 0; j < textSize; j++) {
 										if (headerRS.next() && contentRS.next()) {
 											String contentS = contentRS.getString(1);
+											System.out.println(contentS);
 											out.println("<div class=\"col-sm-6\">");
 											out.println("<div class=\"panel panel-default\">");
 											out.println("<div class=\"panel-heading\">");
@@ -355,6 +356,7 @@
 											out.println("<h2 class=\"panel-title\">" + headerRS.getString(1) + "</h2>");
 											out.println("</div>");
 											out.println("<div class=\"panel-body lead\">");
+											out.println("<h4>" + contentS + "</h4>");
 											out.println("</div>");
 											out.println("</div>");
 											out.println("</div>");
