@@ -1186,9 +1186,10 @@
 				</div>
 				<div class="col-sm-3 col-xs-3" id="bilderHochladen">
 					<h3 class="text-center">Fotos hochladen</h3>
-					<div style="padding-top: 25px; padding-bottom: 25px;">
+					<!--   
 						<form role="form" action="/SportfestOnePager/functions/uploadImage.jsp"
 							method="post">
+							<!--  
 							<div class="form-group">
 								<label for="addAdminMail">Bildbeschreibung:</label> <input
 									id="bildDesc" class="form-control" name="bildBeschr" type="text"
@@ -1199,9 +1200,39 @@
 									id="bildPfad" class="form-control" name="bildPfad" type="text"
 									required>
 							</div>
+							
+							-->
+							
+							
+							
+							<!--  
 							<input type="submit" class="btn btn-success" id="btn_submit"
 								value="Hinzufügen">
+								-->
+						</form> 
+						
+						<form role="form" action="/SportfestOnePager/functions/addImage.jsp" enctype="multipart/form-data" method="get">
+						<div class="form-group">
+						<label for="file-id">Datei auswählen:</label>
+						<input type="file" id="file-id" name="filename" class="form-control" required/>
+						</div>
+						<div class="form-group">
+						<label for="file-desc">Bild-Beschreibung:</label>
+						<input type="text" id="file-desc" name="filedesc" class="form-control" required>
+						</div>
+						<input type="submit" id="btnUpload" class="btn btn-success" value="Hochladen"/>
 						</form>
+						
+						<script type="text/javascript">
+						
+						document.getElementById("btnUpload").onclick = function theimage(){
+							 var filename = document.getElementById('file-id').value;
+							 document.getElementById("file-in").value= filename;
+							};
+						
+						</script>
+						
+						
 					</div>
 				</div>
 			</div>
