@@ -11,6 +11,10 @@
 <script src="../script/bootstrap.min.js"></script>
 <script src="../script/validate.js"></script>
 
+
+<script src="../script/fileupload.js" type="text/javascript"></script>
+<script src="../script/canvas-to-blob.js" type="text/javascript"></script>
+<script src="../script/fileupload_locale_de.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css"
 	href="../script/bootstrap.min.css">
 <link href="admin.css" rel="stylesheet" />
@@ -1122,7 +1126,7 @@
 		<div class="container">
 			<h2 class="text-center">Fotos hinzufügen</h2>
 			<div class="row text-center">
-				<div class="col-sm-9 col-xs-9" id="bilderBearbeiten">
+				<div class="col-sm-8 col-xs-8" id="bilderBearbeiten">
 					<h3 class="text-center">Fotos bearbeiten</h3>
 					<%
 						String connectionURL1 = "jdbc:mysql://localhost:3306/sportfest";
@@ -1153,7 +1157,6 @@
 
 						<%
 							while (contentRS1.next()) {
-									
 						%>
 						<tr>
 							<form role="form"
@@ -1184,7 +1187,7 @@
 						%>
 					</table>
 				</div>
-				<div class="col-sm-3 col-xs-3" id="bilderHochladen">
+				<div class="col-sm-4 col-xs-4" id="bilderHochladen">
 					<h3 class="text-center">Fotos hochladen</h3>
 					<!--   
 						<form role="form" action="/SportfestOnePager/functions/uploadImage.jsp"
@@ -1202,41 +1205,49 @@
 							</div>
 							
 							-->
-							
-							
-							
-							<!--  
+
+
+
+					<!--  
 							<input type="submit" class="btn btn-success" id="btn_submit"
 								value="Hinzufügen">
 								-->
-						</form> 
-						
-						<form role="form" action="/SportfestOnePager/functions/addImage.jsp" enctype="multipart/form-data" method="get">
+					</form>
+
+					<form role="form"
+						action="/SportfestOnePager/functions/addImage.jsp"
+						enctype="multipart/form-data" method="get">
 						<div class="form-group">
-						<label for="file-id">Datei auswählen:</label>
-						<input type="file" id="file-id" name="filename" class="form-control" required/>
+							<label for="file-desc">Bild-Beschreibung:</label> <input
+								type="text" id="file-desc" name="filedesc" class="form-control"
+								required>
 						</div>
 						<div class="form-group">
-						<label for="file-desc">Bild-Beschreibung:</label>
-						<input type="text" id="file-desc" name="filedesc" class="form-control" required>
+							<label for="file-id">Datei auswählen:</label> <input type="file"
+								id="file-id" name="filename" class="file-loading" required />
+							<script>
+								$(document).on('ready', function() {
+									$("#file-id").fileinput({
+										 language: "de",
+										showCaption : false
+									});
+								});
+							</script>
 						</div>
-						<input type="submit" id="btnUpload" class="btn btn-success" value="Hochladen"/>
-						</form>
-						
-						<script type="text/javascript">
-						
-						document.getElementById("btnUpload").onclick = function theimage(){
-							 var filename = document.getElementById('file-id').value;
-							 document.getElementById("file-in").value= filename;
-							};
-						
-						</script>
-						
-						
-					</div>
+					</form>
+
+					<script type="text/javascript">
+						document.getElementById("btnUpload").onclick = function theimage() {
+							var filename = document.getElementById('file-id').value;
+							document.getElementById("file-in").value = filename;
+						};
+					</script>
+
+
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<div id="editAdmins" class="pad-section">
@@ -1326,7 +1337,8 @@
 				<div class="col-sm-3 col-xs-6" id="div_adminsAdd">
 					<h3 class="text-center">Administrator hinzufügen</h3>
 					<form role="form"
-						action="/SportfestOnePager/functions/inviteAdmin.jsp" method="post">
+						action="/SportfestOnePager/functions/inviteAdmin.jsp"
+						method="post">
 						<div class="form-group">
 							<label for="addAdminMail">E-Mail Adresse:</label> <input
 								id="addAdminMail" class="form-control" name="addAdminMail"
