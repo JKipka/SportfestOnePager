@@ -1249,6 +1249,7 @@
 									//System.out.println("Passwort aus DB für ID " + rSAdmins.getString(1) + ": " + currentPW);
 									pwInBytes = Base64.getDecoder().decode(currentPW.getBytes());
 									currentPW = new String(pwInBytes);
+									String emailBody = "Hallo,%0D%0A%0D%0ASie wurden als Administrator für das Sportfest Hessen 2016 eingeladen.%0D%0AFür Sie wurde ein Passwort generiert, bitte ändern Sie dies umgehend. Es lautet: "+currentPW+".%0D%0A%0D%0AMit freundlichen Grüßen,%0D%0AIhr Sportfest Hessen Team";
 									//System.out.println("Entschlüsseltes PW für ID " + rSAdmins.getString(1) + ": " + currentPW);
 									// rowsCounter++;
 									out.println("<tr>");
@@ -1268,7 +1269,7 @@
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
-									out.println("<td><a id='sendEmail' href='mailto:"+rSAdmins.getString(2)+"?subject=Einladung als Administrator&body=Bitte Passwort ändern. Standard-Passwort: "+currentPW+".'>Mail senden</a></td>");
+									out.println("<td><a id='sendEmail' href='mailto:"+rSAdmins.getString(2)+"?subject=Einladung als Administrator&body="+emailBody+"'>Mail senden</a></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
