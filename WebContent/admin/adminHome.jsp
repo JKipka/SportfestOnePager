@@ -58,10 +58,10 @@
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#overview">Überblick</a></li>
-					<li><a href="#editTermine">Termine</a></li>
+					<li><a href="#overview"><span class="glyphicon glyphicon-globe"></span> Überblick</a></li>
+					<li><a href="#editTermine"><span class="glyphicon glyphicon-calendar"></span> Termine</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Ergebnisse <span class="caret"></span></a>
+						data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list-alt"></span> Ergebnisse <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#editErgebnisse">Alle Ergebnisse</a></li>
 							<li
@@ -72,7 +72,7 @@
 							<li style="padding-left: 20px;"><a href="#div_weitSEdit">Weitsprung</a></li>
 							<li style="padding-left: 20px;"><a href="#div_weitWEdit">Weitwurf</a></li>
 						</ul></li>
-					<li><a href="#editTexts">Texte bearbeiten</a></li>
+					<li><a href="#editTexts"><span class="glyphicon glyphicon-pencil"></span> Texte bearbeiten</a></li>
 					<li><a href="#editBilder"><span
 							class="glyphicon glyphicon-upload"></span> Fotos hochladen</a></li>
 					<li><a href="#editAdmins"><span

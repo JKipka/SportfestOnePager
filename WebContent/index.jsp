@@ -46,11 +46,11 @@
 							Home</a></li>
 					<li><a href="#termine"><span class="glyphicon glyphicon-calendar"></span> Termine</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#"><img src="images/glyphicons-person-running.png" width="14px" height="16px"> Wettkämpfe <span class="caret"></span></a>
+						data-toggle="dropdown" href="#"><img src="images/glyphicons-person-running1.png" width="14px" height="16px"> Wettkämpfe <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#wettkaempfe">Alle Wettkämpfe</a></li>
 							<li
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 3px">Ergebnisse:
+								style="padding-left: 20px; padding-top: 10px; padding-bottom: 3px"><span class="glyphicon glyphicon-list-alt"></span> Ergebnisse:
 							</li>
 							<li style="padding-left: 20px;"><a
 								href="http://localhost:8080/SportfestOnePager/results/results.jsp">50-Meter-Sprint</a></li>
@@ -126,7 +126,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 text-vcenter" id="logo">
-				<input type="submit" class="btn btn-success" id="trigger" value="Zeit und Datum anzeigen">
+				<button type="submit" class="btn btn-success" id="trigger"><span class="glyphicon glyphicon-time"></span> Zeit und Datum anzeigen</button>
 				<canvas id="canvas" width="150" height="150"></canvas>
 				<input type="text" class="form-control" id="dateh4" style="display: none; text-align:center;">
 					<!-- <img src="images/Logo.png" alt="logo>

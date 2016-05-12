@@ -14,7 +14,7 @@
 
 </head>
 
-<body>Redirecting...
+<body>Weiterleiten...
 
 </body>
 </html>
