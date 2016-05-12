@@ -1,3 +1,4 @@
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.net.URI"%>
 <%@page import="java.awt.Desktop"%>
 <%@page import="java.util.Base64"%>
@@ -9,13 +10,7 @@
 <%@ page import="java.util.Random"%>
 <%@ page import="java.util.Properties"%>
 
-<%--
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 18.02.2016
-  Time: 20:59
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
@@ -23,6 +18,7 @@
 
 <%
 	String mail = request.getParameter("addAdminMail");
+	int id = 0;
 	String encodedPW = "";
 
 	Connection connection = null;
@@ -76,60 +72,29 @@
 		String query = "INSERT INTO admins (username, password) VALUES ('" + mail + "', '" + token + "')";
 		s.execute(query);
 
-		//Send Mail
+		Statement s2 = connection.createStatement();
+		String query2 = "SELECT id FROM admins WHERE username='" + mail + "'";
+		ResultSet rS1 = s2.executeQuery(query2);
+		if (rS1.next()) {
+			id = rS1.getInt(1);
+		}
 
-		/* try {
-			String empfaenger = (String) mail;
-			String absender = "sportfesthessen@gmail.com";
-			String password = "peterlustig12";
-			Properties properties = new Properties();
-			properties.put("mail.smtp.auth", "true");
-			properties.put("mail.smtp.starttls.enable", "true");
-			properties.put("mail.smtp.host", "smtp.gmail.com");
-			properties.put("mail.smtp.port", "587");
-			Session session1 = Session.getInstance(properties, new javax.mail.Authenticator() {
-				protected PasswordAuthentication getPasswordAuthentication() {
-					return new PasswordAuthentication(absender, password);
-				}
-			});
-		
-			Message message = new MimeMessage(session1);
-		
-			message.setFrom(new InternetAddress(absender));
-			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(empfaenger));
-			message.setSubject("Sie wurden als Administrator des Sportfests Hessen hinzugefügt.");
-			String messageText = "<h2>Hey!</h2><br><h4>Sie wurden als Administrator des Sportfests Hessen hinzugefügt.<br>"
-					+ "<p>Ihr vorläufiges Passwort zum Login lautet: " + token + "<br>"
-					+ "Bitte ändern Sie dieses umgehend, indem sie sich hier zum Admin bereich anmelden:<br>"
-					+ "<a href=\"http://localhost:8080/admin/login.jsp\">Zum Login hier klicken</a>.<br>"
-					+ "Beste Grüße, Jan vom Sportfest Hessen.";
-		
-			message.setContent(messageText, "text/html; charset=utf-8");
-		
-			// Send message
-			Transport.send(message);
-			System.out.print("Mail gesendet");
-		
-		} catch (AddressException e) {
-			e.printStackTrace();
-		} catch (javax.mail.MessagingException e) {
-			e.printStackTrace();
-		} */
-		
-		String emailBody = "Hallo%0D%0A%0D%0ASie%20wurden%20als%20Administrator%20für%20das%20Sportfest%20Hessen%202016%20eingeladen.%0D%0AFür%20Sie%20wurde%20ein%20Passwort%20generiert.%20Bitte%20ändern%20Sie%20dies%20umgehend.%20Es%20lautet:"+placeHolder2+".%0D%0A%0D%0AMit%20freundlichen%20Grüßen%0D%0AIhr%20Sportfest%20Hessen%20Team";
+		String emailBody = "Hallo%0D%0A%0D%0ASie%20wurden%20als%20Administrator%20für%20das%20Sportfest%20Hessen%202016%20eingeladen.%0D%0AFür%20Sie%20wurde%20ein%20Passwort%20generiert.%20Bitte%20ändern%20Sie%20dies%20umgehend.%20Es%20lautet:"
+				+ placeHolder2
+				+ ".%0D%0A%0D%0ABitte%20ändern%20Sie%20Ihr%20Passwort%20hier:%20http://localhost:8080/SportfestOnePager/admin/changePassword.jsp?adminID="
+				+ id + "%20%0D%0A%0D%0AMit%20freundlichen%20Grüßen%0D%0AIhr%20Sportfest%20Hessen%20Team";
 
 		Desktop desktop;
 		if (Desktop.isDesktopSupported() && (desktop = Desktop.getDesktop()).isSupported(Desktop.Action.MAIL)) {
-			URI mailto = new URI("mailto:"+mail+"?subject=Einladung%20als%20Administrator&body="+emailBody);
-			
+			URI mailto = new URI(
+					"mailto:" + mail + "?subject=Einladung%20als%20Administrator&body=" + emailBody);
+
 			desktop.mail(mailto);
 			response.sendRedirect("../admin/adminHome.jsp#editAdmins");
 		} else {
-			
+
 			response.sendRedirect("../admin/adminHome.jsp#editAdmins");
 		}
-		
-		
 
 	}
 %>

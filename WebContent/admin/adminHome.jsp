@@ -24,11 +24,14 @@
 	//VORHANDENEN COOKIE ABFRAGEN
 	Cookie[] cookies = request.getCookies();
 	boolean userLoggedIn = false;
+	String userMail = "";
 	if (cookies != null) {
 		for (Cookie cookie1 : cookies) {
 			if (cookie1.getName().equals("user")) {
 				//wenn User-Cookie existiert
 				userLoggedIn = true;
+				userMail = cookie1.getValue();
+				userMail = userMail.replace("%40", "@");
 			}
 		}
 	}
@@ -1356,7 +1359,19 @@
 
 			</div>
 		</div>
-	</div>
+	</div> <!-- Admin Edit Ende -->
+
+<!-- footer -->
+	<footer>
+		<div class="container">
+			<p style="float:left">
+			Sie sind eingeloggt als <%=userMail %>. Nicht richtig? <a href="/SportfestOnePager/functions/checkOut.jsp">Ausloggen</a>
+			</p>
+			<p class="text-right">Copyright &copy; Sportfest Hessen 2016</p>
+		</div>
+	</footer>
+	<!-- /footer -->
+
 
 </body>
 </html>
