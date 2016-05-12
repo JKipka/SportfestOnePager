@@ -18,7 +18,6 @@
 <%
 	String id = request.getParameter("bildID");
 	String path = request.getParameter("bildSRC");
-	File deleteFile = new File(path);
 	Connection connection = null;
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
@@ -50,9 +49,6 @@
 		Statement s = connection.createStatement();
 		String query = "DELETE FROM bilder WHERE ID='" + id + "'";
 		s.execute(query);
-
-		Files.deleteIfExists(deleteFile.toPath());
-
 		response.sendRedirect("http://localhost:8080/SportfestOnePager/admin/adminHome.jsp#editBilder");
 
 	}

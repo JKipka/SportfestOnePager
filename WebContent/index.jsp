@@ -192,6 +192,7 @@ document.getElementById("trigger").onclick=function(){
 	document.getElementById("dateh4").style.display = 'block';
 	document.getElementById("dateh4").readOnly = "readonly";
 	document.getElementById("dateh4").value = days+"."+month+"."+year;
+	document.getElementById("trigger").style.display = 'none';
 	
 };
 
