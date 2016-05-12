@@ -44,9 +44,9 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#home"><span class="glyphicon glyphicon-home"></span>
 							Home</a></li>
-					<li><a href="#termine">Termine</a></li>
+					<li><a href="#termine"><span class="glyphicon glyphicon-calendar"></span> Termine</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Wettkämpfe <span class="caret"></span></a>
+						data-toggle="dropdown" href="#"><img src="images/glyphicons-person-running.png" width="14px" height="16px"> Wettkämpfe <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#wettkaempfe">Alle Wettkämpfe</a></li>
 							<li
@@ -61,9 +61,9 @@
 							<li style="padding-left: 20px;"><a
 								href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Weitwurf</a></li>
 						</ul></li>
-					<li><a href="#information">Informationen</a></li>
-					<li><a href="#galerie">Galerie</a></li>
-					<li><a href="#google_map">Kontakt</a></li>
+					<li><a href="#information"><span class="glyphicon glyphicon-info-sign"></span> Informationen</a></li>
+					<li><a href="#galerie"><span class="glyphicon glyphicon-camera"></span> Galerie</a></li>
+					<li><a href="#google_map"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
 					<li><a href="admin/login.jsp"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>

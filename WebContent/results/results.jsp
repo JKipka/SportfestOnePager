@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ergebnisse ansehen</title>
-
+<link rel="icon" href="../images/Logo2.png">
 <script src="../script/jquery-1.12.0.min.js"></script>
 <script src="../script/bootstrap.js"></script>
 <script src="../script/validate.js"></script>
