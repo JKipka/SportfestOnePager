@@ -3,7 +3,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Administrator Startseite</title>
 <link rel="icon" href="/SportfestOnePager/images/Logo2.png">
 
@@ -474,12 +475,12 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='timeT' value='" + rSTermine.getString(6)
 											+ "' class='form-control' style:\"width:40px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
+									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteTermin.jsp'>");
 									out.println(
 											"<input type='text' name='delTermin' value='" + rSTermine.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
+									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -529,7 +530,7 @@
 								name="addTime" type="time" class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success">Hinzufügen</button>
+						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
 					</form>
 				</div>
 
@@ -599,11 +600,11 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparte50' value='" + rS50Meter.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
+									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/delete50.jsp'>");
 									out.println("<input type='text' name='del50' value='" + rS50Meter.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
+									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -624,7 +625,7 @@
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_50mAdd">
 					<h3 class="text-center">50-Meter-Sprint Ergebnisse hinzufügen</h3>
-					<form role="form" action="/SportfestOnePager/functions/add50m.jsp">
+					<form role="form" action="/SportfestOnePager/functions/add50m.jsp" method="post">
 
 						<div class="form-group">
 							<label for="addVorname50">Vorname:</label> <input
@@ -660,7 +661,7 @@
 								class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success">Hinzufügen</button>
+						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
 					</form>
 				</div>
 			</div>
@@ -712,11 +713,11 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparte100' value='" + rS100Meter.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
+									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/delete100.jsp'>");
 									out.println("<input type='text' name='del100' value='" + rS100Meter.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
+									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -772,7 +773,7 @@
 								class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success">Hinzufügen</button>
+						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
 					</form>
 				</div>
 			</div>
@@ -824,12 +825,12 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparteWS' value='" + rSWeitsprung.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
+									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteWS.jsp'>");
 									out.println(
 											"<input type='text' name='delWS' value='" + rSWeitsprung.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
+									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -886,7 +887,7 @@
 								class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success">Hinzufügen</button>
+						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
 					</form>
 				</div>
 			</div>
@@ -938,11 +939,11 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparteWW' value='" + rSWeitwurf.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'>Speichern</button></td>");
+									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteWW.jsp'>");
 									out.println("<input type='text' name='delWW' value='" + rSWeitwurf.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'>Löschen</button></td>");
+									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -996,7 +997,7 @@
 								name="addSparteWW" type="text" class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success">Hinzufügen</button>
+						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
 					</form>
 				</div>
 			</div>
@@ -1051,13 +1052,13 @@
 								<textarea maxlength='4000' class='form-control' rows='5'
 									type='text' id='textContent' name='textContent'><%=contentRS.getString(3)%></textarea>
 							</div>
-							<button type='submit' class='btn btn-success'>Speichern</button>
+							<button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button>
 						</form>
 						<form role="form"
 							action="/SportfestOnePager/functions/deleteText.jsp" method="get">
 							<input class='form-control' type='hidden' id='textIDDel'
 								name='textIDDel' value='<%=contentRS.getInt(1)%>'>
-							<button type='submit' class='btn btn-danger'>Löschen</button>
+							<button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button>
 						</form>
 
 
@@ -1115,7 +1116,7 @@
 							<textarea maxlength='4000' class='form-control' rows='5'
 								type='text' id='textContentIn' name='textContentIn' required></textarea>
 						</div>
-						<button type='submit' class='btn btn-success'>Speichern</button>
+						<button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button>
 					</form>
 				</div>
 			</div>
@@ -1168,7 +1169,7 @@
 									value="<%=contentRS1.getString(2)%>"></td>
 								<td><input type="text" class="form-control" name="bildDesc"
 									value="<%=contentRS1.getString(3)%>"></td>
-								<td><button type="submit" class="btn btn-success">Speichern</button></td>
+								<td><button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>
 							</form>
 							<form role="form"
 								action="/SportfestOnePager/functions/deleteImage.jsp"
@@ -1177,7 +1178,7 @@
 									value="<%=contentRS1.getInt(1)%>" readonly></td>
 								<td><input type="hidden" class="form-control"
 									name="bildSRC" value="<%=contentRS1.getString(2)%>"></td>
-								<td><button type="submit" class="btn btn-danger">Entfernen</button></td>
+								<td><button type="submit" class="btn btn-danger"><span class='glyphicon glyphicon-trash'></span> Entfernen</button></td>
 							</form>
 						</tr>
 
@@ -1300,14 +1301,14 @@
 											+ "' class='form-control' readonly style:\"width:30px\"></td>");
 									out.println("<td><input type='email' name='usernameAdmin' value='" + rSAdmins.getString(2)
 											+ "' class='form-control' style:\"width:40px\" required></td>");
-									out.println("<td><button type='submit' class='btn btn-success'>Mail speichern</button></td>");
+									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Mail speichern</button></td>");
 									out.println("</form>");
 									out.println(
 											"<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="
 													+ rSAdmins.getString(1) + "'>");
 									out.println("<input type='text' name='changePW' value='" + rSAdmins.getString(1) + "' hidden>");
 									out.println(
-											"<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'>Passwort ändern</button></td>");
+											"<td><button type='submit' name='btnChangePW' id='btnChangePW' class='btn btn-primary'><span class='glyphicon glyphicon-cog'></span> Passwort ändern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
@@ -1315,7 +1316,7 @@
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'>Entfernen</button></td>");
+									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Entfernen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -1345,57 +1346,13 @@
 								type="text" required>
 						</div>
 
-						<button type="submit" class="btn btn-success">Hinzufügen</button>
+						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
 
 					</form>
 				</div>
 
 
-				<div class="modal" id="myModal" tabindex="-1" role="dialog"
-					aria-labelledby="modeltitle">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-								<h4 class="modal-title" id="modeltitle">Passwort ändern</h4>
-							</div>
-							<div class="modal-body">
-								<form role="form" data-toggle="validator" action="">
-									<div class="form-group">
-										<label for="adminID">Admin-ID:</label> <input
-											class="form-control" type="password" id="adminID"
-											name="adminID" readonly>
-									</div>
-									<div class="form-group">
-										<label for="oldPW">Altes Passwort:</label> <input
-											class="form-control" type="password" id="oldPW" name="oldPW"
-											required>
-									</div>
-									<div class="form-group">
-										<label for="newPW1">Neues Passwort:</label> <input
-											class="form-control" type="password" id="newPW1"
-											name="newPW1" required>
-									</div>
-									<div class="form-group">
-										<label for="newPW2">Neues Passwort wiederholen:</label> <input
-											class="form-control" type="password" id="newPW2"
-											data-match="#newPW1"
-											data-match-error="Passwörter stimmen nicht überein." required>
-									</div>
-									<div class="help-block with-errors"></div>
-									<button type="submit" data-dismiss="modal"
-										class="btn btn-primary">Übernehmen</button>
-								</form>
-							</div>
-						</div>
-						<!-- /.modal-content -->
-					</div>
-					<!-- /.modal-dialog -->
-				</div>
-				<!-- /.modal -->
+				
 
 			</div>
 		</div>

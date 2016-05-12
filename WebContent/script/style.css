@@ -44,7 +44,7 @@ html, body {
 }
 
 #wettkaempfe {
-    background-color: #44cc00;
+    background-color: rgba(116, 204, 0, 0.9);
     color: #ffffff;
 }
 #wettkaempfe .glyphicon {
