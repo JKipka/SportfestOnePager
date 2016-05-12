@@ -62,11 +62,10 @@
 			placeholder = range.charAt(r.nextInt(n));
 			token += placeholder;
 		}
-		System.out.println("Unverschlüsseltes PW für Mail " + mail + ": " + token);
+		
 		placeHolder2 = token;
 		encodedPW = Base64.getEncoder().encodeToString(token.getBytes());
 		token = encodedPW;
-		System.out.println("Verschlüsseltes PW für Mail " + mail + ": " + token);
 
 		Statement s = connection.createStatement();
 		String query = "INSERT INTO admins (username, password) VALUES ('" + mail + "', '" + token + "')";

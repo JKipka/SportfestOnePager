@@ -1,3 +1,4 @@
+<%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.Base64"%>
 <%@ page import="java.sql.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
@@ -1067,29 +1068,6 @@
 
 					</div>
 
-					<!--
-                                    out.println("<div class='form-change-text'>");
-                                    out.println(" <form role='form' action='' id='form-change-text'>");
-
-                                    out.println("<div class='form-group'>");
-                                    out.println("    <label for='textID'>Text-ID:</label>");
-                                    out.println("    <input class='form-control' type='text' id='textID' name='textID' value='" + contentRS.getInt(1) + "' readonly>");
-                                    out.println("</div>");
-
-                                    out.println("<div class='form-group'>");
-                                    out.println("    <label for='textHeader'>Artikel-Überschrift:</label>");
-                                    out.println("    <input class='form-control' type='text' id='textHeader' name='textHeader' value='" + contentRS.getString(2) + "'>");
-                                    out.println("</div>");
-
-                                    out.println("<div class='form-group'>");
-                                    out.println("    <label for='textContent'>Artikel-Inhalt:</label>");
-                                    out.println("    <textarea class='form-control' rows='5' type='text' id='textContent' name='textContent'>" + contentRS.getString(3) + "</textarea>");
-                                    out.println("</div>");
-
-                                    out.println("  <button type='submit' class='btn btn-success'>Speichern</button>");
-                                    out.println(" </form>");
-                                    out.println("</div>");
-                                    -->
 					<%
 						}
 								}
@@ -1193,30 +1171,6 @@
 				</div>
 				<div class="col-sm-4 col-xs-4" id="bilderHochladen">
 					<h3 class="text-center">Fotos hochladen</h3>
-					<!--   
-						<form role="form" action="/SportfestOnePager/functions/uploadImage.jsp"
-							method="post">
-							<!--  
-							<div class="form-group">
-								<label for="addAdminMail">Bildbeschreibung:</label> <input
-									id="bildDesc" class="form-control" name="bildBeschr" type="text"
-									required>
-							</div>
-							<div class="form-group">
-								<label for="addAdminMail">Pfad zur Bilddatei:</label> <input
-									id="bildPfad" class="form-control" name="bildPfad" type="text"
-									required>
-							</div>
-							
-							-->
-
-
-
-					<!--  
-							<input type="submit" class="btn btn-success" id="btn_submit"
-								value="Hinzufügen">
-								-->
-					</form>
 
 					<form role="form"
 						action="/SportfestOnePager/functions/addImage.jsp"

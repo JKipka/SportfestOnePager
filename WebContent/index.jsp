@@ -510,61 +510,7 @@ function clock(){
 			<hr />
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
-				<!--  
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1"></li>
-					<li data-target="#myCarousel" data-slide-to="2"></li>
-					<li data-target="#myCarousel" data-slide-to="3"></li>
-					<li data-target="#myCarousel" data-slide-to="4"></li>
-				</ol>
-				-->
-				<!-- Wrapper for slides -->
-				<!--  
-				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-						<img src="images/gallery/picture1.jpg" alt="Fußball">
-						<div class="carousel-caption">
-							<h3>Fußball</h3>
-							<p>Anstoß, das Spiel zur Erholung zwischen den harten
-								Leichtathletikdisziplinen kann los gehen.</p>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="images/gallery/picture2.jpg" alt="Chania">
-						<div class="carousel-caption">
-							<h3>Weitwurf</h3>
-							<p>Peter kurz vorm Abwurf.</p>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="images/gallery/picture3.jpg" alt="Chania">
-						<div class="carousel-caption">
-							<h3>Sprint</h3>
-							<p>Usain Bolt zu Besuch in Frankfurt und liegt wie meistens
-								vorne.</p>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="images/gallery/picture4.jpg" alt="Chania">
-						<div class="carousel-caption">
-							<h3>Sprint</h3>
-							<p>Gerald beim Start.</p>
-						</div>
-					</div>
-
-					<div class="item">
-						<img src="images/gallery/picture5.jpg" alt="Chania">
-						<div class="carousel-caption">
-							<h3>Sprint</h3>
-							<p>Auch die jungen Mädels sind dabei.</p>
-						</div>
-					</div>
-				</div>
-				-->
+				
 
 				<%
 					DatabaseCon dbCon = new DatabaseCon();
