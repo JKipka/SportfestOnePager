@@ -119,10 +119,6 @@
 				<a href="http://pinterest.com" target="_blank"><img alt=""
 					src="/SportfestOnePager/images/pinterest.png" /> </a>
 			</div>
-
-
-			<!-- <a href="#about" class="btn btn-default btn-lg">Mehr erfahren</a> -->
-
 		</div>
 	</div>
 	<!-- /first section -->
@@ -523,7 +519,6 @@
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
 
-
 				<%
 					DatabaseCon dbCon = new DatabaseCon();
 					Connection con = null;
@@ -604,8 +599,6 @@
 					con.close();
 				%>
 
-
-
 				<!-- Left and right controls -->
 				<a class="left carousel-control" href="#myCarousel" role="button"
 					data-slide="prev"> <span
@@ -617,8 +610,6 @@
 					<span class="sr-only">Next</span>
 				</a>
 			</div>
-
-
 		</div>
 	</div>
 	<!-- /fifth section -->
