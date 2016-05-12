@@ -35,19 +35,7 @@
 	}
 
 	try {
-
-		try {
-
-		} catch (Exception e) {
-
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,
-					"Error while connecting to SQL Database. Check your database choice from the dropdown list.\n Description: "
-							+ e.toString());
-		}
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
-
 	} catch (SQLException e) {
 		e.printStackTrace();
 
@@ -60,7 +48,7 @@
 				+ "', Geburtstag='" + alter + "', Weite='" + weite + "', Verein='" + verein + "', Sparte='"
 				+ sparte + "' WHERE ID='" + id + "'";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#div_weitSEdit");
 
 	}

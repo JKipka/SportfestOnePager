@@ -22,6 +22,8 @@
 <link href="signin.css" rel="stylesheet" />
 
 <%
+	//VORHANDENE COOKIES ABFRAGEN
+	//Wenn User-Cookie bereits vorhanden, dann direkt weiterleiten auf Admin Seite --> muss eingeloggt sein
 	Cookie[] cookies = request.getCookies();
 	boolean userLoggedIn = false;
 	if (cookies != null) {

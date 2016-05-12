@@ -40,7 +40,7 @@
 		Statement s = connection.createStatement();
 		String query = "UPDATE admins SET username='" + mail + "' WHERE ID='" + id + "'";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#editAdmins");
 
 	}

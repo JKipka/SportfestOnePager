@@ -44,14 +44,17 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#home"><span class="glyphicon glyphicon-home"></span>
 							Home</a></li>
-					<li><a href="#termine"><span class="glyphicon glyphicon-calendar"></span> Termine</a></li>
+					<li><a href="#termine"><span
+							class="glyphicon glyphicon-calendar"></span> Termine</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#"><img src="images/glyphicons-person-running1.png" width="14px" height="16px"> Wettkämpfe <span class="caret"></span></a>
+						data-toggle="dropdown" href="#"><img
+							src="images/glyphicons-person-running1.png" width="14px"
+							height="16px"> Wettkämpfe <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#wettkaempfe">Alle Wettkämpfe</a></li>
 							<li
-								style="padding-left: 20px; padding-top: 10px; padding-bottom: 3px"><span class="glyphicon glyphicon-list-alt"></span> Ergebnisse:
-							</li>
+								style="padding-left: 20px; padding-top: 10px; padding-bottom: 3px"><span
+								class="glyphicon glyphicon-list-alt"></span> Ergebnisse:</li>
 							<li style="padding-left: 20px;"><a
 								href="http://localhost:8080/SportfestOnePager/results/results.jsp">50-Meter-Sprint</a></li>
 							<li style="padding-left: 20px;"><a
@@ -61,9 +64,12 @@
 							<li style="padding-left: 20px;"><a
 								href="http://localhost:8080/SportfestOnePager/results/resultsWW.jsp">Weitwurf</a></li>
 						</ul></li>
-					<li><a href="#information"><span class="glyphicon glyphicon-info-sign"></span> Informationen</a></li>
-					<li><a href="#galerie"><span class="glyphicon glyphicon-camera"></span> Galerie</a></li>
-					<li><a href="#google_map"><span class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
+					<li><a href="#information"><span
+							class="glyphicon glyphicon-info-sign"></span> Informationen</a></li>
+					<li><a href="#galerie"><span
+							class="glyphicon glyphicon-camera"></span> Galerie</a></li>
+					<li><a href="#google_map"><span
+							class="glyphicon glyphicon-earphone"></span> Kontakt</a></li>
 					<li><a href="admin/login.jsp"><span
 							class="glyphicon glyphicon-log-in"></span> Login</a></li>
 				</ul>
@@ -99,9 +105,9 @@
 			<div
 				style="max-width: 1000px; margin: auto; text-align: center; background-color: rgba(255, 255, 255, 0.8); padding: 10px"">
 				<!--Facebook icon-->
-				<a href="http://facebook.com/" target="_blank"><img
-					alt="" src="/SportfestOnePager/images/facebook.png" /> </a>&nbsp;
-				&nbsp; &nbsp;
+				<a href="http://facebook.com/" target="_blank"><img alt=""
+					src="/SportfestOnePager/images/facebook.png" /> </a>&nbsp; &nbsp;
+				&nbsp;
 				<!--Google+ icon-->
 				<a href="http://plus.google.com" target="_blank"><img alt=""
 					src="/SportfestOnePager/images/google.png" /> </a>&nbsp; &nbsp;&nbsp;
@@ -126,9 +132,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 text-vcenter" id="logo">
-				<button type="submit" class="btn btn-success" id="trigger"><span class="glyphicon glyphicon-time"></span> Zeit und Datum anzeigen</button>
-				<canvas id="canvas" width="150" height="150"></canvas>
-				<input type="text" class="form-control" id="dateh4" style="display: none; text-align:center;">
+					<button type="submit" class="btn btn-success" id="trigger">
+						<span class="glyphicon glyphicon-time"></span> Zeit und Datum
+						anzeigen
+					</button>
+					<canvas id="canvas" width="150" height="150"></canvas>
+					<input type="text" class="form-control" id="dateh4"
+						style="display: none; text-align: center;">
 					<!-- <img src="images/Logo.png" alt="logo>
 						style="padding-top: 20px; max-height: 271px; max-width: 262px" /> -->
 				</div>
@@ -182,118 +192,120 @@
 					%>
 				</div>
 				<script type="text/javascript">
+					document.getElementById("trigger").onclick = function() {
+						window.requestAnimationFrame(clock);
+						var now = new Date();
+						var days = now.getDate();
+						var month = now.getMonth() + 1;
+						var year = now.getFullYear();
+						document.getElementById("dateh4").style.display = 'block';
+						document.getElementById("dateh4").readOnly = "readonly";
+						document.getElementById("dateh4").value = days + "."
+								+ month + "." + year;
+						document.getElementById("trigger").style.display = 'none';
 
-document.getElementById("trigger").onclick=function(){
-	window.requestAnimationFrame(clock);
-	var now = new Date();
-	var days = now.getDate();
-	var month = now.getMonth()+1;
-	var year = now.getFullYear();
-	document.getElementById("dateh4").style.display = 'block';
-	document.getElementById("dateh4").readOnly = "readonly";
-	document.getElementById("dateh4").value = days+"."+month+"."+year;
-	document.getElementById("trigger").style.display = 'none';
-	
-};
+					};
 
-function clock(){
-	  var now = new Date();
-	  var ctx = document.getElementById('canvas').getContext('2d');
-	  ctx.save();
-	  ctx.clearRect(0,0,150,150);
-	  ctx.translate(75,75);
-	  ctx.scale(0.4,0.4);
-	  ctx.rotate(-Math.PI/2);
-	  ctx.strokeStyle = "black";
-	  ctx.fillStyle = "white";
-	  ctx.lineWidth = 8;
-	  ctx.lineCap = "round";
+					function clock() {
+						var now = new Date();
+						var ctx = document.getElementById('canvas').getContext(
+								'2d');
+						ctx.save();
+						ctx.clearRect(0, 0, 150, 150);
+						ctx.translate(75, 75);
+						ctx.scale(0.4, 0.4);
+						ctx.rotate(-Math.PI / 2);
+						ctx.strokeStyle = "black";
+						ctx.fillStyle = "white";
+						ctx.lineWidth = 8;
+						ctx.lineCap = "round";
 
-	  // Hour marks
-	  ctx.save();
-	  for (var i=0;i<12;i++){
-	    ctx.beginPath();
-	    ctx.rotate(Math.PI/6);
-	    ctx.moveTo(100,0);
-	    ctx.lineTo(120,0);
-	    ctx.stroke();
-	  }
-	  ctx.restore();
+						// Hour marks
+						ctx.save();
+						for (var i = 0; i < 12; i++) {
+							ctx.beginPath();
+							ctx.rotate(Math.PI / 6);
+							ctx.moveTo(100, 0);
+							ctx.lineTo(120, 0);
+							ctx.stroke();
+						}
+						ctx.restore();
 
-	  // Minute marks
-	  ctx.save();
-	  ctx.lineWidth = 5;
-	  for (i=0;i<60;i++){
-	    if (i%5!=0) {
-	      ctx.beginPath();
-	      ctx.moveTo(117,0);
-	      ctx.lineTo(120,0);
-	      ctx.stroke();
-	    }
-	    ctx.rotate(Math.PI/30);
-	  }
-	  ctx.restore();
-	 
-	  var sec = now.getSeconds();
-	  var min = now.getMinutes();
-	  var hr  = now.getHours();
-	  hr = hr>=12 ? hr-12 : hr;
+						// Minute marks
+						ctx.save();
+						ctx.lineWidth = 5;
+						for (i = 0; i < 60; i++) {
+							if (i % 5 != 0) {
+								ctx.beginPath();
+								ctx.moveTo(117, 0);
+								ctx.lineTo(120, 0);
+								ctx.stroke();
+							}
+							ctx.rotate(Math.PI / 30);
+						}
+						ctx.restore();
 
-	  ctx.fillStyle = "black";
+						var sec = now.getSeconds();
+						var min = now.getMinutes();
+						var hr = now.getHours();
+						hr = hr >= 12 ? hr - 12 : hr;
 
-	  // write Hours
-	  ctx.save();
-	  ctx.rotate( hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec )
-	  ctx.lineWidth = 14;
-	  ctx.beginPath();
-	  ctx.moveTo(-20,0);
-	  ctx.lineTo(80,0);
-	  ctx.stroke();
-	  ctx.restore();
+						ctx.fillStyle = "black";
 
-	  // write Minutes
-	  ctx.save();
-	  ctx.rotate( (Math.PI/30)*min + (Math.PI/1800)*sec )
-	  ctx.lineWidth = 10;
-	  ctx.beginPath();
-	  ctx.moveTo(-28,0);
-	  ctx.lineTo(112,0);
-	  ctx.stroke();
-	  ctx.restore();
-	 
-	  // Write seconds
-	  ctx.save();
-	  ctx.rotate(sec * Math.PI/30);
-	  ctx.strokeStyle = "#D40000";
-	  ctx.fillStyle = "#D40000";
-	  ctx.lineWidth = 6;
-	  ctx.beginPath();
-	  ctx.moveTo(-30,0);
-	  ctx.lineTo(83,0);
-	  ctx.stroke();
-	  ctx.beginPath();
-	  ctx.arc(0,0,10,0,Math.PI*2,true);
-	  ctx.fill();
-	  ctx.beginPath();
-	  ctx.arc(95,0,10,0,Math.PI*2,true);
-	  ctx.stroke();
-	  ctx.fillStyle = "rgba(0,0,0,0)";
-	  ctx.arc(0,0,3,0,Math.PI*2,true);
-	  ctx.fill();
-	  ctx.restore();
+						// write Hours
+						ctx.save();
+						ctx.rotate(hr * (Math.PI / 6) + (Math.PI / 360) * min
+								+ (Math.PI / 21600) * sec)
+						ctx.lineWidth = 14;
+						ctx.beginPath();
+						ctx.moveTo(-20, 0);
+						ctx.lineTo(80, 0);
+						ctx.stroke();
+						ctx.restore();
 
-	  ctx.beginPath();
-	  ctx.lineWidth = 14;
-	  ctx.strokeStyle = 'rgba(116, 204, 0, 1)';
-	  ctx.arc(0,0,142,0,Math.PI*2,true);
-	  ctx.stroke();
+						// write Minutes
+						ctx.save();
+						ctx.rotate((Math.PI / 30) * min + (Math.PI / 1800)
+								* sec)
+						ctx.lineWidth = 10;
+						ctx.beginPath();
+						ctx.moveTo(-28, 0);
+						ctx.lineTo(112, 0);
+						ctx.stroke();
+						ctx.restore();
 
-	  ctx.restore();
+						// Write seconds
+						ctx.save();
+						ctx.rotate(sec * Math.PI / 30);
+						ctx.strokeStyle = "#D40000";
+						ctx.fillStyle = "#D40000";
+						ctx.lineWidth = 6;
+						ctx.beginPath();
+						ctx.moveTo(-30, 0);
+						ctx.lineTo(83, 0);
+						ctx.stroke();
+						ctx.beginPath();
+						ctx.arc(0, 0, 10, 0, Math.PI * 2, true);
+						ctx.fill();
+						ctx.beginPath();
+						ctx.arc(95, 0, 10, 0, Math.PI * 2, true);
+						ctx.stroke();
+						ctx.fillStyle = "rgba(0,0,0,0)";
+						ctx.arc(0, 0, 3, 0, Math.PI * 2, true);
+						ctx.fill();
+						ctx.restore();
 
-	  window.requestAnimationFrame(clock);
-	}
+						ctx.beginPath();
+						ctx.lineWidth = 14;
+						ctx.strokeStyle = 'rgba(116, 204, 0, 1)';
+						ctx.arc(0, 0, 142, 0, Math.PI * 2, true);
+						ctx.stroke();
 
-</script>
+						ctx.restore();
+
+						window.requestAnimationFrame(clock);
+					}
+				</script>
 			</div>
 		</div>
 	</div>
@@ -510,7 +522,7 @@ function clock(){
 			<hr />
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
-				
+
 
 				<%
 					DatabaseCon dbCon = new DatabaseCon();
@@ -576,15 +588,15 @@ function clock(){
 					%>
 
 					<div class="item">
-						<img src="<%=pfad %>" alt="Bild">
+						<img src="<%=pfad%>" alt="Bild">
 						<div class="carousel-caption">
-							<p><%=beschr %></p>
+							<p><%=beschr%></p>
 						</div>
 					</div>
 
 					<%
 						}
-						counter++;
+							counter++;
 						}
 					%>
 				</div>
@@ -644,9 +656,9 @@ function clock(){
 		<div class="container">
 			<p style="text-align: center">
 				<!--Facebook icon-->
-				<a href="http://facebook.com/" target="_blank"><img
-					alt="" src="/SportfestOnePager/images/facebook.png" /> </a>&nbsp;
-				&nbsp; &nbsp;
+				<a href="http://facebook.com/" target="_blank"><img alt=""
+					src="/SportfestOnePager/images/facebook.png" /> </a>&nbsp; &nbsp;
+				&nbsp;
 				<!--Google+ icon-->
 				<a href="http://plus.google.com" target="_blank"><img alt=""
 					src="/SportfestOnePager/images/google.png" /> </a>&nbsp; &nbsp;&nbsp;

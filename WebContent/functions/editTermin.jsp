@@ -38,17 +38,6 @@
 	}
 
 	try {
-
-		try {
-
-		} catch (Exception e) {
-
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,
-					"Error while connecting to SQL Database. Check your database choice from the dropdown list.\n Description: "
-							+ e.toString());
-		}
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
 
 	} catch (SQLException e) {
@@ -62,7 +51,7 @@
 		String query = "UPDATE termine SET Beschreibung='" + desc + "', Jugendsparte='" + sparte + "', Ort='"
 				+ place + "', Datum='" + date + "', Uhrzeit='" + time + "' WHERE Nummer='" + id + "'";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#editTermine");
 
 	}

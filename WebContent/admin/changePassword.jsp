@@ -18,21 +18,23 @@
 <link rel="icon" href="/SportfestOnePager/images/Logo2.png">
 
 <%
+	//Falls das Passwort falsch eingegeben wird, wird aus der URL der Parameter "msg" entnommen,
+	//sodass eine Fehlermeldung angezeigt wird
 	String adminID = request.getParameter("adminID");
 	String msg = request.getParameter("msg");
-	if(msg==null){
+	if (msg == null) {
 		msg = "";
-	}else{
+	} else {
 		msg = "Das eingegebene Passwort ist falsch.";
 	}
 %>
-<script src="ajaxSource.js"></script>
-
 
 </head>
 <body>
 
 	<div class="container">
+
+		<!-- PASSWORT ÄNDERN FORM -->
 
 		<form role="form" class="form-change" data-toggle="validator"
 			method="post" action="/SportfestOnePager/php/changepassword.php">
@@ -45,12 +47,13 @@
 				<label for="oldPW">Altes Passwort:</label> <input
 					class="form-control" type="password" id="oldPW" name="oldPW"
 					required>
-				<p style="color:red"><%=msg %></p>
+				<p style="color: red"><%=msg%></p>
 			</div>
 			<div class="form-group">
 				<label for="newPW1">Neues Passwort:</label> <input
 					class="form-control" type="password" id="newPW1" data-minlength="6"
-					name="newPW1" required> <span class="help-block">Mindestens 6 Zeichen</span>
+					name="newPW1" required> <span class="help-block">Mindestens
+					6 Zeichen</span>
 			</div>
 			<div class="form-group">
 				<label for="newPW2">Neues Passwort wiederholen:</label> <input

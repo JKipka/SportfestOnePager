@@ -24,6 +24,7 @@
 	alter = dateS2;
 	String weite = request.getParameter("zeitWW");
 	String verein = request.getParameter("vereinWW");
+	String sparte = request.getParameter("sparteWW");
 
 	Connection connection = null;
 	try {
@@ -34,17 +35,6 @@
 	}
 
 	try {
-
-		try {
-
-		} catch (Exception e) {
-
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,
-					"Error while connecting to SQL Database. Check your database choice from the dropdown list.\n Description: "
-							+ e.toString());
-		}
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
 
 	} catch (SQLException e) {
@@ -56,10 +46,11 @@
 
 		Statement s = connection.createStatement();
 		String query = "UPDATE weitwurf SET Vorname='" + vorname + "', Nachname='" + nachname
-				+ "', Geburtstag='" + alter + "', Meter='" + weite + "', Verein='" + verein + "' WHERE ID='"
+				+ "', Geburtstag='" + alter + "', Meter='" + weite + "', Verein='" + verein + "', Sparte='"
+						+ sparte+"' WHERE ID='"
 				+ id + "'";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#div_weitWEdit");
 
 	}

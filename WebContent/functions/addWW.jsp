@@ -31,12 +31,6 @@
 	}
 
 	try {
-
-		try {
-
-		} catch (Exception e) {
-			response.sendRedirect("http://localhost:8080/SportfestOnePager/error/databaseError.html");
-		}
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
 
 	} catch (SQLException e) {
@@ -50,7 +44,7 @@
 		String query = "INSERT INTO weitwurf(Vorname, Nachname, Geburtstag, Meter, Verein, Sparte) VALUES('"
 				+ vn + "','" + nn + "','" + alter + "','" + zeit + "','" + verein + "','" + sparte + "')";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#div_weitWEdit");
 
 	}

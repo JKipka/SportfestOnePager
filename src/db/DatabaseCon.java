@@ -9,42 +9,33 @@ import java.sql.SQLException;
  * Created by kipka on 08.01.2016.
  */
 public class DatabaseCon {
-   public DatabaseCon(){
+	public DatabaseCon() {
+		// Konstruktor
+	}
 
-   }
+	// Methode, die eine SQL Verbindung zurückgibt
+	public Connection getDBCon() {
+		
+		//SQL Verbindungsobjekt
+		Connection connection = null;
 
-    public Connection getDBCon(){
-        Connection connection = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
+		
+		//Treiber laden
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+			return null;
+		}
 
-        }catch (ClassNotFoundException e){
-            e.printStackTrace();
-        }
+		//Verbindung aufbauen und zurückgeben
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
+			return connection;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 
-        try {
-
-
-
-            try {
-
-            } catch (Exception e) {
-
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-                JOptionPane
-                        .showMessageDialog(
-                                null,
-                                "Error while connecting to SQL Database. Check your database choice from the dropdown list.\n Description: "
-                                        + e.toString());
-            }
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/sportfest", "root", "");
-            return connection;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-    }
+	}
 }

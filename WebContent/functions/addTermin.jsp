@@ -49,7 +49,7 @@
 		String query = "INSERT INTO termine(Beschreibung, Jugendsparte, Ort, Datum, Uhrzeit) VALUES('"
 				+ sportart + "','" + sparte + "','" + sportplatz + "','" + datum + "','" + zeit + "')";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#editTermine");
 
 	}

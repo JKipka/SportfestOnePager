@@ -5,11 +5,9 @@ html, body {
 	width: 100%;
 }
 
-body{
+body {
 	background-color: #ddffcc;
 }
-
-
 
 /* padded section */
 .pad-section {
@@ -20,18 +18,18 @@ body{
 	width: 100%;
 }
 
-#ergebnisse50M{
+#ergebnisse50M {
 	background-color: #ddffcc;
 }
 
-#ergebnisse100M{
+#ergebnisse100M {
 	background-color: #ddffcc;
 }
 
-#ergebnisseWW{
+#ergebnisseWW {
 	background-color: #ddffcc;
 }
 
-#ergebnisseWS{
+#ergebnisseWS {
 	background-color: #ddffcc;
 }

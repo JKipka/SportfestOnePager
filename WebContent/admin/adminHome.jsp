@@ -1,3 +1,5 @@
+<%@page import="com.sun.org.apache.bcel.internal.generic.DCONST"%>
+<%@page import="db.DatabaseCon"%>
 <%@page import="java.sql.Timestamp"%>
 <%@page import="java.util.Base64"%>
 <%@ page import="java.sql.*"%>
@@ -9,20 +11,25 @@
 <title>Administrator Startseite</title>
 <link rel="icon" href="/SportfestOnePager/images/Logo2.png">
 
+<!-- JQUERY -->
 <script src="../script/jquery-1.12.0.min.js"></script>
+<!-- BOOTSTRAP -->
 <script src="../script/bootstrap.min.js"></script>
+<!-- VALIDATOR PLUGIN -->
 <script src="../script/validate.js"></script>
 
-
+<!-- FILEUPLOAD PLUGIN -->
 <script src="../script/fileupload.js" type="text/javascript"></script>
 <script src="../script/canvas-to-blob.js" type="text/javascript"></script>
 <script src="../script/fileupload_locale_de.js" type="text/javascript"></script>
+
+<!-- STYLESHEETS -->
 <link rel="stylesheet" type="text/css"
 	href="../script/bootstrap.min.css">
 <link href="admin.css" rel="stylesheet" />
 
 <%
-	//VORHANDENEN COOKIE ABFRAGEN
+	//VORHANDENEN COOKIES ABFRAGEN
 	Cookie[] cookies = request.getCookies();
 	boolean userLoggedIn = false;
 	String userMail = "";
@@ -31,13 +38,16 @@
 			if (cookie1.getName().equals("user")) {
 				//wenn User-Cookie existiert
 				userLoggedIn = true;
+				//Mail des eingeloggten Users in Variable speichern für Footer Anzeige
 				userMail = cookie1.getValue();
+				//%40 durch @ ersetzen
 				userMail = userMail.replace("%40", "@");
 			}
 		}
 	}
 
 	if (!userLoggedIn) {
+		//Wenn Nutzer Cookie nicht existiert, zurück auf Login Seite
 		response.sendRedirect("login.jsp");
 	}
 %>
@@ -49,7 +59,7 @@
 	<!-- NAVBAR ANFANG -->
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
+			<!-- NavBar Elemente werden gruppiert für mobile Ansichten -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#navbar-collapse-main">
@@ -62,10 +72,14 @@
 
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#overview"><span class="glyphicon glyphicon-globe"></span> Überblick</a></li>
-					<li><a href="#editTermine"><span class="glyphicon glyphicon-calendar"></span> Termine</a></li>
+					<li><a href="#overview"><span
+							class="glyphicon glyphicon-globe"></span> Überblick</a></li>
+					<li><a href="#editTermine"><span
+							class="glyphicon glyphicon-calendar"></span> Termine</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-list-alt"></span> Ergebnisse <span class="caret"></span></a>
+						data-toggle="dropdown" href="#"><span
+							class="glyphicon glyphicon-list-alt"></span> Ergebnisse <span
+							class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#editErgebnisse">Alle Ergebnisse</a></li>
 							<li
@@ -76,7 +90,8 @@
 							<li style="padding-left: 20px;"><a href="#div_weitSEdit">Weitsprung</a></li>
 							<li style="padding-left: 20px;"><a href="#div_weitWEdit">Weitwurf</a></li>
 						</ul></li>
-					<li><a href="#editTexts"><span class="glyphicon glyphicon-pencil"></span> Texte bearbeiten</a></li>
+					<li><a href="#editTexts"><span
+							class="glyphicon glyphicon-pencil"></span> Texte bearbeiten</a></li>
 					<li><a href="#editBilder"><span
 							class="glyphicon glyphicon-upload"></span> Fotos hochladen</a></li>
 					<li><a href="#editAdmins"><span
@@ -102,16 +117,16 @@
 					//Termine aus Datenbank ziehen
 					PreparedStatement pS;
 					String query;
-					ResultSet rSTermine = null;;
+					ResultSet rSTermine = null;
+					DatabaseCon dCon = new DatabaseCon();
 					try {
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
-						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+
+						//Datenbankverbindung herstellen
+						Connection connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 
 							out.println("<h3>Termine</h3>");
-							//Tabelle
+							//Tabelle generieren, zuerst Header
 							out.println("<table class=\"table table-condensed\" cellspacing='0' cellpadding='10'>");
 							out.println("<thead class=\"thead-inverse\">");
 							out.println("<tr>");
@@ -123,9 +138,11 @@
 							out.println("</tr>");
 							out.println("</thead>");
 
+							//Datenbank abfragen
 							query = "SELECT Beschreibung,Jugendsparte, ort, date_format(Datum, '%e.%m.%Y') AS datum, uhrzeit FROM termine";
 							pS = connection.prepareStatement(query);
 							rSTermine = pS.executeQuery();
+
 							//Tabelle füllen mit den Daten aus der DB
 							while (rSTermine.next()) {
 
@@ -146,7 +163,7 @@
 						}
 
 					} catch (Exception ex) {
-						out.println("Unable to connect to database" + ex);
+						out.println("Unable to connect to database: Error-Code: " + ex);
 					}
 				%>
 			</div>
@@ -157,14 +174,17 @@
 
 					//Administratoren aus Datenbank ziehen
 					try {
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+
+						// 						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
+						// 						
+						// 						Class.forName("com.mysql.jdbc.Driver").newInstance();
+						// 						connection = DriverManager.getConnection(connectionURL, "root", "");
 						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+						connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 
 							out.println("<h3>Administratoren</h3>");
-							//Tabelle
+							//Tabelle erzeugen
 							out.println("<table class=\"table table-condensed\" cellspacing='0' cellpadding='10'>");
 							out.println("<thead class=\"thead-inverse\">");
 							out.println("<tr>");
@@ -203,17 +223,14 @@
 				<h4>50 Meter Lauf</h4>
 				<%
 					//Ergebnisse des 50-Meter-Sprints aus Datenbank ziehen
-
 					ResultSet rS50Meter;
 
 					try {
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+						connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 
-							//Tabelle
+							//Tabelle erzeugen
 							out.println("<table class=\"table table-condensed\" cellspacing='0' cellpadding='10'>");
 							out.println("<thead class=\"thead-inverse\">");
 							out.println("<tr>");
@@ -259,15 +276,12 @@
 				<%
 					ResultSet rS100Meter;
 					//Ergebnisse des 100-Meter-Sprints aus Datenbank ziehen
-
 					try {
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+						connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 
-							//Tabelle
+							//Tabelle erzeugen
 							out.println("<table class=\"table table-condensed\" cellspacing='0' cellpadding='10'>");
 							out.println("<thead class=\"thead-inverse\">");
 							out.println("<tr>");
@@ -320,10 +334,8 @@
 					//Ergebnisse des Weitwurf Wettbewerbs aus Datenbank ziehen
 
 					try {
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+						connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 
 							//Tabelle generieren
@@ -375,10 +387,8 @@
 					//Ergebnisse des Weitsprung Wettbewerbs aus Datenbank ziehen
 
 					try {
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+						connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 
 							//Tabelle generieren
@@ -437,10 +447,8 @@
 
 						try {
 
-							String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 							Connection connection = null;
-							Class.forName("com.mysql.jdbc.Driver").newInstance();
-							connection = DriverManager.getConnection(connectionURL, "root", "");
+							connection = dCon.getDBCon();
 							if (!connection.isClosed()) {
 
 								out.println("<h3>Termine bearbeiten</h3>");
@@ -479,12 +487,14 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='timeT' value='" + rSTermine.getString(6)
 											+ "' class='form-control' style:\"width:40px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteTermin.jsp'>");
 									out.println(
 											"<input type='text' name='delTermin' value='" + rSTermine.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -534,7 +544,9 @@
 								name="addTime" type="time" class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
+						<button type="submit" class="btn btn-success">
+							<span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen
+						</button>
 					</form>
 				</div>
 
@@ -560,10 +572,8 @@
 				<div class="col-sm-9 col-xs-6" id="div_50mEdit">
 					<%
 						try {
-							String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 							Connection connection = null;
-							Class.forName("com.mysql.jdbc.Driver").newInstance();
-							connection = DriverManager.getConnection(connectionURL, "root", "");
+							connection = dCon.getDBCon();
 							if (!connection.isClosed()) {
 
 								out.println("<h3>50-Meter-Sprint Ergebnisse bearbeiten</h3>");
@@ -587,7 +597,7 @@
 								rS50Meter = pS.executeQuery();
 								//Tabelle füllen mit den Daten aus der DB
 								while (rS50Meter.next()) {
-									// rowsCounter++;
+
 									out.println("<tr>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/editErgebnis50Meter.jsp'>");
 									out.println("<td><input type='text' name='id50' value='" + rS50Meter.getString(1)
@@ -604,19 +614,19 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparte50' value='" + rS50Meter.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/delete50.jsp'>");
 									out.println("<input type='text' name='del50' value='" + rS50Meter.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
 								}
 
 								out.println("</table>");
-
-								//out.println("<button action='../functions/editTermin' type='submit'class='btn btn-success'>Speichern</button>");
 
 								connection.close();
 
@@ -629,7 +639,8 @@
 				</div>
 				<div class="col-sm-3 col-xs-6" id="div_50mAdd">
 					<h3 class="text-center">50-Meter-Sprint Ergebnisse hinzufügen</h3>
-					<form role="form" action="/SportfestOnePager/functions/add50m.jsp" method="post">
+					<form role="form" action="/SportfestOnePager/functions/add50m.jsp"
+						method="post">
 
 						<div class="form-group">
 							<label for="addVorname50">Vorname:</label> <input
@@ -665,7 +676,9 @@
 								class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
+						<button type="submit" class="btn btn-success">
+							<span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen
+						</button>
 					</form>
 				</div>
 			</div>
@@ -673,10 +686,8 @@
 				<div class="col-sm-9 col-xs-6" id="div_100mEdit">
 					<%
 						try {
-							String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 							Connection connection = null;
-							Class.forName("com.mysql.jdbc.Driver").newInstance();
-							connection = DriverManager.getConnection(connectionURL, "root", "");
+							connection = dCon.getDBCon();
 							if (!connection.isClosed()) {
 
 								out.println("<h3>100-Meter-Sprint Ergebnisse bearbeiten</h3>");
@@ -717,11 +728,13 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparte100' value='" + rS100Meter.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/delete100.jsp'>");
 									out.println("<input type='text' name='del100' value='" + rS100Meter.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -777,7 +790,9 @@
 								class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
+						<button type="submit" class="btn btn-success">
+							<span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen
+						</button>
 					</form>
 				</div>
 			</div>
@@ -785,10 +800,8 @@
 				<div class="col-sm-9 col-xs-6" id="div_weitSEdit">
 					<%
 						try {
-							String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 							Connection connection = null;
-							Class.forName("com.mysql.jdbc.Driver").newInstance();
-							connection = DriverManager.getConnection(connectionURL, "root", "");
+							connection = dCon.getDBCon();
 							if (!connection.isClosed()) {
 
 								out.println("<h3>Weitsprung Ergebnisse bearbeiten</h3>");
@@ -829,12 +842,14 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparteWS' value='" + rSWeitsprung.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteWS.jsp'>");
 									out.println(
 											"<input type='text' name='delWS' value='" + rSWeitsprung.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -891,7 +906,9 @@
 								class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
+						<button type="submit" class="btn btn-success">
+							<span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen
+						</button>
 					</form>
 				</div>
 			</div>
@@ -899,10 +916,8 @@
 				<div class="col-sm-9 col-xs-6" id="div_weitWEdit">
 					<%
 						try {
-							String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 							Connection connection = null;
-							Class.forName("com.mysql.jdbc.Driver").newInstance();
-							connection = DriverManager.getConnection(connectionURL, "root", "");
+							connection = dCon.getDBCon();
 							if (!connection.isClosed()) {
 
 								out.println("<h3>Weitwurf Ergebnisse bearbeiten</h3>");
@@ -943,11 +958,13 @@
 											+ "' class='form-control' style:\"width:40px\"></td>");
 									out.println("<td><input type='text' name='sparteWW' value='" + rSWeitwurf.getString(7)
 											+ "' class='form-control' style:\"width:20px\"></td>");
-									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteWW.jsp'>");
 									out.println("<input type='text' name='delWW' value='" + rSWeitwurf.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
@@ -1001,7 +1018,9 @@
 								name="addSparteWW" type="text" class="form-control" required>
 						</div>
 
-						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
+						<button type="submit" class="btn btn-success">
+							<span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen
+						</button>
 					</form>
 				</div>
 			</div>
@@ -1010,6 +1029,7 @@
 	<!-- /third section -->
 
 
+	<!-- EDIT TEXT FORM  -->
 	<div id="editTexts" class="pad-section">
 		<div class="container">
 			<h2 class="text-center">Texte hinzufügen</h2>
@@ -1017,10 +1037,8 @@
 				<div class="col-sm-6 col-xs-6" id="textebearbeiten">
 					<h3 class="text-center">Texte bearbeiten</h3>
 					<%
-						String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
 						Connection connection = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection = DriverManager.getConnection(connectionURL, "root", "");
+						connection = dCon.getDBCon();
 						if (!connection.isClosed()) {
 							String selectCount = "SELECT COUNT(*) FROM texts";
 							String queryContent = "SELECT * from texts";
@@ -1056,13 +1074,17 @@
 								<textarea maxlength='4000' class='form-control' rows='5'
 									type='text' id='textContent' name='textContent'><%=contentRS.getString(3)%></textarea>
 							</div>
-							<button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button>
+							<button type='submit' class='btn btn-success'>
+								<span class='glyphicon glyphicon-floppy-disk'></span> Speichern
+							</button>
 						</form>
 						<form role="form"
 							action="/SportfestOnePager/functions/deleteText.jsp" method="get">
 							<input class='form-control' type='hidden' id='textIDDel'
 								name='textIDDel' value='<%=contentRS.getInt(1)%>'>
-							<button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Löschen</button>
+							<button type='submit' class='btn btn-danger'>
+								<span class='glyphicon glyphicon-trash'></span> Löschen
+							</button>
 						</form>
 
 
@@ -1097,13 +1119,16 @@
 							<textarea maxlength='4000' class='form-control' rows='5'
 								type='text' id='textContentIn' name='textContentIn' required></textarea>
 						</div>
-						<button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button>
+						<button type='submit' class='btn btn-success'>
+							<span class='glyphicon glyphicon-floppy-disk'></span> Speichern
+						</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<!-- EDIT BILDER TABELLE MIT FORMS -->
 	<div id="editBilder" class="pad-section">
 		<div class="container">
 			<h2 class="text-center">Fotos hinzufügen</h2>
@@ -1111,10 +1136,8 @@
 				<div class="col-sm-8 col-xs-8" id="bilderBearbeiten">
 					<h3 class="text-center">Fotos bearbeiten</h3>
 					<%
-						String connectionURL1 = "jdbc:mysql://localhost:3306/sportfest";
 						Connection connection1 = null;
-						Class.forName("com.mysql.jdbc.Driver").newInstance();
-						connection1 = DriverManager.getConnection(connectionURL, "root", "");
+						connection1 = dCon.getDBCon();
 						if (!connection1.isClosed()) {
 							String selectCount = "SELECT COUNT(*) FROM texts";
 							String queryContent = "SELECT * from bilder";
@@ -1150,7 +1173,10 @@
 									value="<%=contentRS1.getString(2)%>"></td>
 								<td><input type="text" class="form-control" name="bildDesc"
 									value="<%=contentRS1.getString(3)%>"></td>
-								<td><button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Speichern</button></td>
+								<td><button type="submit" class="btn btn-success">
+										<span class='glyphicon glyphicon-floppy-disk'></span>
+										Speichern
+									</button></td>
 							</form>
 							<form role="form"
 								action="/SportfestOnePager/functions/deleteImage.jsp"
@@ -1159,7 +1185,9 @@
 									value="<%=contentRS1.getInt(1)%>" readonly></td>
 								<td><input type="hidden" class="form-control"
 									name="bildSRC" value="<%=contentRS1.getString(2)%>"></td>
-								<td><button type="submit" class="btn btn-danger"><span class='glyphicon glyphicon-trash'></span> Entfernen</button></td>
+								<td><button type="submit" class="btn btn-danger">
+										<span class='glyphicon glyphicon-trash'></span> Entfernen
+									</button></td>
 							</form>
 						</tr>
 
@@ -1169,6 +1197,7 @@
 						%>
 					</table>
 				</div>
+				<!-- FOTO HOCHLADEN FORM -->
 				<div class="col-sm-4 col-xs-4" id="bilderHochladen">
 					<h3 class="text-center">Fotos hochladen</h3>
 
@@ -1183,31 +1212,24 @@
 						<div class="form-group">
 							<label for="file-id">Datei auswählen:</label> <input type="file"
 								id="file-id" name="filename" class="file-loading" required />
+
+							<!-- FILEUPLOAD PLUGIN: SPRACHE ÄNDERN UND TEXTFELD VERSTECKEN-->
 							<script>
 								$(document).on('ready', function() {
 									$("#file-id").fileinput({
-										 language: "de",
+										language : "de",
 										showCaption : false
 									});
 								});
 							</script>
 						</div>
 					</form>
-
-					<script type="text/javascript">
-						document.getElementById("btnUpload").onclick = function theimage() {
-							var filename = document.getElementById('file-id').value;
-							document.getElementById("file-in").value = filename;
-						};
-					</script>
-
-
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
 
+	<!-- ADMINS BEARBEITEN TABELLE MIT FORMS -->
 	<div id="editAdmins" class="pad-section">
 		<div class="container">
 			<h2 class="text-center">Administratoren bearbeiten</h2>
@@ -1216,12 +1238,10 @@
 				<div class="col-sm-9 col-xs-6" id="div_adminsBearbeiten">
 					<%
 						try {
-							//String connectionURL = "jdbc:mysql://localhost:3306/sportfest";
-							//Connection connection = null;
-							Class.forName("com.mysql.jdbc.Driver").newInstance();
-							connection = DriverManager.getConnection(connectionURL, "root", "");
+							Connection connectionSQL = null;
+							connectionSQL = dCon.getDBCon();
 							ResultSet pw = null;
-							if (!connection.isClosed()) {
+							if (!connectionSQL.isClosed()) {
 
 								out.println("<h3>Administratoren bearbeiten</h3>");
 								//Tabelle in Form
@@ -1235,30 +1255,24 @@
 								out.println("</thead>");
 
 								query = "SELECT ID,username FROM admins";
-								//String passwordQuery = "SELECT password FROM admins";
+
 								String currentPW = "";
 								byte[] pwInBytes = null;
-								pS = connection.prepareStatement(query);
-								//PreparedStatement pS1 = connection.prepareStatement(passwordQuery);
+								pS = connectionSQL.prepareStatement(query);
+
 								rSAdmins = pS.executeQuery();
-								//pw = pS1.executeQuery();
+
 								//Tabelle füllen mit den Daten aus der DB
 								while (rSAdmins.next()) {
-									//pw.next();
-									//currentPW = pw.getString(1);
-									//System.out.println("Passwort aus DB für ID " + rSAdmins.getString(1) + ": " + currentPW);
-									//pwInBytes = Base64.getDecoder().decode(currentPW.getBytes());
-									//currentPW = new String(pwInBytes);
-									//String emailBody = "Hallo,%0D%0A%0D%0ASie wurden als Administrator für das Sportfest Hessen 2016 eingeladen.%0D%0AFür Sie wurde ein Passwort generiert, bitte ändern Sie dies umgehend. Es lautet: "+currentPW+".%0D%0A%0D%0AMit freundlichen Grüßen,%0D%0AIhr Sportfest Hessen Team";
-									//System.out.println("Entschlüsseltes PW für ID " + rSAdmins.getString(1) + ": " + currentPW);
-									// rowsCounter++;
+
 									out.println("<tr>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/changeMail.jsp'>");
 									out.println("<td><input type='text' name='idAdmin' value='" + rSAdmins.getString(1)
 											+ "' class='form-control' readonly style:\"width:30px\"></td>");
 									out.println("<td><input type='email' name='usernameAdmin' value='" + rSAdmins.getString(2)
 											+ "' class='form-control' style:\"width:40px\" required></td>");
-									out.println("<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Mail speichern</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-success'><span class='glyphicon glyphicon-floppy-disk'></span> Mail speichern</button></td>");
 									out.println("</form>");
 									out.println(
 											"<form role='form' method='post' action='/SportfestOnePager/admin/changePassword.jsp?adminID="
@@ -1269,19 +1283,17 @@
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
-									//out.println("<td><a id='sendEmail' href='mailto:"+rSAdmins.getString(2)+"?subject=Einladung als Administrator&body="+emailBody+"'>Mail senden</a></td>");
 									out.println("</form>");
 									out.println("<form role='form' action='/SportfestOnePager/functions/deleteAdmin.jsp'>");
 									out.println("<input type='text' name='delAdmin' value='" + rSAdmins.getString(1) + "' hidden>");
-									out.println("<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Entfernen</button></td>");
+									out.println(
+											"<td><button type='submit' class='btn btn-danger'><span class='glyphicon glyphicon-trash'></span> Entfernen</button></td>");
 									out.println("</form>");
 									out.println("</tr>");
 
 								}
 
 								out.println("</table>");
-
-								//out.println("<button action='../functions/editTermin' type='submit'class='btn btn-success'>Speichern</button>");
 
 								connection.close();
 
@@ -1292,6 +1304,7 @@
 						}
 					%>
 				</div>
+				<!-- ADMIN HINZUFÜGEN FORM -->
 				<div class="col-sm-3 col-xs-6" id="div_adminsAdd">
 					<h3 class="text-center">Administrator hinzufügen</h3>
 					<form role="form"
@@ -1303,28 +1316,34 @@
 								type="text" required>
 						</div>
 
-						<button type="submit" class="btn btn-success"><span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen</button>
+						<button type="submit" class="btn btn-success">
+							<span class='glyphicon glyphicon-floppy-disk'></span> Hinzufügen
+						</button>
 
 					</form>
 				</div>
+				<!-- ENDE  -->
 
 
-				
+
 
 			</div>
 		</div>
-	</div> <!-- Admin Edit Ende -->
+	</div>
+	<!-- Admin Edit Ende -->
 
-<!-- footer -->
+	<!-- footer Anfang -->
 	<footer>
 		<div class="container">
-			<p style="float:left">
-			Sie sind eingeloggt als <%=userMail %>. Nicht richtig? <a href="/SportfestOnePager/functions/checkOut.jsp">Ausloggen</a>
+			<p style="float: left">
+				Sie sind eingeloggt als
+				<%=userMail%>. Nicht richtig? <a
+					href="/SportfestOnePager/functions/checkOut.jsp">Ausloggen</a>
 			</p>
 			<p class="text-right">Copyright &copy; Sportfest Hessen 2016</p>
 		</div>
 	</footer>
-	<!-- /footer -->
+	<!-- /footer Ende -->
 
 
 </body>

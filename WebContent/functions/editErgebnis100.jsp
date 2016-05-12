@@ -19,9 +19,12 @@
 	String vorname = request.getParameter("vorname100");
 	String nachname = request.getParameter("nachname100");
 	String alter = request.getParameter("alter100");
+
+	//DATUM RICHTIG DEUTSCHEM STANDARD FORMATIERNE
 	Date dateS = new SimpleDateFormat("dd.mm.yyyy").parse(alter);
 	String dateS2 = new SimpleDateFormat("yyyy.mm.dd").format(dateS);
 	alter = dateS2;
+
 	String zeit = request.getParameter("zeit100");
 	String verein = request.getParameter("verein100");
 	String sparte = request.getParameter("sparte100");
@@ -35,17 +38,6 @@
 	}
 
 	try {
-
-		try {
-
-		} catch (Exception e) {
-
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,
-					"Error while connecting to SQL Database. Check your database choice from the dropdown list.\n Description: "
-							+ e.toString());
-		}
 		connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sportfest", "root", "");
 
 	} catch (SQLException e) {
@@ -60,7 +52,7 @@
 				+ "', Geburtstag='" + alter + "', Zeit='" + zeit + "', Verein='" + verein + "', Sparte='"
 				+ sparte + "' WHERE ID='" + id + "'";
 		s.execute(query);
-
+		connection.close();
 		response.sendRedirect("../admin/adminHome.jsp#div_100mEdit");
 
 	}
