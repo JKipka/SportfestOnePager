@@ -16,10 +16,14 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<!-- JQUERY -->
 <script src="script/jquery-1.12.0.min.js"></script>
+<!-- BOOTSTRAP -->
 <script src="script/bootstrap.js"></script>
+<!-- VALIDATOR PLUGIN -->
 <script src="script/validate.js"></script>
 
+<!-- STYLESHEETS -->
 <link href="script/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="script/style.css" rel="stylesheet">
 

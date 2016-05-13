@@ -4,13 +4,7 @@
 <%@ page import="java.sql.SQLException"%>
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.nio.file.Files"%>
-<%@ page import="java.io.File"%><%--
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 11.03.2016
-  Time: 13:45
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.io.File"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>

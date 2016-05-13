@@ -4,13 +4,7 @@
 <%@ page import="javax.swing.*"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.util.Date"%><%--
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 18.02.2016
-  Time: 15:29
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Date"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>

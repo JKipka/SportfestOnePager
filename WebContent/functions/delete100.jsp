@@ -6,7 +6,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<title>Title</title>
+<title></title>
 
 <%
 	//FOLGENDER SQL PROZESS IST FÜR ALLE "DELETE" JSP SEITEN ÄHNLICH/GLEICH,

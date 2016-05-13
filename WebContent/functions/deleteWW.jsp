@@ -2,13 +2,7 @@
 <%@ page import="java.sql.SQLException"%>
 <%@ page import="java.sql.DriverManager"%>
 <%@ page import="java.sql.Connection"%>
-<%@ page import="javax.swing.*"%><%--
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 18.02.2016
-  Time: 17:04
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="javax.swing.*"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>

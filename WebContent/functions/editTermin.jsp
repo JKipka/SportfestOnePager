@@ -5,13 +5,7 @@
 <%@ page import="java.sql.Statement"%>
 <%@ page import="java.util.Date"%>
 <%@ page import="java.text.DateFormat"%>
-<%@ page import="java.text.SimpleDateFormat"%><%--
-  Created by IntelliJ IDEA.
-  User: kipka
-  Date: 18.02.2016
-  Time: 09:46
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
