@@ -236,7 +236,7 @@
 							out.println("<tr>");
 							out.println("<th>Vorname</th>");
 							out.println("<th>Nachname</th>");
-							out.println("<th>Alter</th>");
+							out.println("<th>Geburtstag</th>");
 							out.println("<th>Zeit</th>");
 							out.println("<th>Verein</th>");
 							out.println("<th>Sparte</th>");
@@ -287,7 +287,7 @@
 							out.println("<tr>");
 							out.println("<th>Vorname</th>");
 							out.println("<th>Nachname</th>");
-							out.println("<th>Alter</th>");
+							out.println("<th>Geburtstag</th>");
 							out.println("<th>Zeit</th>");
 							out.println("<th>Verein</th>");
 							out.println("<th>Sparte</th>");
@@ -344,7 +344,7 @@
 							out.println("<tr>");
 							out.println("<th>Vorname</th>");
 							out.println("<th>Nachname</th>");
-							out.println("<th>Alter</th>");
+							out.println("<th>Geburtstag</th>");
 							out.println("<th>Weite</th>");
 							out.println("<th>Verein</th>");
 							out.println("<th>Sparte</th>");
@@ -397,7 +397,7 @@
 							out.println("<tr>");
 							out.println("<th>Vorname</th>");
 							out.println("<th>Nachname</th>");
-							out.println("<th>Alter</th>");
+							out.println("<th>Geburtstag</th>");
 							out.println("<th>Meter</th>");
 							out.println("<th>Verein</th>");
 							out.println("<th>Sparte</th>");
@@ -582,10 +582,10 @@
 								out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
 								out.println("<thead class=\"thead-inverse\">");
 								out.println("<tr>");
-								out.println("<th>Ergebniss-ID</th>");
+								out.println("<th>ID</th>");
 								out.println("<th>Vorname</th>");
 								out.println("<th>Nachname</th>");
-								out.println("<th>Alter</th>");
+								out.println("<th>Geburtstag</th>");
 								out.println("<th>Zeit in s</th>");
 								out.println("<th>Verein</th>");
 								out.println("<th>Sparte</th>");
@@ -696,10 +696,10 @@
 								out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
 								out.println("<thead class=\"thead-inverse\">");
 								out.println("<tr>");
-								out.println("<th>Ergebniss-ID</th>");
+								out.println("<th>ID</th>");
 								out.println("<th>Vorname</th>");
 								out.println("<th>Nachname</th>");
-								out.println("<th>Alter</th>");
+								out.println("<th>Geburtstag</th>");
 								out.println("<th>Zeit in s</th>");
 								out.println("<th>Verein</th>");
 								out.println("<th>Sparte</th>");
@@ -810,10 +810,10 @@
 								out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
 								out.println("<thead class=\"thead-inverse\">");
 								out.println("<tr>");
-								out.println("<th>Ergebniss-ID</th>");
+								out.println("<th>ID</th>");
 								out.println("<th>Vorname</th>");
 								out.println("<th>Nachname</th>");
-								out.println("<th>Alter</th>");
+								out.println("<th>Geburtstag</th>");
 								out.println("<th>Weite in m</th>");
 								out.println("<th>Verein</th>");
 								out.println("<th>Sparte</th>");
@@ -926,10 +926,10 @@
 								out.println("<table class=\"table table-editable\" cellspacing='0' cellpadding='10'>");
 								out.println("<thead class=\"thead-inverse\">");
 								out.println("<tr>");
-								out.println("<th>Ergebniss-ID</th>");
+								out.println("<th>ID</th>");
 								out.println("<th>Vorname</th>");
 								out.println("<th>Nachname</th>");
-								out.println("<th>Alter</th>");
+								out.println("<th>Geburtstag</th>");
 								out.println("<th>Weite in m</th>");
 								out.println("<th>Verein</th>");
 								out.println("<th>Sparte</th>");
