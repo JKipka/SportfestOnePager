@@ -160,19 +160,21 @@
 								out.println("<thead class=\"thead-inverse\">");
 								out.println("<tr>");
 								out.println("<th>Sportart</th>");
+								out.println("<th>Jugendsparte</th>");
 								out.println("<th>Sportplatz</th>");
 								out.println("<th>Datum</th>");
 								out.println("<th>Uhrzeit</th>");
 								out.println("</tr>");
 								out.println("</thead>");
 
-								query = "SELECT Beschreibung,ort, date_format(Datum, '%e.%m.%Y') AS datum, uhrzeit FROM termine";
+								query = "SELECT Beschreibung,ort, date_format(Datum, '%e.%m.%Y') AS datum, uhrzeit, Jugendsparte FROM termine";
 								pS = connection.prepareStatement(query);
 								rS = pS.executeQuery();
 								//Tabelle füllen mit den Daten aus der DB
 								while (rS.next()) {
 									out.println("<tr>");
 									out.println("<td>" + rS.getString(1) + "</td>");
+									out.println("<td>" + rS.getString(5) + "</td>");
 									out.println("<td>" + rS.getString(2) + "</td>");
 									out.println("<td>" + rS.getString(3) + "</td>");
 									out.println("<td>" + rS.getString(4) + "</td>");
