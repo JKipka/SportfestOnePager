@@ -132,6 +132,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-3 text-vcenter" id="logo">
+					<br>
 					<button type="submit" class="btn btn-success" id="trigger">
 						<span class="glyphicon glyphicon-time"></span> Zeit und Datum
 						anzeigen
