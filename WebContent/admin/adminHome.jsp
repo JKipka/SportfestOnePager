@@ -1335,6 +1335,12 @@
 	<!-- footer Anfang -->
 	<footer>
 		<div class="container">
+		<form role="form" action="/SportfestOnePager/php/renewSession.php" method="post">
+		<input type="text" value="<%=userMail %>" style="display:none" name="loggedUser">
+		<input type="submit" id="renewSession" class="btn btn-default" value="Session erneuern"></input>
+		</form>
+		</div>
+		<div class="container">
 			<p style="float: left">
 				Sie sind eingeloggt als
 				<%=userMail%>. Nicht richtig? <a
